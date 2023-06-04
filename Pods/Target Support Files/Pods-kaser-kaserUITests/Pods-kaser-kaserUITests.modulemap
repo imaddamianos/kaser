@@ -1,0 +1,6 @@
+framework module Pods_kaser_kaserUITests {
+  umbrella header "Pods-kaser-kaserUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
