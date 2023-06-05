@@ -7,7 +7,7 @@
 
 import Foundation
 import SCLAlertView
-//import ProgressHUD
+import ProgressHUD
 
 class GFunction: NSObject {
     static let shared : GFunction = GFunction()
@@ -30,24 +30,24 @@ class GFunction: NSObject {
     func addLoader(_ message : String? = nil) {
         
         performOn(.main) {
-//            ProgressHUD.show(message ?? "Please Wait ...")
-//            ProgressHUD.animationType = .lineScaling
-//            ProgressHUD.colorHUD = .clear
-//            ProgressHUD.colorBackground = .clear
-//            ProgressHUD.colorAnimation = .colorOriginGreen
-//            ProgressHUD.colorProgress = .colorYellow
-//            ProgressHUD.colorStatus = .label
-//            ProgressHUD.fontStatus = .boldSystemFont(ofSize: 24)
+            ProgressHUD.show(message ?? "Please Wait ...")
+            ProgressHUD.animationType = .lineScaling
+            ProgressHUD.colorHUD = .clear
+            ProgressHUD.colorBackground = .clear
+            ProgressHUD.colorAnimation = .colorOriginGreen
+            ProgressHUD.colorProgress = .colorYellow
+            ProgressHUD.colorStatus = .label
+            ProgressHUD.fontStatus = .boldSystemFont(ofSize: 24)
         }
     }
     
     func showSuccess(){
-//        ProgressHUD.showSuccess("Success", image: .checkmark, interaction: true)
+        ProgressHUD.showSuccess("Success", image: .checkmark, interaction: true)
     }
     
     func removeLoader() {
         performOn(.main) {
-//            ProgressHUD.dismiss()
+            ProgressHUD.dismiss()
         }
      }
     

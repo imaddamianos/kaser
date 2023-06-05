@@ -65,18 +65,10 @@ class LogInVC: UIViewController, LogInViewProtocol {
         self.txtEmail.text = "sa3louki@gmail.com"
         self.txtPass.text = "imadimad"
         #endif
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
-                view.addGestureRecognizer(tapGesture)
+        hideKeyboard()
         self.presenter = LogInPresenter(view: self)
         vwLogo.cornerRadius(cornerRadius: vwLogo.layer.frame.height / 2)
         imgLogo.cornerRadius(cornerRadius: imgLogo.layer.frame.height / 2)
     }
-    
-    @objc private func hideKeyboard() {
-            view.endEditing(true)
-        }
-
-
 }
 

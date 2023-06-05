@@ -136,8 +136,11 @@ extension MainViewController: SideMenuViewControllerDelegate {
             // Home
             self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
         case 1:
-            // Music
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "ProfileNavID")
+            // profile
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpInfoVC") as! SignUpInfoVC
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: false, completion: nil)
+//            self.showViewController(viewController: UINavigationController.self, storyboardId: "ProfileNavID")
         case 2:
             // Movies
             self.showViewController(viewController: UINavigationController.self, storyboardId: "ChatNavID")

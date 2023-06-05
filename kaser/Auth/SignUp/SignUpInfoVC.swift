@@ -156,7 +156,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
         self.txtMobile.text = "70745269"
         self.storeNameTxt.text = "hello store"
         #endif
-        
+        hideKeyboard()
         agreeBtn.setBackgroundImage(UIImage(named: "check-circle"), for: .normal)
         firebaseRef.currentUser?.reload(completion: { (error) in
                     if error == nil{

@@ -33,6 +33,7 @@ class ForgetPasswordVC: UIViewController, ForgetPasswordProtocol {
         }
     }
     func setupView(){
+        hideKeyboard()
         self.presenter = ForgetPasswordPresenter(view: self)
     }
 }
