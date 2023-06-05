@@ -14,7 +14,7 @@ class APICalls: NSObject {
     private let encoder = JSONEncoder()
 
     func addSellerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, storeName: String, location: [String:Int] , userType: String, image: String, pass:String, completion: ((Bool) -> Void)?){
-        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location ":[ "lat": 34, "long" :65], "profileImage" : image, "Password" : pass]) {
+        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location ":[ "lat": 34, "long" :65], "profileImage" : image, "Password" : pass] as [String : Any]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")

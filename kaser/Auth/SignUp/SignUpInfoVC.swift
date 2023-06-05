@@ -52,7 +52,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
     }
     
     override func viewDidAppear(_ animated: Bool) {
-       
+        setupView()
     }
     
     @IBAction func agreeBtnTapped(_ sender: Any) {
@@ -73,20 +73,20 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
         if !agreeSelected{
         let date = calanderVw.date.description
         
-            self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
-                if success{
+//            self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
+//                if success{
                     if self.userType == "Buyer"{
                         self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: date, userType: self.userType!, image: self.imageURL)
                         
                     }else{
                         self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: date, storeName: self.storeNameTxt.text!, location: ["lat":32, "long":34], userType: self.userType!, image: self.imageURL)
                     }
-                }else{
-                    performOn(.main){
-                    alertView.showError("User exict", subTitle: "User is already in use, choose another name")
-                    }
-                }
-            }
+//                }else{
+//                    performOn(.main){
+//                    alertView.showError("User exict", subTitle: "User is already in use, choose another name")
+//                    }
+//                }
+//            }
             
       
 //            }
