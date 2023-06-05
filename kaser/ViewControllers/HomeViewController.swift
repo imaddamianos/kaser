@@ -58,10 +58,10 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 return
             }
             if !isSuccess { return }
-            for items in storesName!{
-            
-                
-            }
+//            for items in storesName!{
+//            
+//                
+//            }
         }
         
     
