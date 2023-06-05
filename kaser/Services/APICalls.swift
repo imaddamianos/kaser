@@ -9,8 +9,6 @@ import Foundation
 import Firebase
 
 class APICalls: NSObject {
-
-    
     static let shared: APICalls = APICalls()
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
