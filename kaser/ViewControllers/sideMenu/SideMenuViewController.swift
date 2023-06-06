@@ -63,6 +63,14 @@ class SideMenuViewController: UIViewController {
 
 func Logout(){
     DispatchQueue.main.async {
+        let email = UserDefaults.standard.value(forKey: "email")
+        let password = UserDefaults.standard.value(forKey: "password")
+        let isSaveSelected = UserDefaults.standard.value(forKey: "isSaveSelected")
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
+        UserDefaults.standard.set(email, forKey: "email")
+        UserDefaults.standard.set(password, forKey: "password")
+        UserDefaults.standard.set(isSaveSelected, forKey: "isSaveSelected")
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as UIViewController
         viewController.modalPresentationStyle = .fullScreen
         UIApplication.present(viewController: viewController)

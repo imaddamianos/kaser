@@ -32,6 +32,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         self.presenter = HomeVcPresenter(view: self)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
         callInfo()
+        GFunction.shared.removeLoader()
     }
     
     func callInfo(){
@@ -46,9 +47,10 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             }else if userDetails?.userType == "Seller"{
                 
             }
-            let imageUrl = URL(string: (userDetails?.image)!)
-            let image = try? UIImage(withContentsOfUrl: imageUrl!)
-            StrongSelf.userImg.image = image
+            if let imageUrl = URL(string: (userDetails?.image)!){
+                let image = try? UIImage(withContentsOfUrl: imageUrl)
+                StrongSelf.userImg.image = image
+            }
             StrongSelf.nameLbl.text = userDetails?.name
                
         }
