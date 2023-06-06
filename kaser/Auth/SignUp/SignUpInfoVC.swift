@@ -238,10 +238,10 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
         }
     }
     func buyerView() {
-        headerVw.backgroundColor = UIColor.colorOriginGreen
-        ddOption.borderColor = UIColor.colorOriginGreen
-        locationBtn.borderColor = UIColor.colorOriginGreen
-        calanderVw.tintColor = UIColor.colorOriginGreen
+        headerVw.backgroundColor = UIColor.originalColor
+        ddOption.borderColor = UIColor.originalColor
+        locationBtn.borderColor = UIColor.originalColor
+        calanderVw.tintColor = UIColor.originalColor
         signUpBtn.setBackgroundImage(UIImage(named: "btnLayout"), for: .normal)
         txtUserName.isHidden = false
         txtFirstName.isHidden = false
@@ -282,8 +282,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
     }
     
     func initialView() {
-        ddOption.borderColor = UIColor.colorOriginGreen
-        headerVw.backgroundColor = UIColor.colorOriginGreen
+        ddOption.borderColor = UIColor.originalColor
+        headerVw.backgroundColor = UIColor.originalColor
         txtUserName.isHidden = true
         txtFirstName.isHidden = true
         txtLastName.isHidden = true
@@ -296,7 +296,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
         locationBtn.isHidden = true
         agreeVw.isHidden = true
         signUpBtn.isHidden = true
-        ddOption.selectedRowColor = UIColor.colorOriginGreen
+        ddOption.selectedRowColor = UIColor.originalColor
         ddOption.selectedRowColor = UIColor.lightGray
         
     }

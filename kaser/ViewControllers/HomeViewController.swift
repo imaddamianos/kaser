@@ -16,6 +16,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet weak var mostViewedCollView: UICollectionView!
     @IBOutlet weak var newCollView: UICollectionView!
     
+    @IBOutlet weak var headerView: UIView!
     var presenter: HomeVcPresenter!
     
     override func viewDidLoad() {
@@ -32,7 +33,6 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         self.presenter = HomeVcPresenter(view: self)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
         callInfo()
-        GFunction.shared.removeLoader()
     }
     
     func callInfo(){
@@ -43,15 +43,18 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             }
             if !isSuccess { return }
             if userDetails?.userType == "Buyer"{
-                
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
+
             }else if userDetails?.userType == "Seller"{
-                
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0xd9d358)
             }
+            StrongSelf.headerView.backgroundColor = UIColor.originalColor
             if let imageUrl = URL(string: (userDetails?.image)!){
                 let image = try? UIImage(withContentsOfUrl: imageUrl)
                 StrongSelf.userImg.image = image
             }
             StrongSelf.nameLbl.text = userDetails?.name
+            GFunction.shared.removeLoader()
                
         }
         

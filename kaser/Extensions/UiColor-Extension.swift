@@ -14,7 +14,18 @@ extension UIColor {
     static var colorBlack: UIColor { return  UIColor.colorFromHex(hex: 0x000000) }
     static var colorWhite: UIColor { return  UIColor.colorFromHex(hex: 0xffffff) }
     static var colorYellow: UIColor { return  UIColor.colorFromHex(hex: 0xd9d358) }
-    static var colorOriginGreen: UIColor { return  UIColor.colorFromHex(hex: 0x3c3f5a) }
+//    static var originalColor: UIColor { return  UIColor.colorFromHex(hex: 0x3c3f5a) }
+    
+    private static var _originalColor: UIColor = UIColor.colorFromHex(hex: 0x3c3f5a)
+      
+      static var originalColor: UIColor {
+          get {
+              return _originalColor
+          }
+          set {
+              _originalColor = newValue
+          }
+      }
     
     class func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()

@@ -33,15 +33,20 @@ class SideMenuViewController: UIViewController {
         SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings")
     ]
 
+    override func viewDidAppear(_ animated: Bool) {
+//        self.sideMenuTableView.backgroundColor = UIColor.originalColor
+        view.backgroundColor = UIColor.originalColor.withAlphaComponent(0.7)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // TableView
         self.sideMenuTableView.delegate = self
         self.sideMenuTableView.dataSource = self
-        self.sideMenuTableView.backgroundColor = #colorLiteral(red: 0.2354828119, green: 0.2450637817, blue: 0.3699719906, alpha: 1)
+        self.sideMenuTableView.backgroundColor = UIColor.black
         self.sideMenuTableView.separatorStyle = .none
-
+        view.backgroundColor = UIColor.originalColor
         // Set Highlighted Cell
         DispatchQueue.main.async {
             let defaultRow = IndexPath(row: self.defaultHighlightedCell, section: 0)

@@ -34,7 +34,7 @@ class GFunction: NSObject {
             ProgressHUD.animationType = .lineScaling
             ProgressHUD.colorHUD = .clear
             ProgressHUD.colorBackground = .clear
-            ProgressHUD.colorAnimation = .colorOriginGreen
+            ProgressHUD.colorAnimation = .originalColor
             ProgressHUD.colorProgress = .colorYellow
             ProgressHUD.colorStatus = .label
             ProgressHUD.fontStatus = .boldSystemFont(ofSize: 24)
