@@ -380,7 +380,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ST4-Kj-Jem">
-                                <rect key="frame" x="20" y="153" width="374" height="270"/>
+                                <rect key="frame" x="30" y="153" width="354" height="270"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iWj-kl-twU">
                                     <size key="itemSize" width="356" height="225"/>
@@ -457,13 +457,13 @@
                             <constraint firstItem="ST4-Kj-Jem" firstAttribute="top" secondItem="QuW-Oc-AGb" secondAttribute="bottom" constant="10" id="BRG-hS-BZF"/>
                             <constraint firstItem="Lhb-DV-8fY" firstAttribute="leading" secondItem="1Ne-ro-2Jx" secondAttribute="leading" constant="20" id="Qab-vX-4ih"/>
                             <constraint firstItem="QuW-Oc-AGb" firstAttribute="top" secondItem="jtU-Vw-gYa" secondAttribute="top" id="Sh9-sG-2UP"/>
-                            <constraint firstItem="1Ne-ro-2Jx" firstAttribute="trailing" secondItem="ST4-Kj-Jem" secondAttribute="trailing" constant="20" id="Zzv-YK-U6z"/>
+                            <constraint firstItem="1Ne-ro-2Jx" firstAttribute="trailing" secondItem="ST4-Kj-Jem" secondAttribute="trailing" constant="30" id="Zzv-YK-U6z"/>
                             <constraint firstItem="NYq-mc-6o4" firstAttribute="bottom" secondItem="1Ne-ro-2Jx" secondAttribute="bottom" constant="10" id="a01-8h-5vo"/>
                             <constraint firstItem="QuW-Oc-AGb" firstAttribute="trailing" secondItem="1Ne-ro-2Jx" secondAttribute="trailing" id="c9k-CS-0rE"/>
                             <constraint firstItem="NYq-mc-6o4" firstAttribute="top" secondItem="Lhb-DV-8fY" secondAttribute="bottom" constant="10" id="eXk-Ci-8ul"/>
                             <constraint firstItem="1Ne-ro-2Jx" firstAttribute="trailing" secondItem="NYq-mc-6o4" secondAttribute="trailing" constant="20" id="hwB-SC-UDH"/>
                             <constraint firstItem="Lhb-DV-8fY" firstAttribute="top" secondItem="ST4-Kj-Jem" secondAttribute="bottom" constant="8" symbolic="YES" id="uto-pW-Gf8"/>
-                            <constraint firstItem="ST4-Kj-Jem" firstAttribute="leading" secondItem="1Ne-ro-2Jx" secondAttribute="leading" constant="20" id="wUE-Ie-BIi"/>
+                            <constraint firstItem="ST4-Kj-Jem" firstAttribute="leading" secondItem="1Ne-ro-2Jx" secondAttribute="leading" constant="30" id="wUE-Ie-BIi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="5Tp-J1-Wvw"/>

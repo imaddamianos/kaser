@@ -101,6 +101,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         return presenter.items.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Return the desired size for the item at the specified indexPath
+        return CGSize(width: 200, height: 200)
+    }
+
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell
         let product = presenter.items[indexPath.row]
