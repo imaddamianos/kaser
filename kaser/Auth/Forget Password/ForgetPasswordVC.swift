@@ -2,7 +2,7 @@
 //  ForgetPasswordVC.swift
 //  kaser
 //
-//  Created by UDU Jobs on 10/21/21.
+//  Created by imps on 10/21/21.
 //
 
 import UIKit
@@ -33,6 +33,7 @@ class ForgetPasswordVC: UIViewController, ForgetPasswordProtocol {
         }
     }
     func setupView(){
+        hideKeyboard()
         self.presenter = ForgetPasswordPresenter(view: self)
     }
 }

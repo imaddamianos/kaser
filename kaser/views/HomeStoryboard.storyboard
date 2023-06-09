@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WEK-hQ-hlc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WEK-hQ-hlc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-B4-f0G">
-                                <rect key="frame" x="0.0" y="112" width="260" height="719"/>
+                                <rect key="frame" x="0.0" y="116" width="260" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footer Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxm-bw-Wl1">
@@ -44,7 +44,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoA&amp;E" translatesAutoresizingMaskIntoConstraints="NO" id="FBO-LP-H5O">
-                                <rect key="frame" x="16" y="44" width="227" height="50"/>
+                                <rect key="frame" x="16" y="48" width="227" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Vff-PA-UGs"/>
                                 </constraints>
@@ -64,7 +64,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Cxm-bw-Wl1" secondAttribute="trailing" constant="10" id="0sK-aE-mI0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="umL-0H-1uT" secondAttribute="trailing" id="107-Qn-qFT"/>
@@ -98,7 +98,7 @@
                 <navigationController storyboardIdentifier="HomeNavID" automaticallyAdjustsScrollViewInsets="NO" id="i5V-Bm-G1b" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="OvD-YH-VBL">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -121,7 +121,7 @@
                 <navigationController storyboardIdentifier="ProfileNavID" automaticallyAdjustsScrollViewInsets="NO" id="1Qz-93-oW6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1Ww-ae-p4l">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -143,11 +143,11 @@
             <objects>
                 <viewController id="fQx-6a-sFe" customClass="ProfileViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uk8-uy-xcB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uI3-UE-3xb">
-                                <rect key="frame" x="51.5" y="364" width="311.5" height="46.5"/>
+                                <rect key="frame" x="51.5" y="362" width="311.5" height="46.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LU3-QF-dJP">
                                         <rect key="frame" x="0.0" y="0.0" width="311.5" height="24"/>
@@ -188,7 +188,7 @@
                 <navigationController storyboardIdentifier="ChatNavID" automaticallyAdjustsScrollViewInsets="NO" id="rqG-xL-ngM" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="hQw-6Z-qSR">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -210,11 +210,11 @@
             <objects>
                 <viewController id="NXD-Ae-5wW" customClass="ChatViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DRL-5d-URr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIB-Fw-WKM">
-                                <rect key="frame" x="46" y="375" width="322" height="24"/>
+                                <rect key="frame" x="46" y="373" width="322" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -244,7 +244,7 @@
                 <navigationController storyboardIdentifier="SettingsNavID" automaticallyAdjustsScrollViewInsets="NO" id="MCw-42-KZq" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aCT-5R-QvF">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -266,11 +266,11 @@
             <objects>
                 <viewController id="ofZ-y6-c5s" customClass="SettingsViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rXv-EG-cfw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wV-e9-mVf">
-                                <rect key="frame" x="39.5" y="375" width="335" height="24"/>
+                                <rect key="frame" x="39.5" y="373" width="335" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -299,7 +299,7 @@
             <objects>
                 <viewController id="BhQ-cw-G9V" customClass="HomeViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jtU-Vw-gYa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QuW-Oc-AGb">
@@ -357,7 +357,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.23709759120000001" green="0.2449248433" blue="0.35296148059999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="zPf-H2-XP0" secondAttribute="bottom" constant="20" id="3PZ-fs-EAs"/>
                                     <constraint firstItem="hhi-oU-2WN" firstAttribute="leading" secondItem="ffE-aI-LES" secondAttribute="trailing" constant="45" id="5QA-ON-eAF"/>
@@ -380,7 +380,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ST4-Kj-Jem">
-                                <rect key="frame" x="20" y="153" width="374" height="274"/>
+                                <rect key="frame" x="30" y="153" width="354" height="270"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iWj-kl-twU">
                                     <size key="itemSize" width="356" height="225"/>
@@ -390,7 +390,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="g5c-MQ-CTm">
-                                        <rect key="frame" x="0.0" y="-10.5" width="369" height="295"/>
+                                        <rect key="frame" x="0.0" y="-12.5" width="369" height="295"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yJR-EK-EV1">
                                             <rect key="frame" x="0.0" y="0.0" width="369" height="295"/>
@@ -401,7 +401,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Lhb-DV-8fY">
-                                <rect key="frame" x="20" y="435" width="374" height="103"/>
+                                <rect key="frame" x="20" y="431" width="374" height="103"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="103" id="psz-Wl-djF"/>
@@ -425,7 +425,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NYq-mc-6o4">
-                                <rect key="frame" x="20" y="548" width="374" height="236"/>
+                                <rect key="frame" x="20" y="544" width="374" height="236"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="IAE-ie-J0k"/>
@@ -457,19 +457,20 @@
                             <constraint firstItem="ST4-Kj-Jem" firstAttribute="top" secondItem="QuW-Oc-AGb" secondAttribute="bottom" constant="10" id="BRG-hS-BZF"/>
                             <constraint firstItem="Lhb-DV-8fY" firstAttribute="leading" secondItem="1Ne-ro-2Jx" secondAttribute="leading" constant="20" id="Qab-vX-4ih"/>
                             <constraint firstItem="QuW-Oc-AGb" firstAttribute="top" secondItem="jtU-Vw-gYa" secondAttribute="top" id="Sh9-sG-2UP"/>
-                            <constraint firstItem="1Ne-ro-2Jx" firstAttribute="trailing" secondItem="ST4-Kj-Jem" secondAttribute="trailing" constant="20" id="Zzv-YK-U6z"/>
+                            <constraint firstItem="1Ne-ro-2Jx" firstAttribute="trailing" secondItem="ST4-Kj-Jem" secondAttribute="trailing" constant="30" id="Zzv-YK-U6z"/>
                             <constraint firstItem="NYq-mc-6o4" firstAttribute="bottom" secondItem="1Ne-ro-2Jx" secondAttribute="bottom" constant="10" id="a01-8h-5vo"/>
                             <constraint firstItem="QuW-Oc-AGb" firstAttribute="trailing" secondItem="1Ne-ro-2Jx" secondAttribute="trailing" id="c9k-CS-0rE"/>
                             <constraint firstItem="NYq-mc-6o4" firstAttribute="top" secondItem="Lhb-DV-8fY" secondAttribute="bottom" constant="10" id="eXk-Ci-8ul"/>
                             <constraint firstItem="1Ne-ro-2Jx" firstAttribute="trailing" secondItem="NYq-mc-6o4" secondAttribute="trailing" constant="20" id="hwB-SC-UDH"/>
                             <constraint firstItem="Lhb-DV-8fY" firstAttribute="top" secondItem="ST4-Kj-Jem" secondAttribute="bottom" constant="8" symbolic="YES" id="uto-pW-Gf8"/>
-                            <constraint firstItem="ST4-Kj-Jem" firstAttribute="leading" secondItem="1Ne-ro-2Jx" secondAttribute="leading" constant="20" id="wUE-Ie-BIi"/>
+                            <constraint firstItem="ST4-Kj-Jem" firstAttribute="leading" secondItem="1Ne-ro-2Jx" secondAttribute="leading" constant="30" id="wUE-Ie-BIi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="5Tp-J1-Wvw"/>
                     <connections>
                         <outlet property="favoriteLbl" destination="hxg-kw-8Gs" id="Fe2-jm-WWR"/>
                         <outlet property="featuredCollView" destination="ST4-Kj-Jem" id="l2O-BV-oyT"/>
+                        <outlet property="headerView" destination="QuW-Oc-AGb" id="e6g-S8-Irw"/>
                         <outlet property="nameLbl" destination="sOw-ea-RGk" id="CkH-2P-pxA"/>
                         <outlet property="reviewsLbl" destination="nSu-ED-e05" id="dIb-5S-pMs"/>
                         <outlet property="userImg" destination="ffE-aI-LES" id="Kp2-VP-h8g"/>
@@ -485,7 +486,7 @@
                 <navigationController storyboardIdentifier="FavoriteNavID" automaticallyAdjustsScrollViewInsets="NO" id="NsJ-6V-D3h" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="cud-bf-AcX">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -507,11 +508,11 @@
             <objects>
                 <viewController id="A0j-0v-KxM" customClass="FavoriteViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ag0-sv-Bkr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKM-LF-rHk">
-                                <rect key="frame" x="46" y="375" width="322" height="24"/>
+                                <rect key="frame" x="46" y="373" width="322" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -541,7 +542,7 @@
                 <navigationController storyboardIdentifier="ReviewsNavID" automaticallyAdjustsScrollViewInsets="NO" id="gfJ-ff-vi4" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="aMl-qy-yFU">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -563,11 +564,11 @@
             <objects>
                 <viewController id="8Mn-fl-G4x" customClass="ReviewsViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jnh-OI-uVa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTz-qq-f4d">
-                                <rect key="frame" x="46" y="375" width="322" height="24"/>
+                                <rect key="frame" x="46" y="373" width="322" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -600,6 +601,9 @@
         <image name="menu" width="21.5" height="18.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

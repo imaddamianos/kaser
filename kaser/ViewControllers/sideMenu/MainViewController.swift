@@ -26,12 +26,12 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.colorOriginGreen
+//        self.view.backgroundColor = UIColor.originalColor
 
         // Shadow Background View
         self.sideMenuShadowView = UIView(frame: self.view.bounds)
         self.sideMenuShadowView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.sideMenuShadowView.backgroundColor = .black
+//        self.sideMenuShadowView.backgroundColor = UIColor.originalColor
         self.sideMenuShadowView.alpha = 0.0
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(TapGestureRecognizer))
         tapGestureRecognizer.numberOfTapsRequired = 1
@@ -136,8 +136,11 @@ extension MainViewController: SideMenuViewControllerDelegate {
             // Home
             self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
         case 1:
-            // Music
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "ProfileNavID")
+            // profile
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpInfoVC") as! SignUpInfoVC
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: false, completion: nil)
+//            self.showViewController(viewController: UINavigationController.self, storyboardId: "ProfileNavID")
         case 2:
             // Movies
             self.showViewController(viewController: UINavigationController.self, storyboardId: "ChatNavID")

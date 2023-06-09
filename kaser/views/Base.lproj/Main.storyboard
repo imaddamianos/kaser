@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="vAm-wg-8vB">
-                                <rect key="frame" x="85" y="94" width="244" height="170.5"/>
+                                <rect key="frame" x="85" y="98" width="244" height="170.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoA&amp;E" translatesAutoresizingMaskIntoConstraints="NO" id="saN-s2-2jv">
                                         <rect key="frame" x="20" y="20" width="204" height="130.5"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GdD-7d-SKy" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="344.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="348.5" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="5Xu-Sq-25H"/>
@@ -95,7 +95,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-Of-jfn" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="434.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="438.5" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="jCG-dQ-o7T"/>
@@ -148,7 +148,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQm-fw-D9t">
-                                <rect key="frame" x="130" y="554.5" width="154" height="52"/>
+                                <rect key="frame" x="130" y="536" width="154" height="52"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <state key="normal" title="L O G I N" backgroundImage="btnLayout"/>
                                 <connections>
@@ -156,7 +156,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT2-xX-QxZ">
-                                <rect key="frame" x="152" y="701.5" width="110" height="30"/>
+                                <rect key="frame" x="152" y="683" width="110" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <state key="normal" title="Reset Password"/>
                                 <connections>
@@ -164,7 +164,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Q28-5i-V9s">
-                                <rect key="frame" x="116" y="741.5" width="182" height="43"/>
+                                <rect key="frame" x="116" y="723" width="182" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ReT-XM-A0Q">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="43"/>
@@ -193,7 +193,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="h6q-FM-QXI">
-                                <rect key="frame" x="93" y="646.5" width="228" height="30"/>
+                                <rect key="frame" x="93" y="628" width="228" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGA-xz-aXz">
                                         <rect key="frame" x="0.0" y="0.0" width="164" height="30"/>
@@ -211,11 +211,34 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PvY-db-uVy">
+                                <rect key="frame" x="20" y="493.5" width="143.5" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYF-iX-lXQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="22" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="7Z9-5Z-SJP"/>
+                                            <constraint firstAttribute="width" constant="22" id="qub-RT-YlI"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="rememberBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FIO-3A-9UU"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48e-W1-A3w">
+                                        <rect key="frame" x="32" y="0.0" width="111.5" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q28-5i-V9s" secondAttribute="trailing" constant="116" id="0tg-Og-Ups"/>
+                            <constraint firstItem="FQm-fw-D9t" firstAttribute="top" secondItem="PvY-db-uVy" secondAttribute="bottom" constant="20.5" id="1uq-H9-9bH"/>
+                            <constraint firstItem="PvY-db-uVy" firstAttribute="leading" secondItem="fKI-Of-jfn" secondAttribute="leading" id="2bC-W6-z8d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GdD-7d-SKy" secondAttribute="trailing" constant="20" id="466-Fp-5DC"/>
                             <constraint firstItem="GdD-7d-SKy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5co-WE-JPC"/>
                             <constraint firstItem="h6q-FM-QXI" firstAttribute="top" secondItem="FQm-fw-D9t" secondAttribute="bottom" constant="40" id="5sq-df-9Bj"/>
@@ -225,7 +248,6 @@
                             <constraint firstItem="fKI-Of-jfn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="H91-Il-fFd"/>
                             <constraint firstItem="h6q-FM-QXI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NeY-4L-HWE"/>
                             <constraint firstItem="Q28-5i-V9s" firstAttribute="top" secondItem="AT2-xX-QxZ" secondAttribute="bottom" constant="10" id="QYF-2e-dmh"/>
-                            <constraint firstItem="FQm-fw-D9t" firstAttribute="top" secondItem="fKI-Of-jfn" secondAttribute="bottom" constant="70" id="SMQ-ek-6UU"/>
                             <constraint firstItem="vAm-wg-8vB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WQo-Bq-Mjs"/>
                             <constraint firstItem="GdD-7d-SKy" firstAttribute="top" secondItem="vAm-wg-8vB" secondAttribute="bottom" constant="80" id="Zsi-VI-LWR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fKI-Of-jfn" secondAttribute="trailing" constant="20" id="csZ-gC-Zby"/>
@@ -233,12 +255,14 @@
                             <constraint firstItem="FQm-fw-D9t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fop-kG-k6r"/>
                             <constraint firstItem="Q28-5i-V9s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="116" id="hbo-1t-yZp"/>
                             <constraint firstItem="ObQ-zs-eR6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jzx-ce-qnz"/>
+                            <constraint firstItem="PvY-db-uVy" firstAttribute="top" secondItem="fKI-Of-jfn" secondAttribute="bottom" constant="5" id="lzf-pR-4Io"/>
                             <constraint firstItem="AT2-xX-QxZ" firstAttribute="top" secondItem="h6q-FM-QXI" secondAttribute="bottom" constant="25" id="qLr-5A-hej"/>
                             <constraint firstItem="ObQ-zs-eR6" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="w1D-V3-hMq"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imgLogo" destination="saN-s2-2jv" id="gMz-RB-XXE"/>
+                        <outlet property="rememberMe" destination="xYF-iX-lXQ" id="Vgi-oZ-viH"/>
                         <outlet property="txtEmail" destination="GdD-7d-SKy" id="IhG-Y8-Drm"/>
                         <outlet property="txtPass" destination="fKI-Of-jfn" id="ihF-Q8-Ci4"/>
                         <outlet property="vwLogo" destination="vAm-wg-8vB" id="IOm-8i-mon"/>
@@ -264,7 +288,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6V-L8-f3Z">
-                                <rect key="frame" x="85" y="94" width="244" height="170.5"/>
+                                <rect key="frame" x="85" y="98" width="244" height="170.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoA&amp;E" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-Np-gll">
                                         <rect key="frame" x="20" y="20" width="204" height="130.5"/>
@@ -280,7 +304,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j7d-ad-4D2" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="344.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="348.5" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6Ac-aq-EIS"/>
@@ -329,7 +353,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SiQ-Oe-vGC" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="434.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="438.5" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Oc5-f7-1WT"/>
@@ -382,7 +406,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FWK-GK-ryE">
-                                <rect key="frame" x="116" y="741.5" width="182" height="43"/>
+                                <rect key="frame" x="116" y="745.5" width="182" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hah-NZ-0QT">
                                         <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
@@ -401,7 +425,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-la-pTw">
-                                <rect key="frame" x="130" y="609.5" width="154" height="52"/>
+                                <rect key="frame" x="130" y="613.5" width="154" height="52"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <state key="normal" title="S I G N U P" backgroundImage="btnLayout"/>
                                 <connections>
@@ -409,7 +433,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dsF-GP-qI7">
-                                <rect key="frame" x="94" y="701.5" width="226" height="30"/>
+                                <rect key="frame" x="94" y="705.5" width="226" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qJ-y4-iYb">
                                         <rect key="frame" x="0.0" y="0.0" width="174" height="30"/>
@@ -428,7 +452,7 @@
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSP-tn-rUT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="524.5" width="374" height="50"/>
+                                <rect key="frame" x="20" y="528.5" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VCh-um-N3K"/>
@@ -1192,11 +1216,11 @@ in order to get more people engaged </string>
         <image name="email" width="20" height="15"/>
         <image name="facebook" width="43" height="42.5"/>
         <image name="gmail" width="57" height="43"/>
-        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="123"/>
         <image name="logoA&amp;E" width="204" height="130.5"/>
         <image name="password" width="17" height="18"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

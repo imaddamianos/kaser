@@ -22,7 +22,9 @@ class FeatureCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.layer.borderWidth = 2
+        self.layer.borderColor = UIColor.black.cgColor
+        self.layer.cornerRadius = 5
     }
     @IBAction func favIcon(_ sender: Any) {
         

@@ -16,12 +16,17 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet weak var mostViewedCollView: UICollectionView!
     @IBOutlet weak var newCollView: UICollectionView!
     
+    @IBOutlet weak var headerView: UIView!
     var presenter: HomeVcPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         GFunction.shared.addLoader()
         // Menu Button Tint Color
+        setupView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         setupView()
     }
     
@@ -41,15 +46,20 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 return
             }
             if !isSuccess { return }
+            sideMenu = GFunction.shared.sideMenuItems()
             if userDetails?.userType == "Buyer"{
-                
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
+
             }else if userDetails?.userType == "Seller"{
-                
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0xd9d358)
             }
-            let imageUrl = URL(string: (userDetails?.image)!)
-            let image = try? UIImage(withContentsOfUrl: imageUrl!)
-            StrongSelf.userImg.image = image
+            StrongSelf.headerView.backgroundColor = UIColor.originalColor
+            if let imageUrl = URL(string: (userDetails?.image)!){
+                let image = try? UIImage(withContentsOfUrl: imageUrl)
+                StrongSelf.userImg.image = image
+            }
             StrongSelf.nameLbl.text = userDetails?.name
+            GFunction.shared.removeLoader()
                
         }
         
@@ -58,10 +68,10 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 return
             }
             if !isSuccess { return }
-            for items in storesName!{
-            
-                
-            }
+//            for items in storesName!{
+//            
+//                
+//            }
         }
         
     
@@ -70,9 +80,6 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     
     @IBAction func sideMenuBtn(_ sender: Any) {
         revealViewController()?.revealSideMenu()
-        
-    }
-    override func viewDidAppear(_ animated: Bool) {
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -95,6 +102,12 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presenter.items.count
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Return the desired size for the item at the specified indexPath
+        return CGSize(width: 200, height: 200)
+    }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell

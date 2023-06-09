@@ -2,12 +2,14 @@
 //  GFunction.swift
 //  kaser
 //
-//  Created by UDU Jobs on 9/24/21.
+//  Created by imps on 9/24/21.
 //
 
 import Foundation
 import SCLAlertView
-//import ProgressHUD
+import ProgressHUD
+
+var sideMenu: [SideMenuModel] = []
 
 class GFunction: NSObject {
     static let shared : GFunction = GFunction()
@@ -30,25 +32,48 @@ class GFunction: NSObject {
     func addLoader(_ message : String? = nil) {
         
         performOn(.main) {
-//            ProgressHUD.show(message ?? "Please Wait ...")
-//            ProgressHUD.animationType = .lineScaling
-//            ProgressHUD.colorHUD = .clear
-//            ProgressHUD.colorBackground = .clear
-//            ProgressHUD.colorAnimation = .colorOriginGreen
-//            ProgressHUD.colorProgress = .colorYellow
-//            ProgressHUD.colorStatus = .label
-//            ProgressHUD.fontStatus = .boldSystemFont(ofSize: 24)
+            ProgressHUD.show(message ?? "Please Wait ...")
+            ProgressHUD.animationType = .lineScaling
+            ProgressHUD.colorHUD = .clear
+            ProgressHUD.colorBackground = .clear
+            ProgressHUD.colorAnimation = .originalColor
+            ProgressHUD.colorProgress = .colorYellow
+            ProgressHUD.colorStatus = .label
+            ProgressHUD.fontStatus = .boldSystemFont(ofSize: 24)
         }
     }
     
     func showSuccess(){
-//        ProgressHUD.showSuccess("Success", image: .checkmark, interaction: true)
+        ProgressHUD.showSuccess("Success", image: .checkmark, interaction: true)
     }
     
     func removeLoader() {
         performOn(.main) {
-//            ProgressHUD.dismiss()
+            ProgressHUD.dismiss()
         }
      }
+    
+    func sideMenuItems() -> [SideMenuModel]{
+        if userDetails?.userType == "Seller" {
+            return [
+                SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Profile"),
+                SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Chat"),
+                SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Favorite"),
+                SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Reviews"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "My Store")
+            ]
+        } else {
+            return [
+                SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Profile"),
+                SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Chat"),
+                SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Favorite"),
+                SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Reviews"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings")
+            ]
+        }
+    }
     
 }

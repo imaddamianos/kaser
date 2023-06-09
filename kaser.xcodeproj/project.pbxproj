@@ -29,7 +29,7 @@
 		CF6F0F5826F8FECD0013FF1E /* kaserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F0F5726F8FECD0013FF1E /* kaserTests.swift */; };
 		CF6F0F6326F8FECD0013FF1E /* kaserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F0F6226F8FECD0013FF1E /* kaserUITests.swift */; };
 		CF6F0F7526F912ED0013FF1E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CF6F0F7426F912ED0013FF1E /* GoogleService-Info.plist */; };
-		CF6F0F7826FBAFB40013FF1E /* textField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F0F7726FBAFB40013FF1E /* textField.swift */; };
+		CF6F0F7826FBAFB40013FF1E /* UIViewController+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F0F7726FBAFB40013FF1E /* UIViewController+Keyboard.swift */; };
 		CF6F0F7A26FCDF170013FF1E /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F0F7926FCDF170013FF1E /* UIView.swift */; };
 		CF6F0F7C26FCDFAB0013FF1E /* FormatStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F0F7B26FCDFAB0013FF1E /* FormatStyle.swift */; };
 		CF6F0F7E26FCF5350013FF1E /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F0F7D26FCF5350013FF1E /* SignUpVC.swift */; };
@@ -112,7 +112,7 @@
 		CF6F0F6226F8FECD0013FF1E /* kaserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kaserUITests.swift; sourceTree = "<group>"; };
 		CF6F0F6426F8FECD0013FF1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF6F0F7426F912ED0013FF1E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		CF6F0F7726FBAFB40013FF1E /* textField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = textField.swift; sourceTree = "<group>"; };
+		CF6F0F7726FBAFB40013FF1E /* UIViewController+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Keyboard.swift"; sourceTree = "<group>"; };
 		CF6F0F7926FCDF170013FF1E /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		CF6F0F7B26FCDFAB0013FF1E /* FormatStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatStyle.swift; sourceTree = "<group>"; };
 		CF6F0F7D26FCF5350013FF1E /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -287,7 +287,7 @@
 		CF6F0F7626FBAF9A0013FF1E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CF6F0F7726FBAFB40013FF1E /* textField.swift */,
+				CF6F0F7726FBAFB40013FF1E /* UIViewController+Keyboard.swift */,
 				CF6F0F7926FCDF170013FF1E /* UIView.swift */,
 				CF6F0F7B26FCDFAB0013FF1E /* FormatStyle.swift */,
 				CF6F0F8926FF0EDB0013FF1E /* UIViewController.swift */,
@@ -686,7 +686,7 @@
 				CFA238542784BF8A00767685 /* ProfileViewController.swift in Sources */,
 				CFA238572784BF9C00767685 /* MainViewController.swift in Sources */,
 				CF1B20C82721D33C00E5CCB8 /* ForgetPasswordVC.swift in Sources */,
-				CF6F0F7826FBAFB40013FF1E /* textField.swift in Sources */,
+				CF6F0F7826FBAFB40013FF1E /* UIViewController+Keyboard.swift in Sources */,
 				CF7875BC27343DA30016FF41 /* APICalls.swift in Sources */,
 				CFA238512784BF8A00767685 /* ChatViewControllerViewController.swift in Sources */,
 				CF6F0F8C26FF12C60013FF1E /* GEnum.swift in Sources */,
