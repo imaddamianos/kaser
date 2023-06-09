@@ -24,19 +24,11 @@ class SideMenuViewController: UIViewController {
 
     var defaultHighlightedCell: Int = 0
 
-    var menu: [SideMenuModel] = [
-        SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
-        SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Profile"),
-        SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Chat"),
-        SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Favorite"),
-        SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Reviews"),
-        SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings")
-    ]
-
     override func viewDidAppear(_ animated: Bool) {
 //        self.sideMenuTableView.backgroundColor = UIColor.originalColor
         view.backgroundColor = UIColor.originalColor.withAlphaComponent(0.7)
-        
+        sideMenu = GFunction.shared.sideMenuItems()
+        self.sideMenuTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -52,7 +44,7 @@ class SideMenuViewController: UIViewController {
             let defaultRow = IndexPath(row: self.defaultHighlightedCell, section: 0)
             self.sideMenuTableView.selectRow(at: defaultRow, animated: false, scrollPosition: .none)
         }
-
+        sideMenu = GFunction.shared.sideMenuItems()
         // Footer
         self.footerLabel.textColor = UIColor.white
         self.footerLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
@@ -95,14 +87,14 @@ extension SideMenuViewController: UITableViewDelegate {
 
 extension SideMenuViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.menu.count
+        return sideMenu.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuCell.identifier, for: indexPath) as? SideMenuCell else { fatalError("xib doesn't exist") }
 
-        cell.iconImageView.image = self.menu[indexPath.row].icon
-        cell.titleLabel.text = self.menu[indexPath.row].title
+        cell.iconImageView.image = sideMenu[indexPath.row].icon
+        cell.titleLabel.text = sideMenu[indexPath.row].title
 //        cell.titleLabel.textColor = #colorLiteral(red: 0.2354828119, green: 0.2450637817, blue: 0.3699719906, alpha: 1)
 
         // Highlighted color

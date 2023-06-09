@@ -9,6 +9,8 @@ import Foundation
 import SCLAlertView
 import ProgressHUD
 
+var sideMenu: [SideMenuModel] = []
+
 class GFunction: NSObject {
     static let shared : GFunction = GFunction()
     
@@ -50,5 +52,28 @@ class GFunction: NSObject {
             ProgressHUD.dismiss()
         }
      }
+    
+    func sideMenuItems() -> [SideMenuModel]{
+        if userDetails?.userType == "Seller" {
+            return [
+                SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Profile"),
+                SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Chat"),
+                SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Favorite"),
+                SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Reviews"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "My Store")
+            ]
+        } else {
+            return [
+                SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Profile"),
+                SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Chat"),
+                SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Favorite"),
+                SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Reviews"),
+                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings")
+            ]
+        }
+    }
     
 }

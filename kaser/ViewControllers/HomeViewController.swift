@@ -26,6 +26,10 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         setupView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        setupView()
+    }
+    
     func setupView(){
         featuredCollView.dataSource = self
         featuredCollView.delegate = self
@@ -42,6 +46,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 return
             }
             if !isSuccess { return }
+            sideMenu = GFunction.shared.sideMenuItems()
             if userDetails?.userType == "Buyer"{
                 UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
 
@@ -75,9 +80,6 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     
     @IBAction func sideMenuBtn(_ sender: Any) {
         revealViewController()?.revealSideMenu()
-        
-    }
-    override func viewDidAppear(_ animated: Bool) {
         
     }
     override func viewWillAppear(_ animated: Bool) {
