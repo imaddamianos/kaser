@@ -18,6 +18,7 @@ pod 'MDatePickerView'
 pod 'ProgressHUD'
 #pod 'ImagePicker'
 pod ‘SideMenu’
+pod 'Floaty'
 
   target 'kaserTests' do
     inherit! :search_paths

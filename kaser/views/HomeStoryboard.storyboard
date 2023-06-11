@@ -629,19 +629,89 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="B0v-AO-MOg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="293"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Es2-j0-7hL">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vje-0C-2RA">
+                                                <rect key="frame" x="0.0" y="-11" width="414" height="150"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="150" id="1sY-HX-JFm"/>
+                                                </constraints>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NLO-dv-FEd">
+                                                <rect key="frame" x="20" y="10" width="374" height="108"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Store Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veM-sg-s03">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7RV-ib-A4v">
+                                                        <rect key="frame" x="0.0" y="27" width="374" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWU-l9-Ksp">
+                                                        <rect key="frame" x="0.0" y="54" width="374" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reviews" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RLp-Bd-prl">
+                                                        <rect key="frame" x="0.0" y="81" width="374" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="NLO-dv-FEd" firstAttribute="centerX" secondItem="Es2-j0-7hL" secondAttribute="centerX" id="7aN-CH-VGl"/>
+                                            <constraint firstItem="vje-0C-2RA" firstAttribute="centerY" secondItem="Es2-j0-7hL" secondAttribute="centerY" id="A3H-7b-o4W"/>
+                                            <constraint firstAttribute="bottom" secondItem="NLO-dv-FEd" secondAttribute="bottom" constant="10" id="FVe-VV-7Ll"/>
+                                            <constraint firstAttribute="trailing" secondItem="NLO-dv-FEd" secondAttribute="trailing" constant="20" id="I2g-v6-snP"/>
+                                            <constraint firstItem="NLO-dv-FEd" firstAttribute="top" secondItem="Es2-j0-7hL" secondAttribute="top" constant="10" id="Jei-So-TpP"/>
+                                            <constraint firstItem="vje-0C-2RA" firstAttribute="top" secondItem="Es2-j0-7hL" secondAttribute="top" constant="-11" id="f7H-Gm-tDX"/>
+                                            <constraint firstItem="NLO-dv-FEd" firstAttribute="leading" secondItem="Es2-j0-7hL" secondAttribute="leading" constant="20" id="tnL-c1-aMM"/>
+                                            <constraint firstItem="vje-0C-2RA" firstAttribute="leading" secondItem="Es2-j0-7hL" secondAttribute="leading" id="w3e-k4-iUH"/>
+                                            <constraint firstAttribute="trailing" secondItem="vje-0C-2RA" secondAttribute="trailing" id="xvI-ov-PKG"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-Rx-cgL">
+                                        <rect key="frame" x="0.0" y="143" width="414" height="150"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dCX-GC-0Wq"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="B0v-AO-MOg" firstAttribute="leading" secondItem="dCX-GC-0Wq" secondAttribute="leading" id="0f1-Xf-E3a"/>
                             <constraint firstItem="mpQ-qI-PSO" firstAttribute="centerY" secondItem="dCX-GC-0Wq" secondAttribute="centerY" id="1VP-EM-uIC"/>
+                            <constraint firstItem="dCX-GC-0Wq" firstAttribute="trailing" secondItem="B0v-AO-MOg" secondAttribute="trailing" id="7Qq-Tt-X3q"/>
                             <constraint firstItem="mpQ-qI-PSO" firstAttribute="centerX" secondItem="dCX-GC-0Wq" secondAttribute="centerX" id="Gla-ZT-9bb"/>
+                            <constraint firstItem="B0v-AO-MOg" firstAttribute="top" secondItem="dCX-GC-0Wq" secondAttribute="top" id="WTA-Ua-Bjj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Store" id="NoI-AY-kop">
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="menu" id="hH6-lV-biV"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="coverImg" destination="vje-0C-2RA" id="AKx-So-sjA"/>
+                        <outlet property="locationLbl" destination="xWU-l9-Ksp" id="JtI-Bn-z4b"/>
+                        <outlet property="myProductsTbl" destination="KOU-Rx-cgL" id="WiR-PY-Tqd"/>
+                        <outlet property="reviewsLbl" destination="RLp-Bd-prl" id="pU9-Tp-dTZ"/>
                         <outlet property="sideMenuBtn" destination="hH6-lV-biV" id="WDQ-hc-Cti"/>
+                        <outlet property="storeNameLbl" destination="veM-sg-s03" id="uft-a8-yfW"/>
+                        <outlet property="storeNbLbl" destination="7RV-ib-A4v" id="Y0w-7V-91v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyH-U0-LHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
