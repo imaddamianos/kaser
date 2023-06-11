@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04FA8BCF2A34F7D200A647B5 /* MyStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BCE2A34F7D200A647B5 /* MyStoreViewController.swift */; };
 		2AB7CDAA6CD237F12BEE4736 /* Pods_kaserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771F769A095AE984EC8A699B /* Pods_kaserTests.framework */; };
 		4A804846B7AC646488BBA5EC /* Pods_kaser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C95A2FC21F0893B666319CF /* Pods_kaser.framework */; };
 		CF1B20C82721D33C00E5CCB8 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B20C72721D33C00E5CCB8 /* ForgetPasswordVC.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		04FA8BCE2A34F7D200A647B5 /* MyStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoreViewController.swift; sourceTree = "<group>"; };
 		4267952070F118A585BDB8D0 /* Pods-kaser-kaserUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaser-kaserUITests.debug.xcconfig"; path = "Target Support Files/Pods-kaser-kaserUITests/Pods-kaser-kaserUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		771F769A095AE984EC8A699B /* Pods_kaserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C688A48AB7E514047D1E1C3 /* Pods-kaserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaserTests.release.xcconfig"; path = "Target Support Files/Pods-kaserTests/Pods-kaserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				CFA2384E2784BF8900767685 /* ProfileViewController.swift */,
 				CF2C347E28CBD6CB00172B71 /* ReviewsViewController.swift */,
 				CFA2384C2784BF8800767685 /* SettingsViewController.swift */,
+				04FA8BCE2A34F7D200A647B5 /* MyStoreViewController.swift */,
 			);
 			path = sideMenu;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				CF7875BC27343DA30016FF41 /* APICalls.swift in Sources */,
 				CFA238512784BF8A00767685 /* ChatViewControllerViewController.swift in Sources */,
 				CF6F0F8C26FF12C60013FF1E /* GEnum.swift in Sources */,
+				04FA8BCF2A34F7D200A647B5 /* MyStoreViewController.swift in Sources */,
 				CF5A13CD28CDE73100C2077B /* String-Extension.swift in Sources */,
 				CF6F0F4226F8FEC90013FF1E /* LogInVC.swift in Sources */,
 				CFA238532784BF8A00767685 /* HomeViewController.swift in Sources */,
