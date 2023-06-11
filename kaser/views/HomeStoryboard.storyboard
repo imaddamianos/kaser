@@ -592,62 +592,6 @@
             </objects>
             <point key="canvasLocation" x="1270" y="1675"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="wF4-wM-cuS">
-            <objects>
-                <navigationController storyboardIdentifier="MyStoreNavID" automaticallyAdjustsScrollViewInsets="NO" id="foX-7R-Qpt" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="1fe-4s-SdC">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="OUE-iJ-S4L" kind="relationship" relationship="rootViewController" id="mMl-Sv-NCA"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GZL-5q-9u6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2784" y="929"/>
-        </scene>
-        <!--MyStore-->
-        <scene sceneID="cIQ-D8-cqh">
-            <objects>
-                <viewController id="OUE-iJ-S4L" customClass="MyStoreViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aGg-Ds-B75">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KqA-5X-mHq">
-                                <rect key="frame" x="39.5" y="373" width="335" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="oO2-HV-KPQ"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="KqA-5X-mHq" firstAttribute="centerY" secondItem="oO2-HV-KPQ" secondAttribute="centerY" id="Ji1-Va-FlI"/>
-                            <constraint firstItem="KqA-5X-mHq" firstAttribute="centerX" secondItem="oO2-HV-KPQ" secondAttribute="centerX" id="nQc-RT-nSr"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="MyStore" id="qEW-I9-DM6">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" image="menu" id="gyn-Os-pIh"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="sideMenuBtn" destination="gyn-Os-pIh" id="Vsp-cC-HSB"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7kd-JZ-rS7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2784" y="1675"/>
-        </scene>
     </scenes>
     <resources>
         <image name="comments" width="18.5" height="14.5"/>

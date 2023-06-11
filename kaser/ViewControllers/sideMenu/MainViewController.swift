@@ -154,8 +154,9 @@ extension MainViewController: SideMenuViewControllerDelegate {
             // Settings
             self.showViewController(viewController: UINavigationController.self, storyboardId: "SettingsNavID")
         case 6:
-            // My Store
-            self.showViewController(viewController: UINavigationController.self, storyboardId: "MyStoreNavID")
+            // Like us on facebook
+            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)
+            present(safariVC, animated: true)
         default:
             break
         }
