@@ -19,18 +19,26 @@ class AddStoreVcPresenter{
     }
     
     func addStore(storeName: String, phone: String, address: String, delivery: String, description: String, image: String){
-//        let emailID = email.replace(target: "@", withString: "-")
 //        let UserId = emailID.replace(target: ".", withString: "-")
 //        newID = UserId
-//        APICalls.shared.addBuyerInfo(userName: userName,firstName: firstname, lastName: lastName, email: email, mobile: mobile, DateOfBirth: DOB, userType: userType, image: image, pass: password){[weak self] (isSuccess) in
-//        guard let StrongSelf = self else{
-//            return
-//        }
-//        if !isSuccess { return }
-//        
-//        StrongSelf.naviToHome()
-//           
-//    }
+        APICalls.shared.addStoreInfo(storeName: storeName,phone: phone, address: address, delivery: delivery, description: description, image: image){[weak self] (isSuccess) in
+        guard let StrongSelf = self else{
+            return
+        }
+        if !isSuccess { return }
+        
+        StrongSelf.naviToStore()
+           
+    }
 }
+    
+    func naviToStore(){
+        DispatchQueue.main.async {
+            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MyStoreViewController")
+            viewController.modalPresentationStyle = .fullScreen
+            UIApplication.present(viewController: viewController)
+
+        }
+    }
     
 }

@@ -97,6 +97,7 @@ class AddStoreViewController: UIViewController, AddStoreViewProtocol {
               GFunction.shared.showAlert("Store description", message: "Please enter the Store description", btnName: "OK") {
 
               }
+              
               return
           }
           // Call the presenter method to add the store

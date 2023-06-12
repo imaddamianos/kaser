@@ -619,7 +619,7 @@
         <!--My Store-->
         <scene sceneID="9C3-Ec-3xB">
             <objects>
-                <viewController id="zC4-ER-rva" customClass="MyStoreViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyStoreViewController" id="zC4-ER-rva" customClass="MyStoreViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EX6-JG-7AC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
