@@ -112,19 +112,40 @@ class APICalls: NSObject {
 //    })
 //    }
     
-    func getStores(completion: ((Bool) -> Void)?){
+    func getStores(completion: ((Bool) -> Void)?) {
         ref.child("Stores").getData(completion:  { error, snapshot in
-            
             guard error == nil else {
                 print(error!.localizedDescription)
+                completion?(false)
                 return
-              }
-            let value = snapshot.value as? NSDictionary
-            let stores = value?.allKeys as? [String]
-            storesName = stores
-                completion?(true)
-    })
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                if let value = snapshot.value as? [String: Any] {
+                    storesArray.removeAll()
+                    for (_, storeData) in value {
+                        if let storeData = storeData as? [String: Any] {
+                            let jsonData = try JSONSerialization.data(withJSONObject: storeData)
+                            let store = try decoder.decode(Store.self, from: jsonData)
+                            storesArray.append(store)
+                        }
+                    }
+                    
+                    // Access the storesArray here
+                    print(storesArray)
+                    
+                    completion?(true)
+                } else {
+                    completion?(false)
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
+                completion?(false)
+            }
+        })
     }
+
     
     
 }

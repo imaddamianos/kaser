@@ -68,14 +68,8 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 return
             }
             if !isSuccess { return }
-//            for items in storesName!{
-//            
-//                
-//            }
+            StrongSelf.featuredCollView.reloadData()
         }
-        
-    
-        
     }
     
     @IBAction func sideMenuBtn(_ sender: Any) {
@@ -100,7 +94,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presenter.items.count
+        return storesArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -111,8 +105,15 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell
-        let product = presenter.items[indexPath.row]
-        cell.featureCoverImg.image = product.icon
+        let product = storesArray[indexPath.row]
+        cell.phoneNb.text = product.storeName
+        cell.carModel.text = product.delivery
+        cell.location.text = product.phone
+        cell.views.text = product.address
+        if let imageUrl = URL(string: (product.storeImage)){
+            let image = try? UIImage(withContentsOfUrl: imageUrl)
+            cell.featureCoverImg.image = image
+        }
 //        cell.img.backgroundColor = product.color
     
         return cell
