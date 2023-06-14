@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D612A39275E00EECD3F /* StoreDetails.swift */; };
+		044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */; };
+		044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */; };
 		04FA8BD12A3651E600A647B5 /* MyStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */; };
 		04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */; };
 		04FA8BD62A376CB600A647B5 /* AddStoreVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */; };
@@ -83,6 +85,8 @@
 
 /* Begin PBXFileReference section */
 		044D8D612A39275E00EECD3F /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
+		044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewCell.swift; sourceTree = "<group>"; };
+		044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductsTableViewCell.xib; sourceTree = "<group>"; };
 		04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreVcPresenter.swift; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 				CFA238622784CEA900767685 /* SideMenuCell.swift */,
 				CFA238632784CEA900767685 /* SideMenuCell.xib */,
 				CFA238642784CEA900767685 /* SideMenuModel.swift */,
+				044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */,
+				044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -524,6 +530,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6F0F4D26F8FECC0013FF1E /* LaunchScreen.storyboard in Resources */,
+				044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */,
 				CF5A13C628CBE1D100C2077B /* FeatureCollectionViewCell.xib in Resources */,
 				CFA238662784CEA900767685 /* SideMenuCell.xib in Resources */,
 				CF6F0F7526F912ED0013FF1E /* GoogleService-Info.plist in Resources */,
@@ -702,6 +709,7 @@
 				CF5A13C828CBE44B00C2077B /* FeaturesModel.swift in Sources */,
 				04FA8BD62A376CB600A647B5 /* AddStoreVcPresenter.swift in Sources */,
 				CFA238652784CEA900767685 /* SideMenuCell.swift in Sources */,
+				044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */,
 				CF6F0F8A26FF0EDB0013FF1E /* UIViewController.swift in Sources */,
 				CF6F0F4826F8FEC90013FF1E /* kaser.xcdatamodeld in Sources */,
 				04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */,
