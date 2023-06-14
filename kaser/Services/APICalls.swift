@@ -91,26 +91,6 @@ class APICalls: NSObject {
             }
     })
     }
-//
-//    func getProducts(name: String, completion: ((Bool) -> Void)?){
-//        ref.child("Stores").child(name).getData(completion:  { error, snapshot in
-//
-//            guard error == nil else {
-//                print(error!.localizedDescription)
-//                return
-//              }
-//            let value = snapshot.value as? NSDictionary
-//            let location = value?["Location"] as? String ?? "No Location"
-//            let phoneNb = value?["Phone number"] as? String ?? "No Phone number"
-//            let views = value?["Views"] as? String ?? "No views"
-//            let carModel = value?["car model"] as? String ?? "No car Model"
-//            let image = value?["image"] as? String ?? "No image"
-//            let isFav = value?["isFav"] as? String ?? "No fav result"
-////            storesName = stores
-//            productsDetails = productsStruct(location: location, phone: phoneNb, views: views, carModel: carModel, image: image, isFav: isFav)
-//                completion?(true)
-//    })
-//    }
     
     func getStores(completion: ((Bool) -> Void)?) {
         ref.child("Stores").getData(completion:  { error, snapshot in

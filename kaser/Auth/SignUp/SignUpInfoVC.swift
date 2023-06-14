@@ -132,7 +132,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
                 return
                 }
                 let urlString = url.absoluteString
-                DispatchQueue.main.async {
+                performOn(.main){
                     self.imageURL = urlString
                     self.imgProfiePic.image = image
                 }

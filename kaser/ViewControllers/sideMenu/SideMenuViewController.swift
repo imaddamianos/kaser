@@ -92,9 +92,10 @@ extension SideMenuViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: SideMenuCell.identifier, for: indexPath) as? SideMenuCell else { fatalError("xib doesn't exist") }
-
-        cell.iconImageView.image = sideMenu[indexPath.row].icon
-        cell.titleLabel.text = sideMenu[indexPath.row].title
+        performOn(.main){
+            cell.iconImageView.image = sideMenu[indexPath.row].icon
+            cell.titleLabel.text = sideMenu[indexPath.row].title
+        }
 //        cell.titleLabel.textColor = #colorLiteral(red: 0.2354828119, green: 0.2450637817, blue: 0.3699719906, alpha: 1)
 
         // Highlighted color

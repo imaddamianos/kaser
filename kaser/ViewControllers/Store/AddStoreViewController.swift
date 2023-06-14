@@ -49,7 +49,7 @@ class AddStoreViewController: UIViewController, AddStoreViewProtocol {
             guard let data = data, error == nil else{
                 return
             }
-            DispatchQueue.main.async {
+           performOn(.main){
                 let image = UIImage(data: data)
                 self.storeImg.image = image
             }
@@ -106,6 +106,7 @@ class AddStoreViewController: UIViewController, AddStoreViewProtocol {
     
     @IBAction func addImageBtn(_ sender: Any) {
         print("add image")
+        storeNamePath = storeName.text
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.delegate = self
@@ -134,7 +135,7 @@ extension AddStoreViewController: UIImagePickerControllerDelegate & UINavigation
                 return
                 }
                 let urlString = url.absoluteString
-                DispatchQueue.main.async {
+                performOn(.main){
                     self.imageURL = urlString
                     self.storeImg.image = image
                 }

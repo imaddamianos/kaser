@@ -27,14 +27,14 @@ class AddStoreVcPresenter{
         }
         if !isSuccess { return }
         
-        StrongSelf.naviToStore()
+        StrongSelf.naviToHome()
            
     }
 }
     
-    func naviToStore(){
+    func naviToHome(){
         DispatchQueue.main.async {
-            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MyStoreViewController")
+            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
             viewController.modalPresentationStyle = .fullScreen
             UIApplication.present(viewController: viewController)
 

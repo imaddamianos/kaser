@@ -56,7 +56,9 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             StrongSelf.headerView.backgroundColor = UIColor.originalColor
             if let imageUrl = URL(string: (userDetails?.image)!){
                 let image = try? UIImage(withContentsOfUrl: imageUrl)
-                StrongSelf.userImg.image = image
+                performOn(.main) {
+                    StrongSelf.userImg.image = image
+                }
             }
             StrongSelf.nameLbl.text = userDetails?.name
             GFunction.shared.removeLoader()
@@ -112,7 +114,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         cell.views.text = product.address
         if let imageUrl = URL(string: (product.storeImage)){
             let image = try? UIImage(withContentsOfUrl: imageUrl)
-            cell.featureCoverImg.image = image
+            performOn(.main) {
+                cell.featureCoverImg.image = image
+            }
         }
 //        cell.img.backgroundColor = product.color
     
