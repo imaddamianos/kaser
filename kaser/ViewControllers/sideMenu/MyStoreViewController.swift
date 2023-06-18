@@ -36,11 +36,43 @@ class MyStoreViewController: UIViewController{
         myProductsTbl.dataSource = self
         myProductsTbl.delegate = self
         myProductsTbl.register(MyProductsTableViewCell.nib, forCellReuseIdentifier: MyProductsTableViewCell.identifier)
-        
         sideMenuBtn.target = self.revealViewController()
         sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
         sideMenu = GFunction.shared.sideMenuItems()
+        
+        for index in 0..<storesArray.count {
+            let store = storesArray[index]
+            let storeOwner = store.storeOwner
+            let storeName = store.storeName
+            let storeLocation = store.delivery
+            let storeAddress = store.address
+            updateStoreHeader(storeName: storeName, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress)
+            
+            // Use the storeOwner value as needed
+            print("Store owner for index \(storesArray[index].storeName): \(storeOwner)")
+        }
+
+        
         myProductsTbl.reloadData()
+    }
+    
+    func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String){
+        if !storeName.isEmpty {
+//        if storeName != {
+            storeNameLbl.text = storeName
+            storeNbLbl.text = storeLocation
+            locationLbl.text = storeAddress
+            reviewsLbl.text = storeOwner
+            addStoreBtn.isHidden = true
+        }else{
+            addStoreBtn.isHidden = false
+            storeNameLbl.isHidden = true
+            storeNbLbl.isHidden = true
+            locationLbl.isHidden = true
+            reviewsLbl.isHidden = true
+        }
+        
+        
     }
 }
 

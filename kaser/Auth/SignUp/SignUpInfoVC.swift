@@ -12,7 +12,7 @@ import SCLAlertView
 import Firebase
 import FirebaseStorage
 
-class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
 //    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
 //
 //    }
@@ -148,6 +148,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
     }
     
     func setupView(){
+        ddOption.delegate = self
 //        showUserImage()
         #if DEBUG
         
@@ -226,7 +227,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UIImagePickerContr
     func dropDownOption (){
         ddOption.optionArray = ["Buyer", "Seller"]
         ddOption.optionIds = [1,2]
-        ddOption.didSelect{(selectedText , index ,id) in
+        ddOption.didSelect { [unowned self] (selectedText, _, _) in
             self.userType = selectedText
             if selectedText == "Buyer" {
                 self.buyerView()

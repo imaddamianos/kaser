@@ -16,4 +16,5 @@ struct Store: Codable {
     let delivery: String
     let description: String
     let storeImage: String
+    let storeOwner: String
 }

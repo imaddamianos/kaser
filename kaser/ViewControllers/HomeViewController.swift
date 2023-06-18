@@ -18,6 +18,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     
     @IBOutlet weak var headerView: UIView!
     var presenter: HomeVcPresenter!
+    var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupView()
+//        setupView()
     }
     
     func setupView(){
@@ -106,23 +107,39 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell
-        let product = storesArray[indexPath.row]
-        cell.phoneNb.text = product.storeName
-        cell.carModel.text = product.delivery
-        cell.location.text = product.phone
-        cell.views.text = product.address
-        if let imageUrl = URL(string: (product.storeImage)){
-            let image = try? UIImage(withContentsOfUrl: imageUrl)
-            performOn(.main) {
-                cell.featureCoverImg.image = image
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell
+            let product = storesArray[indexPath.row]
+            cell.phoneNb.text = product.storeName
+            cell.carModel.text = product.delivery
+            cell.location.text = product.phone
+            cell.views.text = product.address
+            
+            if let cachedImage = imageCache.object(forKey: product.storeImage as NSString) {
+                // If the image is already cached, use it
+                cell.featureCoverImg.image = cachedImage
+            } else {
+                // Image not cached, fetch asynchronously
+                if let imageUrl = URL(string: product.storeImage) {
+                    DispatchQueue.global().async {
+                        do {
+                            let imageData = try Data(contentsOf: imageUrl)
+                            if let image = UIImage(data: imageData) {
+                                // Cache the downloaded image
+                                self.imageCache.setObject(image, forKey: product.storeImage as NSString)
+                                DispatchQueue.main.async {
+                                    // Display the downloaded image
+                                    cell.featureCoverImg.image = image
+                                }
+                            }
+                        } catch {
+                            print("Failed to fetch image from URL: \(error)")
+                        }
+                    }
+                }
             }
+            
+            return cell
         }
-//        cell.img.backgroundColor = product.color
-    
-        return cell
-        
-            }
   
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         

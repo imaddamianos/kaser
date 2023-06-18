@@ -40,7 +40,7 @@ class APICalls: NSObject {
     }
     
     func addStoreInfo(storeName: String, phone: String, address: String, delivery: String, description: String, image: String, completion: ((Bool) -> Void)?){
-        ref.child("Stores").child(storeName).setValue(["storeName": storeName, "storeOwner": newEmail!, "phone": phone, "address": address, "delivery": delivery, "description" : description, "storeImage" : image]) {
+        ref.child("Stores").child(storeName).setValue(["storeName": storeName, "storeOwner": newEmail!, "phone": phone, "address": address, "delivery": delivery, "description" : description, "storeImage" : image, "storeOwner" : newEmail]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
