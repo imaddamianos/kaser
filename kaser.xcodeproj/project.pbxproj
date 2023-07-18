@@ -10,6 +10,9 @@
 		044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D612A39275E00EECD3F /* StoreDetails.swift */; };
 		044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */; };
 		044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */; };
+		04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */; };
+		04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */; };
+		04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */; };
 		04FA8BD12A3651E600A647B5 /* MyStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */; };
 		04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */; };
 		04FA8BD62A376CB600A647B5 /* AddStoreVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */; };
@@ -87,6 +90,10 @@
 		044D8D612A39275E00EECD3F /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
 		044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewCell.swift; sourceTree = "<group>"; };
 		044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductsTableViewCell.xib; sourceTree = "<group>"; };
+		04D3C13F2A6699E30061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreVcPresenter.swift; sourceTree = "<group>"; };
@@ -160,6 +167,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */,
+				04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */,
+				04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */,
 				CF6F0F9026FF4B7D0013FF1E /* iOSDropDown.framework in Frameworks */,
 				4A804846B7AC646488BBA5EC /* Pods_kaser.framework in Frameworks */,
 			);
@@ -209,6 +219,10 @@
 		A5FA8C7F7CEF9CCE2E0A0B9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */,
+				04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */,
+				04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */,
+				04D3C13F2A6699E30061C071 /* FBSDKCoreKit.framework */,
 				CF6F0F8F26FF4B7D0013FF1E /* iOSDropDown.framework */,
 				8C95A2FC21F0893B666319CF /* Pods_kaser.framework */,
 				D4474963AA72099815A9275F /* Pods_kaser_kaserUITests.framework */,

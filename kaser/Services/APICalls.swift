@@ -57,6 +57,7 @@ class APICalls: NSObject {
             
             guard error == nil else {
                 print(error!.localizedDescription)
+                completion?(false)
                 return
               }
             let value = snapshot.value as? NSDictionary
