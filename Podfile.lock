@@ -500,6 +500,7 @@ PODS:
     - FirebasePhoneAuthUI (~> 12.0)
   - FirebaseUI/Storage (12.0.2):
     - FirebaseStorageUI (~> 12.0)
+  - Floaty (4.2.0)
   - GoogleAppMeasurement (8.7.0):
     - GoogleAppMeasurement/AdIdSupport (= 8.7.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
@@ -590,6 +591,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - FirebaseUI
+  - Floaty
   - iOSDropDown
   - MDatePickerView
   - ProgressHUD
@@ -626,6 +628,7 @@ SPEC REPOS:
     - FirebaseStorage
     - FirebaseStorageUI
     - FirebaseUI
+    - Floaty
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleSignIn
@@ -673,6 +676,7 @@ SPEC CHECKSUMS:
   FirebaseStorage: 2e6e58fe31fb0061fdce3f156d0ebc964e9de6ba
   FirebaseStorageUI: 9f5b32264e77dc073dec45f00c5b3a77e5ca901e
   FirebaseUI: b04b32ead3a6dcd5a50829e14b8f3f6d044d5d62
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
   GoogleAppMeasurement: 2be61ce546ad074dbe4dd545f222ac6033bb1d9e
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
   GoogleSignIn: fd381840dbe7c1137aa6dc30849a5c3e070c034a
@@ -692,6 +696,6 @@ SPEC CHECKSUMS:
   SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
 
-PODFILE CHECKSUM: cf973b220bb8df1108b1839d9fdfbb5a5b1e18b7
+PODFILE CHECKSUM: 512eb66045526fb40642baccb057aae6b3d2d814
 
 COCOAPODS: 1.12.0

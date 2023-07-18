@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D612A39275E00EECD3F /* StoreDetails.swift */; };
+		044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */; };
+		044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */; };
+		04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */; };
+		04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */; };
+		04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */; };
+		04FA8BD12A3651E600A647B5 /* MyStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */; };
+		04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */; };
+		04FA8BD62A376CB600A647B5 /* AddStoreVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */; };
 		2AB7CDAA6CD237F12BEE4736 /* Pods_kaserTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771F769A095AE984EC8A699B /* Pods_kaserTests.framework */; };
 		4A804846B7AC646488BBA5EC /* Pods_kaser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C95A2FC21F0893B666319CF /* Pods_kaser.framework */; };
 		CF1B20C82721D33C00E5CCB8 /* ForgetPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1B20C72721D33C00E5CCB8 /* ForgetPasswordVC.swift */; };
@@ -78,6 +87,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		044D8D612A39275E00EECD3F /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
+		044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewCell.swift; sourceTree = "<group>"; };
+		044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductsTableViewCell.xib; sourceTree = "<group>"; };
+		04D3C13F2A6699E30061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoreViewController.swift; sourceTree = "<group>"; };
+		04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
+		04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreVcPresenter.swift; sourceTree = "<group>"; };
 		4267952070F118A585BDB8D0 /* Pods-kaser-kaserUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaser-kaserUITests.debug.xcconfig"; path = "Target Support Files/Pods-kaser-kaserUITests/Pods-kaser-kaserUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		771F769A095AE984EC8A699B /* Pods_kaserTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kaserTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C688A48AB7E514047D1E1C3 /* Pods-kaserTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kaserTests.release.xcconfig"; path = "Target Support Files/Pods-kaserTests/Pods-kaserTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +167,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */,
+				04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */,
+				04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */,
 				CF6F0F9026FF4B7D0013FF1E /* iOSDropDown.framework in Frameworks */,
 				4A804846B7AC646488BBA5EC /* Pods_kaser.framework in Frameworks */,
 			);
@@ -172,6 +194,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04FA8BD22A3750C000A647B5 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */,
+				04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		302EE9BFCC81FE73B3F503AF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +219,10 @@
 		A5FA8C7F7CEF9CCE2E0A0B9C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */,
+				04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */,
+				04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */,
+				04D3C13F2A6699E30061C071 /* FBSDKCoreKit.framework */,
 				CF6F0F8F26FF4B7D0013FF1E /* iOSDropDown.framework */,
 				8C95A2FC21F0893B666319CF /* Pods_kaser.framework */,
 				D4474963AA72099815A9275F /* Pods_kaser_kaserUITests.framework */,
@@ -219,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				CF5A13CA28CD57CA00C2077B /* userDetails.swift */,
+				044D8D612A39275E00EECD3F /* StoreDetails.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -351,6 +387,7 @@
 		CF7268D6271B5FEA001580B2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				04FA8BD22A3750C000A647B5 /* Store */,
 				CFA238482784BF4100767685 /* sideMenu */,
 				CF2C348028CBE0A500172B71 /* CellsHome */,
 				CF7268D7271B601A001580B2 /* HomeVC.swift */,
@@ -379,6 +416,7 @@
 				CFA2384E2784BF8900767685 /* ProfileViewController.swift */,
 				CF2C347E28CBD6CB00172B71 /* ReviewsViewController.swift */,
 				CFA2384C2784BF8800767685 /* SettingsViewController.swift */,
+				04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */,
 			);
 			path = sideMenu;
 			sourceTree = "<group>";
@@ -389,6 +427,8 @@
 				CFA238622784CEA900767685 /* SideMenuCell.swift */,
 				CFA238632784CEA900767685 /* SideMenuCell.xib */,
 				CFA238642784CEA900767685 /* SideMenuModel.swift */,
+				044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */,
+				044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -504,6 +544,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6F0F4D26F8FECC0013FF1E /* LaunchScreen.storyboard in Resources */,
+				044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */,
 				CF5A13C628CBE1D100C2077B /* FeatureCollectionViewCell.xib in Resources */,
 				CFA238662784CEA900767685 /* SideMenuCell.xib in Resources */,
 				CF6F0F7526F912ED0013FF1E /* GoogleService-Info.plist in Resources */,
@@ -680,9 +721,12 @@
 				CF7268D2271ACBE0001580B2 /* UiColor-Extension.swift in Sources */,
 				CF2C347F28CBD6CB00172B71 /* ReviewsViewController.swift in Sources */,
 				CF5A13C828CBE44B00C2077B /* FeaturesModel.swift in Sources */,
+				04FA8BD62A376CB600A647B5 /* AddStoreVcPresenter.swift in Sources */,
 				CFA238652784CEA900767685 /* SideMenuCell.swift in Sources */,
+				044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */,
 				CF6F0F8A26FF0EDB0013FF1E /* UIViewController.swift in Sources */,
 				CF6F0F4826F8FEC90013FF1E /* kaser.xcdatamodeld in Sources */,
+				04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */,
 				CFA238542784BF8A00767685 /* ProfileViewController.swift in Sources */,
 				CFA238572784BF9C00767685 /* MainViewController.swift in Sources */,
 				CF1B20C82721D33C00E5CCB8 /* ForgetPasswordVC.swift in Sources */,
@@ -690,12 +734,14 @@
 				CF7875BC27343DA30016FF41 /* APICalls.swift in Sources */,
 				CFA238512784BF8A00767685 /* ChatViewControllerViewController.swift in Sources */,
 				CF6F0F8C26FF12C60013FF1E /* GEnum.swift in Sources */,
+				04FA8BD12A3651E600A647B5 /* MyStoreViewController.swift in Sources */,
 				CF5A13CD28CDE73100C2077B /* String-Extension.swift in Sources */,
 				CF6F0F4226F8FEC90013FF1E /* LogInVC.swift in Sources */,
 				CFA238532784BF8A00767685 /* HomeViewController.swift in Sources */,
 				CF1B20CA2721D37D00E5CCB8 /* ForgetPasswordPresenter.swift in Sources */,
 				CF5A13C528CBE1D100C2077B /* FeatureCollectionViewCell.swift in Sources */,
 				CF6F0F8826FE619A0013FF1E /* SignUpInfoVC.swift in Sources */,
+				044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */,
 				CFB08679271AC42100C7CFEC /* SignUpInfoVcPresenter.swift in Sources */,
 				CF6F0F8E26FF13E60013FF1E /* UIApplication.swift in Sources */,
 				CFA238502784BF8A00767685 /* FavoriteViewControllerswift.swift in Sources */,

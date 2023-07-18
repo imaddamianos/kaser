@@ -137,10 +137,7 @@ extension MainViewController: SideMenuViewControllerDelegate {
             self.showViewController(viewController: UINavigationController.self, storyboardId: "HomeNavID")
         case 1:
             // profile
-            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpInfoVC") as! SignUpInfoVC
-            viewController.modalPresentationStyle = .fullScreen
-            self.present(viewController, animated: false, completion: nil)
-//            self.showViewController(viewController: UINavigationController.self, storyboardId: "ProfileNavID")
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "ProfileNavID")
         case 2:
             // Movies
             self.showViewController(viewController: UINavigationController.self, storyboardId: "ChatNavID")
@@ -154,9 +151,8 @@ extension MainViewController: SideMenuViewControllerDelegate {
             // Settings
             self.showViewController(viewController: UINavigationController.self, storyboardId: "SettingsNavID")
         case 6:
-            // Like us on facebook
-            let safariVC = SFSafariViewController(url: URL(string: "https://www.facebook.com/johncodeos")!)
-            present(safariVC, animated: true)
+            // My Store
+            self.showViewController(viewController: UINavigationController.self, storyboardId: "MyStoreNavID")
         default:
             break
         }
