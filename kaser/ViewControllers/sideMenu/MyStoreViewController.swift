@@ -33,7 +33,7 @@ class MyStoreViewController: UIViewController{
         self.performSegue(withIdentifier: "AddStoreNavID", sender: self)
     }
     @IBAction func addProductsTapped(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "AddProductsNavID", sender: self)
     }
     
     func setupView() {

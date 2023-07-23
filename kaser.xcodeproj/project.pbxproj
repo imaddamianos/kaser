@@ -10,6 +10,8 @@
 		044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D612A39275E00EECD3F /* StoreDetails.swift */; };
 		044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */; };
 		044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */; };
+		04A16D5B2A6D9713002D33AF /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A16D5A2A6D9713002D33AF /* AddProductsViewController.swift */; };
+		04A16D5D2A6D9A97002D33AF /* AddProductVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A16D5C2A6D9A97002D33AF /* AddProductVcPresenter.swift */; };
 		04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */; };
 		04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */; };
 		04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */; };
@@ -90,6 +92,8 @@
 		044D8D612A39275E00EECD3F /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
 		044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewCell.swift; sourceTree = "<group>"; };
 		044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductsTableViewCell.xib; sourceTree = "<group>"; };
+		04A16D5A2A6D9713002D33AF /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
+		04A16D5C2A6D9A97002D33AF /* AddProductVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVcPresenter.swift; sourceTree = "<group>"; };
 		04D3C13F2A6699E30061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +198,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04A16D592A6D96E7002D33AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04A16D5A2A6D9713002D33AF /* AddProductsViewController.swift */,
+				04A16D5C2A6D9A97002D33AF /* AddProductVcPresenter.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
 		04FA8BD22A3750C000A647B5 /* Store */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +400,7 @@
 		CF7268D6271B5FEA001580B2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				04A16D592A6D96E7002D33AF /* Products */,
 				04FA8BD22A3750C000A647B5 /* Store */,
 				CFA238482784BF4100767685 /* sideMenu */,
 				CF2C348028CBE0A500172B71 /* CellsHome */,
@@ -726,6 +740,7 @@
 				044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */,
 				CF6F0F8A26FF0EDB0013FF1E /* UIViewController.swift in Sources */,
 				CF6F0F4826F8FEC90013FF1E /* kaser.xcdatamodeld in Sources */,
+				04A16D5B2A6D9713002D33AF /* AddProductsViewController.swift in Sources */,
 				04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */,
 				CFA238542784BF8A00767685 /* ProfileViewController.swift in Sources */,
 				CFA238572784BF9C00767685 /* MainViewController.swift in Sources */,
@@ -750,6 +765,7 @@
 				CF5A13CB28CD57CA00C2077B /* userDetails.swift in Sources */,
 				CF6F0F8626FE4FA70013FF1E /* GFunction.swift in Sources */,
 				CFA238672784CEA900767685 /* SideMenuModel.swift in Sources */,
+				04A16D5D2A6D9A97002D33AF /* AddProductVcPresenter.swift in Sources */,
 				CF1C7D13275551DE00AF3F7E /* HomeVcPresenter.swift in Sources */,
 				CFA238522784BF8A00767685 /* SettingsViewController.swift in Sources */,
 				CF6F0F7A26FCDF170013FF1E /* UIView.swift in Sources */,

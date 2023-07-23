@@ -52,6 +52,19 @@ class APICalls: NSObject {
         }
     }
     
+    func addProductInfo(productName: String, brand: String, car: String, condition: String, description: String, image: String, completion: ((Bool) -> Void)?){
+        ref.child("Products").child(productName).setValue(["storeName": productName, "brand": brand, "car": car, "condition": condition, "description" : description, "storeImage" : image, "productOwner" : newEmail]) {
+          (error:Error?, ref:DatabaseReference) in
+          if let error = error {
+            print("Data could not be saved: \(error).")
+            completion?(false)
+          } else {
+            print("Data saved successfully!")
+            completion?(true)
+          }
+        }
+    }
+    
     func getUserInfo(name: String, completion: ((Bool) -> Void)?){
         ref.child("Seller").child(newID!).getData(completion:  { error, snapshot in
             

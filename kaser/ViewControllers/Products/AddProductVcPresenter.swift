@@ -1,0 +1,43 @@
+//
+//  AddProductVcPresenter.swift
+//  kaser
+//
+//  Created by iMad on 23/07/2023.
+//
+
+import Foundation
+
+protocol AddProductViewProtocol: AnyObject {
+    
+}
+
+class AddProductVcPresenter{
+    
+    weak var view: AddProductViewProtocol?
+    init(view: AddProductViewProtocol) {
+        self.view = view
+    }
+    
+    func addProduct(productName: String, brand: String, car: String, condition: String, description: String, image: String){
+//        let UserId = emailID.replace(target: ".", withString: "-")
+//        newID = UserId
+        APICalls.shared.addProductInfo(productName: productName,brand: brand, car: car, condition: condition, description: description, image: image){[weak self] (isSuccess) in
+        guard let StrongSelf = self else{
+            return
+        }
+        if !isSuccess { return }
+        
+        StrongSelf.naviToStore()
+           
+    }
+}
+    func naviToStore(){
+        DispatchQueue.main.async {
+            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MyStoreViewController")
+            viewController.modalPresentationStyle = .fullScreen
+            UIApplication.present(viewController: viewController)
+
+        }
+    }
+
+}

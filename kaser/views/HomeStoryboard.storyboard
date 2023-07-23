@@ -997,6 +997,7 @@
                         <outlet property="storeNameLbl" destination="veM-sg-s03" id="uft-a8-yfW"/>
                         <outlet property="storeNbLbl" destination="7RV-ib-A4v" id="Y0w-7V-91v"/>
                         <segue destination="GqD-Wg-7dk" kind="show" identifier="AddStoreNavID" id="dUM-NT-3lF"/>
+                        <segue destination="AJ9-uN-DLI" kind="show" identifier="AddProductsNavID" id="E9p-4P-kmF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyH-U0-LHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1179,33 +1180,225 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aZF-pI-cxk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3882.608695652174" y="1687.5"/>
+            <point key="canvasLocation" x="3986" y="1392"/>
+        </scene>
+        <!--Add Products View Controller-->
+        <scene sceneID="sHd-VM-Fqa">
+            <objects>
+                <viewController storyboardIdentifier="AddProductsViewController" id="AJ9-uN-DLI" customClass="AddProductsViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rVG-9A-k2h">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1v-3l-sKI">
+                                <rect key="frame" x="20" y="20" width="374" height="730"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gj7-oZ-pHn">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="539.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeQ-Zj-LtV">
+                                                <rect key="frame" x="62.5" y="0.0" width="249.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="749" text="You can add or edit your Product" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Gj-xK-o0r">
+                                                <rect key="frame" x="62.5" y="39" width="249.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aud-8Z-cFi" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="58.5" y="74.5" width="257" height="34"/>
+                                                <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5D-i8-E7s" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="58.5" y="123.5" width="257" height="34"/>
+                                                <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWd-bc-rw8" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="58.5" y="172.5" width="257" height="34"/>
+                                                <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Condition" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lap-Gb-sjv" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="58.5" y="221.5" width="257" height="34"/>
+                                                <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Description" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx4-u8-sSY" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="58.5" y="270.5" width="257" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                                        <color key="value" red="0.88235294119999996" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mgr-Rz-7Q9">
+                                                <rect key="frame" x="134" y="319.5" width="106" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="tsX-vp-Ge8"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Add Image"/>
+                                                <connections>
+                                                    <action selector="addImageTapped:" destination="AJ9-uN-DLI" eventType="touchUpInside" id="fEh-Rz-55S"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="He0-6T-Dgu">
+                                                <rect key="frame" x="137" y="374.5" width="100" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="TKW-P2-eXa"/>
+                                                    <constraint firstAttribute="width" secondItem="He0-6T-Dgu" secondAttribute="height" multiplier="1:1" id="ZKD-en-0cv"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-Js-FrS">
+                                                <rect key="frame" x="127.5" y="489.5" width="119.5" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="ofF-1E-I3F"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Add Product">
+                                                    <backgroundConfiguration key="background" cornerRadius="10"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="addProductTapped:" destination="AJ9-uN-DLI" eventType="touchUpInside" id="M8L-iM-JEX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Lap-Gb-sjv" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="1G4-f9-q7p"/>
+                                            <constraint firstItem="y5D-i8-E7s" firstAttribute="leading" secondItem="Aud-8Z-cFi" secondAttribute="leading" id="AIv-5r-fIL"/>
+                                            <constraint firstItem="EeQ-Zj-LtV" firstAttribute="trailing" secondItem="2Gj-xK-o0r" secondAttribute="trailing" id="DqL-6a-zhB"/>
+                                            <constraint firstItem="Aud-8Z-cFi" firstAttribute="leading" secondItem="gj7-oZ-pHn" secondAttribute="leading" constant="58.5" id="Iwt-sV-87f"/>
+                                            <constraint firstItem="Aud-8Z-cFi" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="Ug8-er-M2c"/>
+                                            <constraint firstItem="wWd-bc-rw8" firstAttribute="leading" secondItem="y5D-i8-E7s" secondAttribute="leading" id="Zmp-ZR-MB1"/>
+                                            <constraint firstItem="y5D-i8-E7s" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="b9r-kT-XgP"/>
+                                            <constraint firstItem="He0-6T-Dgu" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="bTq-WA-6sn"/>
+                                            <constraint firstItem="wWd-bc-rw8" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="db9-Jh-8Dk"/>
+                                            <constraint firstItem="Hx4-u8-sSY" firstAttribute="leading" secondItem="Lap-Gb-sjv" secondAttribute="leading" id="e7R-Rr-sHF"/>
+                                            <constraint firstItem="Mgr-Rz-7Q9" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="mnc-Ey-XJQ"/>
+                                            <constraint firstItem="Lap-Gb-sjv" firstAttribute="leading" secondItem="wWd-bc-rw8" secondAttribute="leading" id="nxC-VA-87s"/>
+                                            <constraint firstItem="QZb-Js-FrS" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="sk0-CF-b8R"/>
+                                            <constraint firstItem="Hx4-u8-sSY" firstAttribute="centerX" secondItem="gj7-oZ-pHn" secondAttribute="centerX" id="uTb-A0-n7x"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gj7-oZ-pHn" firstAttribute="centerX" secondItem="G1v-3l-sKI" secondAttribute="centerX" id="RUY-OF-kMB"/>
+                                    <constraint firstAttribute="trailing" secondItem="gj7-oZ-pHn" secondAttribute="trailing" id="VBy-w1-G0b"/>
+                                    <constraint firstAttribute="bottom" secondItem="gj7-oZ-pHn" secondAttribute="bottom" constant="167" id="WwC-rN-ykp"/>
+                                    <constraint firstItem="gj7-oZ-pHn" firstAttribute="top" secondItem="G1v-3l-sKI" secondAttribute="top" id="hm1-Er-Tya"/>
+                                    <constraint firstItem="gj7-oZ-pHn" firstAttribute="leading" secondItem="G1v-3l-sKI" secondAttribute="leading" id="paT-Uw-BjN"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H3L-ue-tfc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="H3L-ue-tfc" firstAttribute="trailing" secondItem="G1v-3l-sKI" secondAttribute="trailing" constant="20" id="1wC-r6-55B"/>
+                            <constraint firstItem="H3L-ue-tfc" firstAttribute="bottom" secondItem="G1v-3l-sKI" secondAttribute="bottom" constant="20" id="5Sp-uJ-SNE"/>
+                            <constraint firstItem="G1v-3l-sKI" firstAttribute="leading" secondItem="rVG-9A-k2h" secondAttribute="leadingMargin" id="EdJ-Zr-Iky"/>
+                            <constraint firstItem="G1v-3l-sKI" firstAttribute="top" secondItem="H3L-ue-tfc" secondAttribute="top" constant="20" id="XR0-mG-kG4"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cOH-TN-pbI"/>
+                    <connections>
+                        <outlet property="brandNameTxt" destination="y5D-i8-E7s" id="Qav-wk-3WO"/>
+                        <outlet property="carModelTxt" destination="wWd-bc-rw8" id="ifS-yK-mwS"/>
+                        <outlet property="conditionTxt" destination="Lap-Gb-sjv" id="1Qm-hG-536"/>
+                        <outlet property="descriptionTxt" destination="Hx4-u8-sSY" id="fDz-ih-QmT"/>
+                        <outlet property="productImg" destination="He0-6T-Dgu" id="zMJ-cw-dVW"/>
+                        <outlet property="productNameTxt" destination="Aud-8Z-cFi" id="GY4-x4-1F2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9CA-Su-4vu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3986" y="2101"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="Aud-8Z-cFi">
+            <size key="intrinsicContentSize" width="121" height="34"/>
+        </designable>
         <designable name="ERY-4B-rka">
-            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="95.5" height="34"/>
+        </designable>
+        <designable name="Hx4-u8-sSY">
+            <size key="intrinsicContentSize" width="93" height="34"/>
+        </designable>
+        <designable name="Lap-Gb-sjv">
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
         </designable>
         <designable name="Qdd-T9-1S7">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="80.5" height="34"/>
         </designable>
         <designable name="Rri-eT-M1v">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="81" height="34"/>
         </designable>
         <designable name="b0p-KS-r9v">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="69" height="34"/>
         </designable>
         <designable name="fe3-VQ-lFT">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="104.5" height="34"/>
         </designable>
         <designable name="o4W-aw-q7H">
-            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="93" height="34"/>
+        </designable>
+        <designable name="wWd-bc-rw8">
+            <size key="intrinsicContentSize" width="51" height="34"/>
         </designable>
         <designable name="y39-7R-zvx">
-            <size key="intrinsicContentSize" width="257" height="36.833984375"/>
+            <size key="intrinsicContentSize" width="93" height="34"/>
+        </designable>
+        <designable name="y5D-i8-E7s">
+            <size key="intrinsicContentSize" width="66.5" height="34"/>
         </designable>
         <designable name="ytO-OB-Ikf">
-            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
+            <size key="intrinsicContentSize" width="131.5" height="34"/>
         </designable>
     </designables>
     <resources>
