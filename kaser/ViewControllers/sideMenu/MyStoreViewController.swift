@@ -17,6 +17,7 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var coverImg: UIImageView!
     @IBOutlet weak var myProductsTbl: UITableView!
     @IBOutlet weak var addStoreBtn: UIButton!
+    @IBOutlet weak var addProductsBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,9 @@ class MyStoreViewController: UIViewController{
     
     @IBAction func addStoreTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AddStoreNavID", sender: self)
+    }
+    @IBAction func addProductsTapped(_ sender: Any) {
+        
     }
     
     func setupView() {
@@ -52,17 +56,17 @@ class MyStoreViewController: UIViewController{
             print("Store owner for index \(storesArray[index].storeName): \(storeOwner)")
         }
 
-        
+        updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "")
         myProductsTbl.reloadData()
     }
     
     func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String){
         if !storeName.isEmpty {
 //        if storeName != {
-            storeNameLbl.text = storeName
-            storeNbLbl.text = storeLocation
-            locationLbl.text = storeAddress
-            reviewsLbl.text = storeOwner
+            storeNameLbl.text = "Store Name: " + storeName
+            storeNbLbl.text = "Store Location: " + storeLocation
+            locationLbl.text = "Store Address: " + storeAddress
+            reviewsLbl.text = "Store Owner: " + storeOwner
             addStoreBtn.isHidden = true
         }else{
             addStoreBtn.isHidden = false
