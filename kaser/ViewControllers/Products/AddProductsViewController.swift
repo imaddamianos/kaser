@@ -17,6 +17,7 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
     @IBOutlet weak var productImg: UIImageView!
     var imageURL = ""
     var presenter: AddProductVcPresenter!
+    var storeName: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +85,7 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
               return
           }
           // Call the presenter method to add the store
-          self.presenter.addProduct(productName: productNameTxt.text!, brand: brandNameTxt.text!, car: carModelTxt.text!, condition: conditionTxt.text!, description: descriptionTxt.text!, image: imageURL)
+        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, car: carModelTxt.text!, condition: conditionTxt.text!, description: descriptionTxt.text!, image: imageURL)
 
         
     }

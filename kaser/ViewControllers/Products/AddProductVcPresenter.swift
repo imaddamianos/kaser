@@ -18,10 +18,10 @@ class AddProductVcPresenter{
         self.view = view
     }
     
-    func addProduct(productName: String, brand: String, car: String, condition: String, description: String, image: String){
+    func addProduct(productName: String, storeName: String, brand: String, car: String, condition: String, description: String, image: String){
 //        let UserId = emailID.replace(target: ".", withString: "-")
 //        newID = UserId
-        APICalls.shared.addProductInfo(productName: productName,brand: brand, car: car, condition: condition, description: description, image: image){[weak self] (isSuccess) in
+        APICalls.shared.addProductInfo(productName: productName, storeName: storeName,brand: brand, car: car, condition: condition, description: description, image: image){[weak self] (isSuccess) in
         guard let StrongSelf = self else{
             return
         }
