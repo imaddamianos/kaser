@@ -52,11 +52,12 @@ class MyStoreViewController: UIViewController{
             self.storeName = store.storeName
             let storeLocation = store.delivery
             let storeAddress = store.address
-            updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress)
+            let storeImage = store.storeImage
+            updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
         }
         getProducts()
         if storesArray.isEmpty{
-        updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "")
+            updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
         }
     }
     
@@ -76,7 +77,7 @@ class MyStoreViewController: UIViewController{
         }
     }
     
-    func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String){
+    func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String, storeImage: String){
         if !storeName.isEmpty {
             storeNameLbl.text = "Store Name: " + storeName
             storeNbLbl.text = "Store Location: " + storeLocation
@@ -84,6 +85,23 @@ class MyStoreViewController: UIViewController{
             reviewsLbl.text = "Store Owner: " + storeOwner
             addStoreBtn.isHidden = true
             addProductsBtn.isHidden = false
+            if let imageUrl = URL(string: storeImage) {
+                DispatchQueue.global().async {
+                    do {
+                        let imageData = try Data(contentsOf: imageUrl)
+                        if let image = UIImage(data: imageData) {
+                            // Cache the downloaded image
+                            self.imageCache.setObject(image, forKey: storeImage as NSString)
+                            DispatchQueue.main.async {
+                                // Display the downloaded image
+                                self.coverImg.image = image
+                            }
+                        }
+                    } catch {
+                        print("Failed to fetch image from URL: \(error)")
+                    }
+                }
+            }
         }else{
             addStoreBtn.isHidden = false
             storeNameLbl.isHidden = true
