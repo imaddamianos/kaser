@@ -55,9 +55,11 @@ class MyStoreViewController: UIViewController{
             let storeImage = store.storeImage
             updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
         }
-        getProducts()
+        
         if storesArray.isEmpty{
             updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+        }else{
+            getProducts()
         }
     }
     
