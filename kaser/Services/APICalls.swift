@@ -53,7 +53,7 @@ class APICalls: NSObject {
     }
     
     func addProductInfo(productName: String, storeName: String, brand: String, car: String, condition: String, description: String, image: String, completion: ((Bool) -> Void)?){
-        ref.child("Products").child(storeName).setValue(["productName": productName, "brand": brand, "car": car, "condition": condition, "description" : description, "productImage" : image, "productOwner" : newEmail]) {
+        ref.child("Products").child(storeName).child(productName).setValue(["productName": productName, "brand": brand, "car": car, "condition": condition, "description" : description, "productImage" : image, "productOwner" : newEmail]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
@@ -140,39 +140,36 @@ class APICalls: NSObject {
         })
     }
     
-    func getProducts(store: String, completion: ((Bool) -> Void)?) {
-        ref.child("Products").getData(completion:  { error, snapshot in
+    func getProducts(store: String, completion: @escaping (Bool) -> Void) {
+//        var productsArray: [Product] = []
+        ref.child("Products").child(store).getData(completion: { error, snapshot in
             guard error == nil else {
                 print(error!.localizedDescription)
-                completion?(false)
+                completion(false)
                 return
             }
 
             let decoder = JSONDecoder()
             do {
-                if let value = snapshot.value as? [String: Any] {
+                if let productData = snapshot.value as? [String: [String: Any]] {
                     productsArray.removeAll()
-                    for (_, productData) in value {
-                        if let productData = productData as? [String: Any] {
-                            let jsonData = try JSONSerialization.data(withJSONObject: productData)
+                    for (_, productDict) in productData {
+                        if let jsonData = try? JSONSerialization.data(withJSONObject: productDict) {
                             let product = try decoder.decode(Product.self, from: jsonData)
                             productsArray.append(product)
                         }
                     }
-
-                    // Access the productsArray here
-                    print(productsArray)
-
-                    completion?(true)
+                    completion(true)
                 } else {
-                    completion?(false)
+                    completion(false)
                 }
             } catch {
                 print("Error decoding JSON: \(error)")
-                completion?(false)
+                completion(false)
             }
         })
     }
+
 
     
     

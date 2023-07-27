@@ -92,34 +92,79 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
 }
 
 extension AddProductsViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+//        GFunction.shared.addLoader("Uploading")
+//        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
+//            return
+//        }
+//        guard let imageData = image.pngData() else{
+//            return
+//        }
+//        imageProductRef.putData(imageData, metadata: nil, completion: { _, error in
+//            guard error == nil else{
+//                print("Failed to upload")
+//                return
+//            }
+//            imageProductRef.downloadURL(completion: {url, error in
+//                guard let url = url, error == nil else{
+//                return
+//                }
+//                let urlString = url.absoluteString
+//                performOn(.main){
+//                    self.imageURL = urlString
+//                    self.productImg.image = image
+//                }
+//                picker.dismiss(animated: false, completion: nil)
+//                GFunction.shared.removeLoader()
+//                print("download url: \(urlString)")
+//                UserDefaults.standard.setValue(urlString, forKey: "url")
+//            })
+//        })
+//    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         GFunction.shared.addLoader("Uploading")
-        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
+        guard let image = info[.editedImage] as? UIImage,
+              let productNamePath = productNamePath else {
+            // Handle the case where either image or productNamePath is nil
+            picker.dismiss(animated: true, completion: nil)
             return
         }
-        guard let imageData = image.pngData() else{
+
+        // Assuming you have initialized storageRef appropriately
+        let imageProductRef = storageRef.child("image/Products/\(productNamePath).png")
+
+        guard let imageData = image.pngData() else {
+            // Handle the case where imageData is nil
+            picker.dismiss(animated: true, completion: nil)
             return
         }
-        imageProductRef.putData(imageData, metadata: nil, completion: { _, error in
-            guard error == nil else{
-                print("Failed to upload")
-                return
+
+        // Upload the image data to Firebase Storage
+        imageProductRef.putData(imageData, metadata: nil) { (_, error) in
+            picker.dismiss(animated: true, completion: nil)
+            if let error = error {
+                // Handle the error during image upload
+                print("Failed to upload image: \(error.localizedDescription)")
+            } else {
+                // Image upload successful, perform any additional actions here
+                print("Image uploaded successfully")
+                imageProductRef.downloadURL(completion: {url, error in
+                    guard let url = url, error == nil else{
+                    return
+                    }
+                    let urlString = url.absoluteString
+                    performOn(.main){
+                        self.imageURL = urlString
+                        self.productImg.image = image
+                    }
+                    picker.dismiss(animated: false, completion: nil)
+                    GFunction.shared.removeLoader()
+                    print("download url: \(urlString)")
+                    UserDefaults.standard.setValue(urlString, forKey: "url")
+                })
             }
-            imageProductRef.downloadURL(completion: {url, error in
-                guard let url = url, error == nil else{
-                return
-                }
-                let urlString = url.absoluteString
-                performOn(.main){
-                    self.imageURL = urlString
-                    self.productImg.image = image
-                }
-                picker.dismiss(animated: false, completion: nil)
-                GFunction.shared.removeLoader()
-                print("download url: \(urlString)")
-                UserDefaults.standard.setValue(urlString, forKey: "url")
-            })
-        })
+        }
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){

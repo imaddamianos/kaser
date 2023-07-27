@@ -28,7 +28,7 @@ class MyStoreViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setupView()
+        getProducts()
     }
     
     @IBAction func addStoreTapped(_ sender: Any) {
@@ -49,29 +49,35 @@ class MyStoreViewController: UIViewController{
         for index in 0..<storesArray.count {
             let store = storesArray[index]
             let storeOwner = store.storeOwner
-            storeName = store.storeName
+            self.storeName = store.storeName
             let storeLocation = store.delivery
             let storeAddress = store.address
             updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress)
-            
-            // Use the storeName value to get products
-            APICalls.shared.getProducts(store: store.storeName) {[weak self] (isSuccess) in
-                guard let StrongSelf = self else{
-                    return
-                }
-                if !isSuccess { return }
-                StrongSelf.myProductsTbl.reloadData()
-            }
         }
+        getProducts()
         if storesArray.isEmpty{
         updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "")
         }
-//        myProductsTbl.reloadData()
+    }
+    
+    func getProducts(){
+        APICalls.shared.getProducts(store: self.storeName ?? "") { success in
+            self.handleProductsFetchResult(success: success)
+        }
+    }
+    
+    func handleProductsFetchResult(success: Bool) {
+        if success {
+            // Products fetched successfully, you can now use the productsArray
+            print(productsArray)
+        } else {
+            // Error occurred while fetching products
+            print("Failed to fetch products.")
+        }
     }
     
     func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String){
         if !storeName.isEmpty {
-//        if storeName != {
             storeNameLbl.text = "Store Name: " + storeName
             storeNbLbl.text = "Store Location: " + storeLocation
             locationLbl.text = "Store Address: " + storeAddress
