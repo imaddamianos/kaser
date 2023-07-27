@@ -49,78 +49,60 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
     @IBAction func addProductTapped(_ sender: Any) {
         
         // Check if any field is empty
-          if productNameTxt.text?.isEmpty ?? true {
-              GFunction.shared.showAlert("Product Name", message: "Please enter the product Name", btnName: "OK") {
+        if productNameTxt.text?.isEmpty ?? true {
+            GFunction.shared.showAlert("Product Name", message: "Please enter the product Name", btnName: "OK") {
+                
+            }
+            return
+        }
+        
+        if brandNameTxt.text?.isEmpty ?? true {
+            GFunction.shared.showAlert("Brand Name", message: "Please enter the brand name of the prodcut", btnName: "OK") {
+                
+            }
+            return
+        }
+        
+        if carModelTxt.text?.isEmpty ?? true {
+            GFunction.shared.showAlert("Car Model address", message: "Please enter the Car Model for this product", btnName: "OK") {
+                
+            }
+            return
+        }
+        
+        if conditionTxt.text?.isEmpty ?? true {
+            GFunction.shared.showAlert("Condition Type", message: "Please enter the condition type of the product", btnName: "OK") {
+                
+            }
+            return
+        }
+        
+        if descriptionTxt.text?.isEmpty ?? true {
+            GFunction.shared.showAlert("Product description", message: "Please enter the product description", btnName: "OK") {
+                
+            }
+            
+            return
+        }
+        // Call the presenter method to add the store
+        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, car: carModelTxt.text!, condition: conditionTxt.text!, description: descriptionTxt.text!, image: imageURL){ isSuccess in
+            if isSuccess {
+                // Handle successful completion here
+                print("Product added successfully.")
+                // Inside your view controller, assuming you have a reference to the previousViewController
+                self.navigationController?.popViewController(animated: true)
 
-              }
-              return
-          }
-          
-          if brandNameTxt.text?.isEmpty ?? true {
-              GFunction.shared.showAlert("Brand Name", message: "Please enter the brand name of the prodcut", btnName: "OK") {
-
-              }
-              return
-          }
-          
-          if carModelTxt.text?.isEmpty ?? true {
-              GFunction.shared.showAlert("Car Model address", message: "Please enter the Car Model for this product", btnName: "OK") {
-
-              }
-              return
-          }
-          
-          if conditionTxt.text?.isEmpty ?? true {
-              GFunction.shared.showAlert("Condition Type", message: "Please enter the condition type of the product", btnName: "OK") {
-
-              }
-              return
-          }
-          
-          if descriptionTxt.text?.isEmpty ?? true {
-              GFunction.shared.showAlert("Product description", message: "Please enter the product description", btnName: "OK") {
-
-              }
-              
-              return
-          }
-          // Call the presenter method to add the store
-        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, car: carModelTxt.text!, condition: conditionTxt.text!, description: descriptionTxt.text!, image: imageURL)
-
+            } else {
+                // Handle failure here
+                print("Failed to add product.")
+            }
+        }
+        
         
     }
 }
 
 extension AddProductsViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
-//        GFunction.shared.addLoader("Uploading")
-//        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else{
-//            return
-//        }
-//        guard let imageData = image.pngData() else{
-//            return
-//        }
-//        imageProductRef.putData(imageData, metadata: nil, completion: { _, error in
-//            guard error == nil else{
-//                print("Failed to upload")
-//                return
-//            }
-//            imageProductRef.downloadURL(completion: {url, error in
-//                guard let url = url, error == nil else{
-//                return
-//                }
-//                let urlString = url.absoluteString
-//                performOn(.main){
-//                    self.imageURL = urlString
-//                    self.productImg.image = image
-//                }
-//                picker.dismiss(animated: false, completion: nil)
-//                GFunction.shared.removeLoader()
-//                print("download url: \(urlString)")
-//                UserDefaults.standard.setValue(urlString, forKey: "url")
-//            })
-//        })
-//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         GFunction.shared.addLoader("Uploading")
@@ -130,16 +112,16 @@ extension AddProductsViewController: UIImagePickerControllerDelegate & UINavigat
             picker.dismiss(animated: true, completion: nil)
             return
         }
-
+        
         // Assuming you have initialized storageRef appropriately
         let imageProductRef = storageRef.child("image/Products/\(productNamePath).png")
-
+        
         guard let imageData = image.pngData() else {
             // Handle the case where imageData is nil
             picker.dismiss(animated: true, completion: nil)
             return
         }
-
+        
         // Upload the image data to Firebase Storage
         imageProductRef.putData(imageData, metadata: nil) { (_, error) in
             picker.dismiss(animated: true, completion: nil)
@@ -151,7 +133,7 @@ extension AddProductsViewController: UIImagePickerControllerDelegate & UINavigat
                 print("Image uploaded successfully")
                 imageProductRef.downloadURL(completion: {url, error in
                     guard let url = url, error == nil else{
-                    return
+                        return
                     }
                     let urlString = url.absoluteString
                     performOn(.main){

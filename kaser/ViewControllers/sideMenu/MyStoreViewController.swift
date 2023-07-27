@@ -28,7 +28,7 @@ class MyStoreViewController: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getProducts()
+        setupView()
     }
     
     @IBAction func addStoreTapped(_ sender: Any) {

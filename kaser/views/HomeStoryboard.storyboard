@@ -861,11 +861,11 @@
             <objects>
                 <viewController storyboardIdentifier="MyStoreViewController" id="zC4-ER-rva" customClass="MyStoreViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EX6-JG-7AC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mpQ-qI-PSO">
-                                <rect key="frame" x="46" y="373" width="322" height="24"/>
+                                <rect key="frame" x="46" y="431" width="322" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -943,7 +943,7 @@
                                 </subviews>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-Rx-cgL">
-                                <rect key="frame" x="20" y="182.5" width="374" height="587.5"/>
+                                <rect key="frame" x="20" y="182.5" width="374" height="703.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="zC4-ER-rva" id="cha-eW-UdW"/>
@@ -1009,11 +1009,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddStoreViewController" id="GqD-Wg-7dk" customClass="AddStoreViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NuV-Dc-qCE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dO1-ev-jPT">
-                                <rect key="frame" x="20" y="20" width="374" height="730"/>
+                                <rect key="frame" x="20" y="20" width="374" height="846"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="M1Z-Ld-tVt">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="563"/>
@@ -1187,11 +1187,11 @@
             <objects>
                 <viewController storyboardIdentifier="AddProductsViewController" id="AJ9-uN-DLI" customClass="AddProductsViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rVG-9A-k2h">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G1v-3l-sKI">
-                                <rect key="frame" x="20" y="20" width="374" height="730"/>
+                                <rect key="frame" x="20" y="20" width="374" height="846"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gj7-oZ-pHn">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="563"/>
@@ -1353,6 +1353,7 @@
                         <outlet property="descriptionTxt" destination="Hx4-u8-sSY" id="fDz-ih-QmT"/>
                         <outlet property="productImg" destination="He0-6T-Dgu" id="zMJ-cw-dVW"/>
                         <outlet property="productNameTxt" destination="Aud-8Z-cFi" id="GY4-x4-1F2"/>
+                        <segue destination="zC4-ER-rva" kind="show" identifier="BacktoStoreNavID" id="jy1-ym-YVo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9CA-Su-4vu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1401,6 +1402,9 @@
             <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="jy1-ym-YVo"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="123" width="30" height="15"/>
         <image name="abc" width="30" height="15"/>

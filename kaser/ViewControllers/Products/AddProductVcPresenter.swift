@@ -18,7 +18,7 @@ class AddProductVcPresenter{
         self.view = view
     }
     
-    func addProduct(productName: String, storeName: String, brand: String, car: String, condition: String, description: String, image: String){
+    func addProduct(productName: String, storeName: String, brand: String, car: String, condition: String, description: String, image: String, completion: (Bool) -> Void){
 //        let UserId = emailID.replace(target: ".", withString: "-")
 //        newID = UserId
         APICalls.shared.addProductInfo(productName: productName, storeName: storeName,brand: brand, car: car, condition: condition, description: description, image: image){[weak self] (isSuccess) in
@@ -26,18 +26,18 @@ class AddProductVcPresenter{
             return
         }
         if !isSuccess { return }
-        
-        StrongSelf.naviToStore()
+//        StrongSelf.naviToStore()self.dismiss(animated: true, completion: nil)
            
     }
+        completion(true)
 }
-    func naviToStore(){
-        DispatchQueue.main.async {
-            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MyStoreViewController")
-            viewController.modalPresentationStyle = .fullScreen
-            UIApplication.present(viewController: viewController)
-
-        }
-    }
+//    func naviToStore(){
+//        DispatchQueue.main.async {
+//            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "MyStoreViewController")
+//            viewController.modalPresentationStyle = .fullScreen
+//            UIApplication.findPrevious(self)
+//
+//        }
+//    }
 
 }
