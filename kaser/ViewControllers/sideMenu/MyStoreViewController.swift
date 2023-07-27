@@ -68,7 +68,7 @@ class MyStoreViewController: UIViewController{
     
     func handleProductsFetchResult(success: Bool) {
         if success {
-            // Products fetched successfully, you can now use the productsArray
+            myProductsTbl.reloadData()
             print(productsArray)
         } else {
             // Error occurred while fetching products
