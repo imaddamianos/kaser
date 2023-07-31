@@ -17,6 +17,9 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var coverImg: UIImageView!
     @IBOutlet weak var myProductsTbl: UITableView!
     @IBOutlet weak var addStoreBtn: UIButton!
+    @IBOutlet weak var addProductsBtn: UIButton!
+    var storeName: String?
+    var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +34,9 @@ class MyStoreViewController: UIViewController{
     @IBAction func addStoreTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AddStoreNavID", sender: self)
     }
+    @IBAction func addProductsTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "AddProductsNavID", sender: self)
+    }
     
     func setupView() {
         myProductsTbl.dataSource = self
@@ -43,37 +49,80 @@ class MyStoreViewController: UIViewController{
         for index in 0..<storesArray.count {
             let store = storesArray[index]
             let storeOwner = store.storeOwner
-            let storeName = store.storeName
+            self.storeName = store.storeName
             let storeLocation = store.delivery
             let storeAddress = store.address
-            updateStoreHeader(storeName: storeName, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress)
-            
-            // Use the storeOwner value as needed
-            print("Store owner for index \(storesArray[index].storeName): \(storeOwner)")
+            let storeImage = store.storeImage
+            updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
         }
-
         
-        myProductsTbl.reloadData()
+        if storesArray.isEmpty{
+            updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+        }else{
+            getProducts()
+        }
     }
     
-    func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String){
+    func getProducts(){
+        APICalls.shared.getProducts(store: self.storeName ?? "") { success in
+            self.handleProductsFetchResult(success: success)
+        }
+    }
+    
+    func handleProductsFetchResult(success: Bool) {
+        if success {
+            myProductsTbl.reloadData()
+            print(productsArray)
+        } else {
+            // Error occurred while fetching products
+            print("Failed to fetch products.")
+        }
+    }
+    
+    func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String, storeImage: String){
         if !storeName.isEmpty {
-//        if storeName != {
-            storeNameLbl.text = storeName
-            storeNbLbl.text = storeLocation
-            locationLbl.text = storeAddress
-            reviewsLbl.text = storeOwner
+            storeNameLbl.text = "Store Name: " + storeName
+            storeNbLbl.text = "Store Location: " + storeLocation
+            locationLbl.text = "Store Address: " + storeAddress
+            reviewsLbl.text = "Store Owner: " + storeOwner
             addStoreBtn.isHidden = true
+            addProductsBtn.isHidden = false
+            if let imageUrl = URL(string: storeImage) {
+                DispatchQueue.global().async {
+                    do {
+                        let imageData = try Data(contentsOf: imageUrl)
+                        if let image = UIImage(data: imageData) {
+                            // Cache the downloaded image
+                            self.imageCache.setObject(image, forKey: storeImage as NSString)
+                            DispatchQueue.main.async {
+                                // Display the downloaded image
+                                self.coverImg.image = image
+                            }
+                        }
+                    } catch {
+                        print("Failed to fetch image from URL: \(error)")
+                    }
+                }
+            }
         }else{
             addStoreBtn.isHidden = false
             storeNameLbl.isHidden = true
             storeNbLbl.isHidden = true
             locationLbl.isHidden = true
             reviewsLbl.isHidden = true
+            addProductsBtn.isHidden = true
         }
         
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "AddProductsNavID",
+               let destinationVC = segue.destination as? AddProductsViewController {
+                // Set the value you want to pass to the destination view controller
+                destinationVC.storeName = storeName
+            }
+        }
 }
 
 // MARK: - UITableViewDelegate
@@ -88,13 +137,42 @@ extension MyStoreViewController: UITableViewDelegate {
 
 extension MyStoreViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sideMenu.count
+        return productsArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyProductsTableViewCell.identifier, for: indexPath) as? MyProductsTableViewCell else { fatalError("xib doesn't exist") }
-            cell.iconImageView.image = sideMenu[indexPath.row].icon
-            cell.titleLabel.text = sideMenu[indexPath.row].title
+//            cell.iconImageView.image = productsArray[indexPath.row].productImage
+        cell.titleLabel.text = productsArray[indexPath.row].productName
+        cell.priceLbl.text = productsArray[indexPath.row].productOwner
+        cell.locationLbl.text = productsArray[indexPath.row].brand
+        cell.descriptionLbl.text = productsArray[indexPath.row].description
+        cell.storeLbl.text = productsArray[indexPath.row].productOwner
+        
+        if let cachedImage = imageCache.object(forKey: productsArray[indexPath.row].productImage as NSString) {
+            // If the image is already cached, use it
+            cell.iconImageView.image = cachedImage
+        } else {
+            // Image not cached, fetch asynchronously
+            if let imageUrl = URL(string: productsArray[indexPath.row].productImage) {
+                DispatchQueue.global().async {
+                    do {
+                        let imageData = try Data(contentsOf: imageUrl)
+                        if let image = UIImage(data: imageData) {
+                            // Cache the downloaded image
+                            self.imageCache.setObject(image, forKey: productsArray[indexPath.row].productImage as NSString)
+                            DispatchQueue.main.async {
+                                // Display the downloaded image
+                                cell.iconImageView.image = image
+                            }
+                        }
+                    } catch {
+                        print("Failed to fetch image from URL: \(error)")
+                    }
+                }
+            }
+        }
+        
         return cell
     }
 

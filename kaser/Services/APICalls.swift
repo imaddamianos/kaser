@@ -40,7 +40,20 @@ class APICalls: NSObject {
     }
     
     func addStoreInfo(storeName: String, phone: String, address: String, delivery: String, description: String, image: String, completion: ((Bool) -> Void)?){
-        ref.child("Stores").child(storeName).setValue(["storeName": storeName, "storeOwner": newEmail!, "phone": phone, "address": address, "delivery": delivery, "description" : description, "storeImage" : image, "storeOwner" : newEmail]) {
+        ref.child("Stores").child(storeName).setValue(["storeName": storeName, "phone": phone, "address": address, "delivery": delivery, "description" : description, "storeImage" : image, "storeOwner" : newEmail]) {
+          (error:Error?, ref:DatabaseReference) in
+          if let error = error {
+            print("Data could not be saved: \(error).")
+            completion?(false)
+          } else {
+            print("Data saved successfully!")
+            completion?(true)
+          }
+        }
+    }
+    
+    func addProductInfo(productName: String, storeName: String, brand: String, car: String, condition: String, description: String, image: String, completion: ((Bool) -> Void)?){
+        ref.child("Products").child(storeName).child(productName).setValue(["productName": productName, "brand": brand, "car": car, "condition": condition, "description" : description, "productImage" : image, "productOwner" : newEmail]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
@@ -126,6 +139,37 @@ class APICalls: NSObject {
             }
         })
     }
+    
+    func getProducts(store: String, completion: @escaping (Bool) -> Void) {
+//        var productsArray: [Product] = []
+        ref.child("Products").child(store).getData(completion: { error, snapshot in
+            guard error == nil else {
+                print(error!.localizedDescription)
+                completion(false)
+                return
+            }
+
+            let decoder = JSONDecoder()
+            do {
+                if let productData = snapshot.value as? [String: [String: Any]] {
+                    productsArray.removeAll()
+                    for (_, productDict) in productData {
+                        if let jsonData = try? JSONSerialization.data(withJSONObject: productDict) {
+                            let product = try decoder.decode(Product.self, from: jsonData)
+                            productsArray.append(product)
+                        }
+                    }
+                    completion(true)
+                } else {
+                    completion(false)
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
+                completion(false)
+            }
+        })
+    }
+
 
     
     

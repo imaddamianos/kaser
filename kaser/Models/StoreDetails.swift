@@ -8,6 +8,7 @@
 import Foundation
 
 var storesArray: [Store] = []
+var productsArray: [Product] = []
 
 struct Store: Codable {
     let storeName: String
@@ -18,3 +19,14 @@ struct Store: Codable {
     let storeImage: String
     let storeOwner: String
 }
+
+struct Product: Codable {
+    let productName: String
+    let brand: String
+    let car: String
+    let condition: String
+    let description: String
+    let productImage: String
+    let productOwner: String
+}
+

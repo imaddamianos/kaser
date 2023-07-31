@@ -41,7 +41,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     }
     
     func callInfo(){
-        
+        GFunction.shared.addLoader("")
         APICalls.shared.getUserInfo(name: newEmail!){[weak self] (isSuccess) in
             guard let StrongSelf = self else{
                 return

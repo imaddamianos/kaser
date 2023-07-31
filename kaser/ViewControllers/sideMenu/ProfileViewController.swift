@@ -14,8 +14,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     @IBOutlet weak var userName: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var emailTxt: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var mobileNbr: SkyFloatingLabelTextFieldWithIcon!
-    @IBOutlet weak var storeName: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var calanderVw: UIDatePicker!
+    @IBOutlet weak var updateBtn: UIButton!
     var imageURL = ""
     
     override func viewDidLoad() {
@@ -53,6 +53,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                     strongSelf.userName.text = userDetails?.name
                     strongSelf.emailTxt.text = userDetails?.email
                     strongSelf.mobileNbr.text = userDetails?.mobile
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+                    if let date = dateFormatter.date(from: userDetails?.dob ?? "") {
+                        strongSelf.calanderVw.date = date
+                    }
+                    
+                    if userDetails?.userType == "Buyer"{
+                        UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
+                    }else{
+                        UIColor.originalColor = UIColor.colorFromHex(hex: 0xd9d358)
+                        strongSelf.updateBtn.setBackgroundImage(UIImage(named: "sellerBtn"), for: .normal)
+                    }
+                    strongSelf.navigationController?.navigationBar.barTintColor = UIColor.originalColor
                     
                     if let imageUrl = URL(string: (userDetails?.image)!){
                         let image = try? UIImage(withContentsOfUrl: imageUrl)
