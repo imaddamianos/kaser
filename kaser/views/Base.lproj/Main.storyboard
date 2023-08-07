@@ -739,8 +739,8 @@ in order to get more people engaged </string>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S26-Wd-ycX">
                                 <rect key="frame" x="0.0" y="176" width="414" height="1224"/>
                                 <subviews>
-                                    <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="zqt-0m-Jge">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1341.5"/>
+                                    <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zqt-0m-Jge">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1154.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Wj-wp-wJT">
                                                 <rect key="frame" x="132" y="0.0" width="150" height="150"/>
@@ -751,7 +751,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5R5-0U-J3b">
-                                                <rect key="frame" x="165" y="182" width="84" height="34"/>
+                                                <rect key="frame" x="165" y="165" width="84" height="34"/>
                                                 <state key="normal" title="Add photo">
                                                     <color key="titleColor" red="0.078432537620000006" green="0.078429825600000003" blue="0.078430362049999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
@@ -759,27 +759,14 @@ in order to get more people engaged </string>
                                                     <action selector="addImageBtn:" destination="Vb0-gT-o7A" eventType="touchUpInside" id="9H8-8N-z92"/>
                                                 </connections>
                                             </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Choose an option" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iuz-jo-HQo" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="126" y="248" width="162" height="34"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" updatesFrequently="YES"/>
-                                                </accessibility>
-                                                <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
-                                                        <real key="value" value="200"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PH6-Ky-SZQ">
+                                                <rect key="frame" x="47" y="214" width="320" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="RDu-hO-7uF"/>
+                                                </constraints>
+                                            </pickerView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-p3-wde" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="314" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="329" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="WFm-76-2ne"/>
@@ -828,7 +815,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rky-L7-DzO" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="396" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="394" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Ygh-ed-6rh"/>
@@ -877,7 +864,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="02F-Sc-yxr" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="478" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="459" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Wwq-Sb-nTS"/>
@@ -926,7 +913,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvx-sX-qAC" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="560" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="524" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="1K8-FI-5wD"/>
@@ -975,18 +962,18 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMM-sG-E9X">
-                                                <rect key="frame" x="159" y="642" width="96" height="20.5"/>
+                                                <rect key="frame" x="159" y="589" width="96" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="UlO-Uj-rcb">
-                                                <rect key="frame" x="50" y="694.5" width="314" height="352"/>
+                                                <rect key="frame" x="50" y="624.5" width="314" height="303"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Store Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-9j-BDy" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="1078.5" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="942.5" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="tOx-lC-rHZ"/>
@@ -1035,7 +1022,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gb9-lM-CSq" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="20" y="1160.5" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="1007.5" width="374" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="erX-2v-wUI"/>
                                                 </constraints>
@@ -1058,7 +1045,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n93-bU-mMx">
-                                                <rect key="frame" x="20" y="1242.5" width="374" height="17"/>
+                                                <rect key="frame" x="20" y="1072.5" width="374" height="17"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-ac-8NV">
                                                         <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -1086,7 +1073,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GV-OP-dYj">
-                                                <rect key="frame" x="130" y="1291.5" width="154" height="50"/>
+                                                <rect key="frame" x="130" y="1104.5" width="154" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Paa-KL-dZe"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vpi-Ir-Boq"/>
@@ -1149,7 +1136,6 @@ in order to get more people engaged </string>
                         <outlet property="agreeVw" destination="n93-bU-mMx" id="Btx-6R-3Jh"/>
                         <outlet property="backBtn" destination="yzV-LB-JtG" id="A1W-TA-wIz"/>
                         <outlet property="calanderVw" destination="UlO-Uj-rcb" id="EnO-Lw-8vG"/>
-                        <outlet property="ddOption" destination="iuz-jo-HQo" id="qaW-6b-7UY"/>
                         <outlet property="headerVw" destination="qBV-7y-rc9" id="aBJ-B3-Rkt"/>
                         <outlet property="imgProfiePic" destination="4Wj-wp-wJT" id="hIH-fZ-Y4D"/>
                         <outlet property="infoLogo" destination="l1S-dH-ayz" id="7WQ-hm-bdA"/>
@@ -1162,6 +1148,7 @@ in order to get more people engaged </string>
                         <outlet property="txtLastName" destination="02F-Sc-yxr" id="Xhg-hL-0fV"/>
                         <outlet property="txtMobile" destination="dvx-sX-qAC" id="p3v-Pm-Z0g"/>
                         <outlet property="txtUserName" destination="cc4-p3-wde" id="Jjt-he-AaR"/>
+                        <outlet property="userTypePickerView" destination="PH6-Ky-SZQ" id="eQf-Vs-cHq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTS-nh-HPW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

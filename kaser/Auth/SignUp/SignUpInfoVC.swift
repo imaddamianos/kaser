@@ -12,17 +12,12 @@ import SCLAlertView
 import Firebase
 import FirebaseStorage
 
-class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
-//    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-//
-//    }
-    
-    
+class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     @IBOutlet var headerVw: UIView!
     @IBOutlet var imgProfiePic: UIImageView!
     @IBOutlet var btnAddImage: UIButton!
-    @IBOutlet var ddOption: DropDown!
+    @IBOutlet weak var userTypePickerView: UIPickerView!
     @IBOutlet var txtFirstName: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet var txtLastName: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet var txtMobile: SkyFloatingLabelTextFieldWithIcon!
@@ -44,6 +39,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     var userType: String?
     var agreeSelected = true
     var imageURL = ""
+    let userTypeArray = ["Choose an option ", "Buyer", "Seller"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -148,8 +144,9 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     }
     
     func setupView(){
-        ddOption.delegate = self
-//        showUserImage()
+        
+        userTypePickerView.dataSource = self
+        userTypePickerView.delegate = self
         #if DEBUG
         
         self.txtFirstName.text = "imad"
@@ -193,7 +190,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
                 })
         
         self.presenter = SignUpInfoVcPresenter(view: self)
-        dropDownOption ()
         initialView()
         imgProfiePic.cornerRadius(cornerRadius: imgProfiePic.frame.width / 2)
 
@@ -223,24 +219,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     func verify(){
         setupView()
     }
-    
-    func dropDownOption (){
-        ddOption.optionArray = ["Buyer", "Seller"]
-        ddOption.optionIds = [1,2]
-        ddOption.didSelect { [unowned self] (selectedText, _, _) in
-            self.userType = selectedText
-            if selectedText == "Buyer" {
-                self.buyerView()
-            }else if selectedText == "Seller" {
-                self.sellerView()
-            }else{
-                self.initialView()
-            }
-        }
-    }
     func buyerView() {
         headerVw.backgroundColor = UIColor.originalColor
-        ddOption.borderColor = UIColor.originalColor
         locationBtn.borderColor = UIColor.originalColor
         calanderVw.tintColor = UIColor.originalColor
         signUpBtn.setBackgroundImage(UIImage(named: "btnLayout"), for: .normal)
@@ -260,7 +240,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         signUpBtn.setTitleColor(UIColor.white, for: .normal)
         infoLogo.tintColor = UIColor.white
         backBtn.setImage(UIImage(named: "back"), for: .normal)
-        ddOption.selectedRowColor = UIColor.lightGray
         
     }
     
@@ -269,7 +248,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         locationBtn.isHidden = false
         storeNameTxt.isHidden = false
         headerVw.backgroundColor = UIColor.colorYellow
-        ddOption.borderColor = UIColor.colorYellow
         locationBtn.borderColor = UIColor.colorYellow
         calanderVw.tintColor = UIColor.colorYellow
         signUpBtn.setBackgroundImage(UIImage(named: "sellerBtn"), for: .normal)
@@ -279,11 +257,9 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         signUpBtn.setTitleColor(UIColor.black, for: .normal)
         infoLogo.tintColor = UIColor.black
         backBtn.setImage(UIImage(named: "sellerBackBtn"), for: .normal)
-        ddOption.selectedRowColor = UIColor.lightGray
     }
     
     func initialView() {
-        ddOption.borderColor = UIColor.originalColor
         headerVw.backgroundColor = UIColor.originalColor
         txtUserName.isHidden = true
         txtFirstName.isHidden = true
@@ -297,11 +273,33 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         locationBtn.isHidden = true
         agreeVw.isHidden = true
         signUpBtn.isHidden = true
-        ddOption.selectedRowColor = UIColor.originalColor
-        ddOption.selectedRowColor = UIColor.lightGray
         
     }
     
     
 
+}
+extension SignUpInfoVC: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        userTypeArray.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return userTypeArray[row] // Return content for each row
+    }
+
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let selectedText = userTypeArray[row]
+        if selectedText == "Buyer" {
+            self.buyerView()
+        }else if selectedText == "Seller" {
+            self.sellerView()
+        }else{
+            self.initialView()
+        }
+    }
 }
