@@ -16,9 +16,9 @@ import MapKit
 
 class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate, CLLocationManagerDelegate{
     
+    @IBOutlet weak var imageStack: UIStackView!
     @IBOutlet var headerVw: UIView!
     @IBOutlet var imgProfiePic: UIImageView!
-    @IBOutlet var btnAddImage: UIButton!
     @IBOutlet weak var userTypePickerView: UIPickerView!
     @IBOutlet var txtFirstName: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet var txtLastName: SkyFloatingLabelTextFieldWithIcon!
@@ -37,6 +37,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     @IBOutlet weak var locationCheck: UIButton!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var mapViewLocation: MKMapView!
+    @IBOutlet weak var mapStack: UIStackView!
     var presenter: SignUpInfoVcPresenter!
     var ref: DatabaseReference!
     var userType: String?
@@ -100,19 +101,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
             self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
                 if success{
                     
-//                    do {
-//                        let jsonDataLongitude = try JSONSerialization.data(withJSONObject: Double(self.longitude!)!, options: [])
-//                        let jsonDataLatitude = try JSONSerialization.data(withJSONObject: Double(self.latitude!)!, options: [])
-//                        if let jsonStringLongitude = String(data: jsonDataLongitude, encoding: .utf8) {
-//                            self.longitude = jsonStringLongitude
-//                        }
-//                        if let jsonStringLatitude = String(data: jsonDataLatitude, encoding: .utf8) {
-//                            self.latitude = jsonStringLatitude
-//                        }
-//                    } catch {
-//                        print("Error converting dictionary to string: \(error)")
-//                    }
-                    
                     if self.userType == "Buyer"{
                         self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, location: [self.latitude:self.longitude], DOB: date, userType: self.userType!, image: self.imageURL)
                         
@@ -121,7 +109,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
                     }
                 }else{
                     performOn(.main){
-                        //                    alertView.showError("User exict", subTitle: "User is already in use, choose another name")
+                        //                     alertView.showError("User exict", subTitle: "User is already in use, choose another name")
                     }
                 }
             }
@@ -329,6 +317,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         agreeVw.isHidden = false
         signUpBtn.isHidden = false
         storeNameTxt.isHidden = true
+        mapStack.isHidden = true
+        imageStack.isHidden = false
         backBtn.tintColor = UIColor.white
         infoTitle.textColor = UIColor.white
         infoSubTitle.textColor = UIColor.white
@@ -350,6 +340,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         signUpBtn.setTitleColor(UIColor.black, for: .normal)
         infoLogo.tintColor = UIColor.black
         backBtn.setImage(UIImage(named: "sellerBackBtn"), for: .normal)
+        mapStack.isHidden = false
+        imageStack.isHidden = false
     }
     
     func initialView() {
@@ -364,6 +356,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         storeNameTxt.isHidden = true
         agreeVw.isHidden = true
         signUpBtn.isHidden = true
+        mapStack.isHidden = true
+        imageStack.isHidden = true
         
     }
     

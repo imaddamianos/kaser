@@ -48,7 +48,7 @@ class SignUpPresenter{
                                     viewController.modalPresentationStyle = .fullScreen
                                     UIApplication.present(viewController: viewController)
                                 }
-//                                alertView.showSuccess("Email exist", subTitle: "\(email) is registered, go to forget password to reset your password")
+//                                 alertView.showSuccess("Email exist", subTitle: "\(email) is registered, go to forget password to reset your password")
                             }
                         case .weakPassword:
                             DispatchQueue.main.async {
