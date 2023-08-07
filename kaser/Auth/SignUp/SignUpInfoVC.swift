@@ -44,6 +44,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     var imageURL = ""
     let userTypeArray = ["Choose an option ", "Buyer", "Seller"]
     let locationManager = CLLocationManager()
+    var latitude: String?
+    var longitude: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,11 +99,25 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
             
             self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
                 if success{
+                    
+//                    do {
+//                        let jsonDataLongitude = try JSONSerialization.data(withJSONObject: Double(self.longitude!)!, options: [])
+//                        let jsonDataLatitude = try JSONSerialization.data(withJSONObject: Double(self.latitude!)!, options: [])
+//                        if let jsonStringLongitude = String(data: jsonDataLongitude, encoding: .utf8) {
+//                            self.longitude = jsonStringLongitude
+//                        }
+//                        if let jsonStringLatitude = String(data: jsonDataLatitude, encoding: .utf8) {
+//                            self.latitude = jsonStringLatitude
+//                        }
+//                    } catch {
+//                        print("Error converting dictionary to string: \(error)")
+//                    }
+                    
                     if self.userType == "Buyer"{
-                        self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: date, userType: self.userType!, image: self.imageURL)
+                        self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, location: [self.latitude:self.longitude], DOB: date, userType: self.userType!, image: self.imageURL)
                         
                     }else{
-                        self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: date, storeName: self.storeNameTxt.text!, location: ["lat":32, "long":34], userType: self.userType!, image: self.imageURL)
+                        self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: date, storeName: self.storeNameTxt.text!, location: [self.latitude:self.longitude], userType: self.userType!, image: self.imageURL)
                     }
                 }else{
                     performOn(.main){
@@ -225,23 +241,13 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
 
     }
     
-    func setupLocationManager() {
-           locationManager.delegate = self
-           locationManager.desiredAccuracy = kCLLocationAccuracyBest
-           locationManager.requestWhenInUseAuthorization()
-       }
-    
-    // Function to start updating location when needed
-        func startUpdatingLocation() {
-            locationManager.startUpdatingLocation()
-        }
-
-        // CLLocationManagerDelegate method to receive location updates
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let location = locations.last else { return }
 
             let latitude = location.coordinate.latitude
             let longitude = location.coordinate.longitude
+            self.longitude = String(longitude)
+            self.latitude = String(latitude)
 
             // Create a CLLocationCoordinate2D instance with the coordinates
             let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -253,16 +259,37 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
             // Create a new annotation with the user's location
             let annotation = MKPointAnnotation()
             annotation.coordinate = coordinates
-            annotation.title = "Your Location"
+            
+            // Reverse geocode to get the location name
+            let locationName = getLocationNameFromCoordinates(latitude: latitude, longitude: longitude)
+            annotation.title = locationName
+            
             mapViewLocation.addAnnotation(annotation)
         }
 
-        // CLLocationManagerDelegate method to handle location authorization changes
-        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-            if status == .authorizedWhenInUse || status == .authorizedAlways {
-                // Location access granted, you can start updating location
-                startUpdatingLocation()
+        // Reverse geocoding function
+        func getLocationNameFromCoordinates(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> String {
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            let geocoder = CLGeocoder()
+
+            var locationName = ""
+
+            geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                if let error = error {
+                    print("Reverse geocoding error: \(error.localizedDescription)")
+                    return
+                }
+
+                if let placemark = placemarks?.first {
+                    // You can access various components of the placemark
+                    if let name = placemark.name {
+                        self.locationLbl.text = name
+                        locationName = name
+                    }
+                }
             }
+
+            return locationName
         }
     
     func showUserImage(){
