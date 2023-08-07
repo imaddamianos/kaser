@@ -740,7 +740,7 @@ in order to get more people engaged </string>
                                 <rect key="frame" x="0.0" y="176" width="414" height="1224"/>
                                 <subviews>
                                     <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zqt-0m-Jge">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1154.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1280"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Wj-wp-wJT">
                                                 <rect key="frame" x="132" y="0.0" width="150" height="150"/>
@@ -968,12 +968,12 @@ in order to get more people engaged </string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="UlO-Uj-rcb">
-                                                <rect key="frame" x="50" y="624.5" width="314" height="303"/>
+                                                <rect key="frame" x="50" y="624.5" width="314" height="328.5"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Store Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-9j-BDy" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="942.5" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="968" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="tOx-lC-rHZ"/>
@@ -1021,31 +1021,37 @@ in order to get more people engaged </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gb9-lM-CSq" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="20" y="1007.5" width="374" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dlH-zO-F4h">
+                                                <rect key="frame" x="0.0" y="1033" width="414" height="150"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ta-do-k8L">
+                                                        <rect key="frame" x="0.0" y="0.0" width="41.5" height="150"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcj-SV-H3M" customClass="MKMapView">
+                                                        <rect key="frame" x="115.5" y="0.0" width="150" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="mcj-SV-H3M" secondAttribute="height" multiplier="1:1" id="3gz-dC-RjM"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFF-eO-pkt">
+                                                        <rect key="frame" x="339" y="0.0" width="75" height="150"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                        <connections>
+                                                            <action selector="locationBtnTapped:" destination="Vb0-gT-o7A" eventType="touchUpInside" id="p6d-tD-P4U"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="erX-2v-wUI"/>
+                                                    <constraint firstAttribute="height" constant="150" id="O6b-k2-bRW"/>
                                                 </constraints>
-                                                <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
-                                                        <real key="value" value="200"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchEnable" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n93-bU-mMx">
-                                                <rect key="frame" x="20" y="1072.5" width="374" height="17"/>
+                                                <rect key="frame" x="20" y="1198" width="374" height="17"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-ac-8NV">
                                                         <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -1073,7 +1079,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GV-OP-dYj">
-                                                <rect key="frame" x="130" y="1104.5" width="154" height="50"/>
+                                                <rect key="frame" x="130" y="1230" width="154" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Paa-KL-dZe"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vpi-Ir-Boq"/>
@@ -1090,13 +1096,13 @@ in order to get more people engaged </string>
                                             <constraint firstItem="dvx-sX-qAC" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="1tW-Jk-Wt8"/>
                                             <constraint firstItem="Foy-9j-BDy" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="3oV-u0-1SA"/>
                                             <constraint firstItem="UlO-Uj-rcb" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="50" id="6VC-Xr-M5c"/>
+                                            <constraint firstAttribute="trailing" secondItem="dlH-zO-F4h" secondAttribute="trailing" id="9Vk-GV-Zh0"/>
+                                            <constraint firstItem="dlH-zO-F4h" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" id="A8Z-p7-Srw"/>
                                             <constraint firstItem="02F-Sc-yxr" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="NY6-EC-6P3"/>
                                             <constraint firstItem="cc4-p3-wde" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="Pyf-tb-mN1"/>
                                             <constraint firstItem="rky-L7-DzO" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="TBh-oM-Ihr"/>
                                             <constraint firstItem="n93-bU-mMx" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="XkK-Bc-3eV"/>
-                                            <constraint firstAttribute="trailing" secondItem="gb9-lM-CSq" secondAttribute="trailing" constant="20" id="YGx-bb-EhK"/>
                                             <constraint firstAttribute="trailing" secondItem="Foy-9j-BDy" secondAttribute="trailing" constant="20" id="c4W-Ri-Aze"/>
-                                            <constraint firstItem="gb9-lM-CSq" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="hi0-bi-hdj"/>
                                             <constraint firstAttribute="trailing" secondItem="cc4-p3-wde" secondAttribute="trailing" constant="20" id="li6-Wl-Zdd"/>
                                             <constraint firstAttribute="trailing" secondItem="n93-bU-mMx" secondAttribute="trailing" constant="20" id="nLB-c9-ecY"/>
                                             <constraint firstAttribute="trailing" secondItem="02F-Sc-yxr" secondAttribute="trailing" constant="20" id="qpY-BI-pjJ"/>
@@ -1141,7 +1147,9 @@ in order to get more people engaged </string>
                         <outlet property="infoLogo" destination="l1S-dH-ayz" id="7WQ-hm-bdA"/>
                         <outlet property="infoSubTitle" destination="bi0-4B-pam" id="5eV-y1-MvD"/>
                         <outlet property="infoTitle" destination="7Mf-lg-XFx" id="izT-FR-Uup"/>
-                        <outlet property="locationBtn" destination="gb9-lM-CSq" id="CWV-97-pDN"/>
+                        <outlet property="locationCheck" destination="vFF-eO-pkt" id="dF2-57-171"/>
+                        <outlet property="locationLbl" destination="5Ta-do-k8L" id="R6Q-zc-gLS"/>
+                        <outlet property="mapViewLocation" destination="mcj-SV-H3M" id="e9c-Ri-ETf"/>
                         <outlet property="signUpBtn" destination="4GV-OP-dYj" id="kfg-Ks-mWk"/>
                         <outlet property="storeNameTxt" destination="Foy-9j-BDy" id="SgY-nG-Ydb"/>
                         <outlet property="txtFirstName" destination="rky-L7-DzO" id="dGu-K4-2Vc"/>

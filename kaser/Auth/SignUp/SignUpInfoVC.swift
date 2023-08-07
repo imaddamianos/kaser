@@ -11,8 +11,10 @@ import SkyFloatingLabelTextField
 import SCLAlertView
 import Firebase
 import FirebaseStorage
+import CoreLocation
+import MapKit
 
-class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
+class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegate, UIImagePickerControllerDelegate & UINavigationControllerDelegate, CLLocationManagerDelegate{
     
     @IBOutlet var headerVw: UIView!
     @IBOutlet var imgProfiePic: UIImageView!
@@ -23,7 +25,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     @IBOutlet var txtMobile: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet var agreeBtn: UIButton!
     @IBOutlet var signUpBtn: UIButton!
-    @IBOutlet var locationBtn: DropDown!
     @IBOutlet var storeNameTxt: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet var infoLogo: UIImageView!
     @IBOutlet var infoTitle: UILabel!
@@ -33,13 +34,16 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     @IBOutlet var calanderVw: UIDatePicker!
     @IBOutlet var agreeVw: UIStackView!
     @IBOutlet var txtUserName: SkyFloatingLabelTextFieldWithIcon!
-    
+    @IBOutlet weak var locationCheck: UIButton!
+    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var mapViewLocation: MKMapView!
     var presenter: SignUpInfoVcPresenter!
     var ref: DatabaseReference!
     var userType: String?
     var agreeSelected = true
     var imageURL = ""
     let userTypeArray = ["Choose an option ", "Buyer", "Seller"]
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +67,18 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
             
         }
     }
+    @IBAction func locationBtnTapped(_ sender: Any) {
+        // Start updating the user's location
+        locationManager.startUpdatingLocation()
+
+    }
+    
+    func sendAndSaveCoordinates(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        // Save the coordinates using UserDefaults
+        UserDefaults.standard.set(latitude, forKey: "savedLatitude")
+        UserDefaults.standard.set(longitude, forKey: "savedLongitude")
+    }
+    
     @IBAction func signUpTapped(_ sender: Any) {
         if txtUserName.text!.isEmpty {
             SCLAlertView().showInfo("Notice", subTitle: "Enter a user name")
@@ -156,6 +172,9 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     
     func setupView(){
         
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+
         userTypePickerView.dataSource = self
         userTypePickerView.delegate = self
         #if DEBUG
@@ -206,6 +225,46 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
 
     }
     
+    func setupLocationManager() {
+           locationManager.delegate = self
+           locationManager.desiredAccuracy = kCLLocationAccuracyBest
+           locationManager.requestWhenInUseAuthorization()
+       }
+    
+    // Function to start updating location when needed
+        func startUpdatingLocation() {
+            locationManager.startUpdatingLocation()
+        }
+
+        // CLLocationManagerDelegate method to receive location updates
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let location = locations.last else { return }
+
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+
+            // Create a CLLocationCoordinate2D instance with the coordinates
+            let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+
+            // Create an MKCoordinateRegion centered around the coordinates
+            let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
+            mapViewLocation.setRegion(region, animated: true)
+
+            // Create a new annotation with the user's location
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinates
+            annotation.title = "Your Location"
+            mapViewLocation.addAnnotation(annotation)
+        }
+
+        // CLLocationManagerDelegate method to handle location authorization changes
+        func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+            if status == .authorizedWhenInUse || status == .authorizedAlways {
+                // Location access granted, you can start updating location
+                startUpdatingLocation()
+            }
+        }
+    
     func showUserImage(){
 //        vwImage.addGestureRecognizer(gesture)
         
@@ -232,7 +291,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     }
     func buyerView() {
         headerVw.backgroundColor = UIColor.originalColor
-        locationBtn.borderColor = UIColor.originalColor
         calanderVw.tintColor = UIColor.originalColor
         signUpBtn.setBackgroundImage(UIImage(named: "btnLayout"), for: .normal)
         txtUserName.isHidden = false
@@ -244,7 +302,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         agreeVw.isHidden = false
         signUpBtn.isHidden = false
         storeNameTxt.isHidden = true
-        locationBtn.isHidden = true
         backBtn.tintColor = UIColor.white
         infoTitle.textColor = UIColor.white
         infoSubTitle.textColor = UIColor.white
@@ -256,10 +313,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     
     func sellerView() {
         buyerView()
-        locationBtn.isHidden = false
         storeNameTxt.isHidden = true
         headerVw.backgroundColor = UIColor.colorYellow
-        locationBtn.borderColor = UIColor.colorYellow
         calanderVw.tintColor = UIColor.colorYellow
         signUpBtn.setBackgroundImage(UIImage(named: "sellerBtn"), for: .normal)
         backBtn.tintColor = UIColor.black
@@ -279,9 +334,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         DOBlbl.isHidden = true
         calanderVw.isHidden = true
         storeNameTxt.isHidden = true
-        locationBtn.isHidden = true
         storeNameTxt.isHidden = true
-        locationBtn.isHidden = true
         agreeVw.isHidden = true
         signUpBtn.isHidden = true
         
