@@ -64,11 +64,21 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         }
     }
     @IBAction func signUpTapped(_ sender: Any) {
-        
+        if txtUserName.text!.isEmpty {
+            SCLAlertView().showInfo("Notice", subTitle: "Enter a user name")
+        }else if txtFirstName.text!.isEmpty{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter your First Name")
+        }else if txtLastName.text!.isEmpty{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter your Last Name")
+        }else if txtMobile.text!.isEmpty{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter your Mobile Number")
+        }else if DOBlbl.text!.isEmpty{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter your date of Birth")
+        }else{
         
         if !agreeSelected{
-        let date = calanderVw.date.description
-        
+            let date = calanderVw.date.description
+            
             self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
                 if success{
                     if self.userType == "Buyer"{
@@ -79,18 +89,19 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
                     }
                 }else{
                     performOn(.main){
-                    alertView.showError("User exict", subTitle: "User is already in use, choose another name")
+                        //                    alertView.showError("User exict", subTitle: "User is already in use, choose another name")
                     }
                 }
             }
             
-      
-//            }
+            
+            //            }
         }else{
             GFunction.shared.showAlert("Review Our Terms", message: "Please read and agree on terms & conditions", btnName: "OK") {
-
+                
             }
         }
+    }
     }
     
     @IBAction func backTapped(_ sender: Any) {
@@ -246,7 +257,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     func sellerView() {
         buyerView()
         locationBtn.isHidden = false
-        storeNameTxt.isHidden = false
+        storeNameTxt.isHidden = true
         headerVw.backgroundColor = UIColor.colorYellow
         locationBtn.borderColor = UIColor.colorYellow
         calanderVw.tintColor = UIColor.colorYellow
@@ -295,8 +306,10 @@ extension SignUpInfoVC: UIPickerViewDataSource, UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedText = userTypeArray[row]
         if selectedText == "Buyer" {
+            userType = selectedText
             self.buyerView()
         }else if selectedText == "Seller" {
+            userType = selectedText
             self.sellerView()
         }else{
             self.initialView()
