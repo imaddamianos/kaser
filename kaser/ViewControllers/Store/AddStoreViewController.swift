@@ -33,7 +33,8 @@ class AddStoreViewController: UIViewController, AddStoreViewProtocol {
     
     func setupView(){
         self.presenter = AddStoreVcPresenter(view: self)
-        hideKeyboard()
+        addKeyboardObservers()
+        setupKeyboardDismissRecognizer()
         storeImg.cornerRadius(cornerRadius: storeImg.bounds.height/2)
         
     }

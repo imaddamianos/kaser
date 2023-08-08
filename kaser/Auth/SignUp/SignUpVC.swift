@@ -32,7 +32,8 @@ class SignUpVC: UIViewController, SignUpViewProtocol {
         self.txtPass.text = "imadimad"
         self.txtConfirmPass.text = "imadimad"
         #endif
-        hideKeyboard()
+        addKeyboardObservers()
+        setupKeyboardDismissRecognizer()
         self.presenter = SignUpPresenter(view: self)
         vwLogo.cornerRadius(cornerRadius: vwLogo.layer.frame.height / 2)
         imgLogo.cornerRadius(cornerRadius: imgLogo.layer.frame.height / 2)

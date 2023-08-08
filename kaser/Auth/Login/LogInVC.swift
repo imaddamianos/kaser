@@ -95,7 +95,8 @@ class LogInVC: UIViewController, LogInViewProtocol {
         }else{
             rememberMe.setBackgroundImage(UIImage(named: "check-circle"), for: .normal)
         }
-        hideKeyboard()
+        addKeyboardObservers()
+        setupKeyboardDismissRecognizer()
         self.presenter = LogInPresenter(view: self)
         //ui code
         vwLogo.cornerRadius(cornerRadius: vwLogo.layer.frame.height / 2)

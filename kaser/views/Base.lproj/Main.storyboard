@@ -1161,6 +1161,7 @@ in order to get more people engaged </string>
                         <outlet property="locationLbl" destination="5Ta-do-k8L" id="R6Q-zc-gLS"/>
                         <outlet property="mapStack" destination="dlH-zO-F4h" id="mdJ-pB-jZQ"/>
                         <outlet property="mapViewLocation" destination="mcj-SV-H3M" id="e9c-Ri-ETf"/>
+                        <outlet property="scrollViewVw" destination="S26-Wd-ycX" id="rSv-v2-h4i"/>
                         <outlet property="signUpBtn" destination="4GV-OP-dYj" id="kfg-Ks-mWk"/>
                         <outlet property="storeNameTxt" destination="Foy-9j-BDy" id="SgY-nG-Ydb"/>
                         <outlet property="txtFirstName" destination="rky-L7-DzO" id="dGu-K4-2Vc"/>

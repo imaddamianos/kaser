@@ -30,7 +30,8 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
     
     func setupView(){
         self.presenter = AddProductVcPresenter(view: self)
-        hideKeyboard()
+        addKeyboardObservers()
+        setupKeyboardDismissRecognizer()
         productImg.cornerRadius(cornerRadius: productImg.bounds.height/2)
         
     }

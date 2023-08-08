@@ -37,6 +37,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     @IBOutlet weak var locationCheck: UIButton!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var mapViewLocation: MKMapView!
+    @IBOutlet weak var scrollViewVw: UIScrollView!
     @IBOutlet weak var mapStack: UIStackView!
     var presenter: SignUpInfoVcPresenter!
     var ref: DatabaseReference!
@@ -198,7 +199,8 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         self.txtMobile.text = "70745269"
         self.storeNameTxt.text = "hello store"
         #endif
-        hideKeyboard()
+              addKeyboardObservers()
+              setupKeyboardDismissRecognizer()
         agreeBtn.setBackgroundImage(UIImage(named: "check-circle"), for: .normal)
         firebaseRef.currentUser?.reload(completion: { (error) in
                     if error == nil{
