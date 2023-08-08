@@ -4,7 +4,9 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -739,47 +741,41 @@ in order to get more people engaged </string>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S26-Wd-ycX">
                                 <rect key="frame" x="0.0" y="176" width="414" height="1224"/>
                                 <subviews>
-                                    <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="zqt-0m-Jge">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1341.5"/>
+                                    <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zqt-0m-Jge">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="969.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Wj-wp-wJT">
-                                                <rect key="frame" x="132" y="0.0" width="150" height="150"/>
-                                                <color key="backgroundColor" systemColor="labelColor"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-9p-oy8">
+                                                <rect key="frame" x="132" y="0.0" width="150" height="167"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Wj-wp-wJT">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="1Gg-2A-FEd"/>
+                                                            <constraint firstAttribute="height" constant="150" id="280-dH-eeS"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5R5-0U-J3b">
+                                                        <rect key="frame" x="0.0" y="130" width="150" height="37"/>
+                                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" red="0.078432537620000006" green="0.078429825600000003" blue="0.078430362049999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <imageReference key="image" image="plus-circle-fill" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="addImageBtn:" destination="Vb0-gT-o7A" eventType="touchUpInside" id="9H8-8N-z92"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PH6-Ky-SZQ">
+                                                <rect key="frame" x="47" y="182" width="320" height="100"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="150" id="1Gg-2A-FEd"/>
-                                                    <constraint firstAttribute="height" constant="150" id="280-dH-eeS"/>
+                                                    <constraint firstAttribute="height" constant="100" id="RDu-hO-7uF"/>
                                                 </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5R5-0U-J3b">
-                                                <rect key="frame" x="165" y="182" width="84" height="34"/>
-                                                <state key="normal" title="Add photo">
-                                                    <color key="titleColor" red="0.078432537620000006" green="0.078429825600000003" blue="0.078430362049999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addImageBtn:" destination="Vb0-gT-o7A" eventType="touchUpInside" id="9H8-8N-z92"/>
-                                                </connections>
-                                            </button>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Choose an option" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iuz-jo-HQo" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="126" y="248" width="162" height="34"/>
-                                                <accessibility key="accessibilityConfiguration">
-                                                    <accessibilityTraits key="traits" updatesFrequently="YES"/>
-                                                </accessibility>
-                                                <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
-                                                        <real key="value" value="200"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                            </pickerView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cc4-p3-wde" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="314" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="297" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="WFm-76-2ne"/>
@@ -828,7 +824,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rky-L7-DzO" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="396" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="362" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Ygh-ed-6rh"/>
@@ -877,7 +873,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="02F-Sc-yxr" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="478" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="427" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Wwq-Sb-nTS"/>
@@ -926,7 +922,7 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dvx-sX-qAC" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="560" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="492" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="1K8-FI-5wD"/>
@@ -975,18 +971,13 @@ in order to get more people engaged </string>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aMM-sG-E9X">
-                                                <rect key="frame" x="159" y="642" width="96" height="20.5"/>
+                                                <rect key="frame" x="159" y="557" width="96" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="UlO-Uj-rcb">
-                                                <rect key="frame" x="50" y="694.5" width="314" height="352"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Store Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-9j-BDy" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="1078.5" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="592.5" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="tOx-lC-rHZ"/>
@@ -1034,31 +1025,46 @@ in order to get more people engaged </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gb9-lM-CSq" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="20" y="1160.5" width="374" height="50"/>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-Wy-r3e">
+                                                <rect key="frame" x="0.0" y="657.5" width="414" height="50"/>
+                                            </datePicker>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dlH-zO-F4h">
+                                                <rect key="frame" x="72.5" y="722.5" width="269.5" height="150"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ta-do-k8L">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="150"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mcj-SV-H3M" customClass="MKMapView">
+                                                        <rect key="frame" x="58" y="0.0" width="150" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="mcj-SV-H3M" secondAttribute="height" multiplier="1:1" id="3gz-dC-RjM"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFF-eO-pkt">
+                                                        <rect key="frame" x="216" y="0.0" width="53.5" height="150"/>
+                                                        <color key="tintColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="location.square" catalog="system" title=" ">
+                                                            <backgroundConfiguration key="background">
+                                                                <color key="backgroundColor" red="0.85098039219999999" green="0.82745098039999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </backgroundConfiguration>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="locationBtnTapped:" destination="Vb0-gT-o7A" eventType="touchUpInside" id="p6d-tD-P4U"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="erX-2v-wUI"/>
+                                                    <constraint firstAttribute="height" constant="150" id="kAF-Kx-9be"/>
                                                 </constraints>
-                                                <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
-                                                        <real key="value" value="200"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchEnable" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n93-bU-mMx">
-                                                <rect key="frame" x="20" y="1242.5" width="374" height="17"/>
+                                                <rect key="frame" x="20" y="887.5" width="374" height="17"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-ac-8NV">
                                                         <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -1086,7 +1092,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GV-OP-dYj">
-                                                <rect key="frame" x="130" y="1291.5" width="154" height="50"/>
+                                                <rect key="frame" x="130" y="919.5" width="154" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Paa-KL-dZe"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vpi-Ir-Boq"/>
@@ -1102,20 +1108,16 @@ in order to get more people engaged </string>
                                         <constraints>
                                             <constraint firstItem="dvx-sX-qAC" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="1tW-Jk-Wt8"/>
                                             <constraint firstItem="Foy-9j-BDy" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="3oV-u0-1SA"/>
-                                            <constraint firstItem="UlO-Uj-rcb" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="50" id="6VC-Xr-M5c"/>
                                             <constraint firstItem="02F-Sc-yxr" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="NY6-EC-6P3"/>
                                             <constraint firstItem="cc4-p3-wde" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="Pyf-tb-mN1"/>
                                             <constraint firstItem="rky-L7-DzO" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="TBh-oM-Ihr"/>
                                             <constraint firstItem="n93-bU-mMx" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="XkK-Bc-3eV"/>
-                                            <constraint firstAttribute="trailing" secondItem="gb9-lM-CSq" secondAttribute="trailing" constant="20" id="YGx-bb-EhK"/>
                                             <constraint firstAttribute="trailing" secondItem="Foy-9j-BDy" secondAttribute="trailing" constant="20" id="c4W-Ri-Aze"/>
-                                            <constraint firstItem="gb9-lM-CSq" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="hi0-bi-hdj"/>
                                             <constraint firstAttribute="trailing" secondItem="cc4-p3-wde" secondAttribute="trailing" constant="20" id="li6-Wl-Zdd"/>
                                             <constraint firstAttribute="trailing" secondItem="n93-bU-mMx" secondAttribute="trailing" constant="20" id="nLB-c9-ecY"/>
                                             <constraint firstAttribute="trailing" secondItem="02F-Sc-yxr" secondAttribute="trailing" constant="20" id="qpY-BI-pjJ"/>
                                             <constraint firstAttribute="trailing" secondItem="dvx-sX-qAC" secondAttribute="trailing" constant="20" id="qrF-2F-q7U"/>
                                             <constraint firstAttribute="trailing" secondItem="rky-L7-DzO" secondAttribute="trailing" constant="20" id="sqC-jR-Rdp"/>
-                                            <constraint firstAttribute="trailing" secondItem="UlO-Uj-rcb" secondAttribute="trailing" constant="50" id="zKD-zr-x66"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -1148,20 +1150,24 @@ in order to get more people engaged </string>
                         <outlet property="agreeBtn" destination="P8v-ac-8NV" id="eXj-YZ-mjL"/>
                         <outlet property="agreeVw" destination="n93-bU-mMx" id="Btx-6R-3Jh"/>
                         <outlet property="backBtn" destination="yzV-LB-JtG" id="A1W-TA-wIz"/>
-                        <outlet property="calanderVw" destination="UlO-Uj-rcb" id="EnO-Lw-8vG"/>
-                        <outlet property="ddOption" destination="iuz-jo-HQo" id="qaW-6b-7UY"/>
+                        <outlet property="calanderVw" destination="hWM-Wy-r3e" id="YBr-n7-e4f"/>
                         <outlet property="headerVw" destination="qBV-7y-rc9" id="aBJ-B3-Rkt"/>
+                        <outlet property="imageStack" destination="0nf-9p-oy8" id="yC3-Dm-zIW"/>
                         <outlet property="imgProfiePic" destination="4Wj-wp-wJT" id="hIH-fZ-Y4D"/>
                         <outlet property="infoLogo" destination="l1S-dH-ayz" id="7WQ-hm-bdA"/>
                         <outlet property="infoSubTitle" destination="bi0-4B-pam" id="5eV-y1-MvD"/>
                         <outlet property="infoTitle" destination="7Mf-lg-XFx" id="izT-FR-Uup"/>
-                        <outlet property="locationBtn" destination="gb9-lM-CSq" id="CWV-97-pDN"/>
+                        <outlet property="locationCheck" destination="vFF-eO-pkt" id="dF2-57-171"/>
+                        <outlet property="locationLbl" destination="5Ta-do-k8L" id="R6Q-zc-gLS"/>
+                        <outlet property="mapStack" destination="dlH-zO-F4h" id="mdJ-pB-jZQ"/>
+                        <outlet property="mapViewLocation" destination="mcj-SV-H3M" id="e9c-Ri-ETf"/>
                         <outlet property="signUpBtn" destination="4GV-OP-dYj" id="kfg-Ks-mWk"/>
                         <outlet property="storeNameTxt" destination="Foy-9j-BDy" id="SgY-nG-Ydb"/>
                         <outlet property="txtFirstName" destination="rky-L7-DzO" id="dGu-K4-2Vc"/>
                         <outlet property="txtLastName" destination="02F-Sc-yxr" id="Xhg-hL-0fV"/>
                         <outlet property="txtMobile" destination="dvx-sX-qAC" id="p3v-Pm-Z0g"/>
                         <outlet property="txtUserName" destination="cc4-p3-wde" id="Jjt-he-AaR"/>
+                        <outlet property="userTypePickerView" destination="PH6-Ky-SZQ" id="eQf-Vs-cHq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTS-nh-HPW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1214,13 +1220,18 @@ in order to get more people engaged </string>
         <image name="facebook" width="43" height="42.5"/>
         <image name="gmail" width="57" height="43"/>
         <image name="info.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="location.square" catalog="system" width="128" height="114"/>
         <image name="logoA&amp;E" width="204" height="130.5"/>
         <image name="password" width="17" height="18"/>
+        <image name="plus-circle-fill" width="37" height="37"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

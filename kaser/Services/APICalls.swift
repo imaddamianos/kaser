@@ -13,8 +13,11 @@ class APICalls: NSObject {
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
 
-    func addSellerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, storeName: String, location: [String:Int] , userType: String, image: String, pass:String, completion: ((Bool) -> Void)?){
-        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location ":[ "lat": 34, "long" :65], "profileImage" : image, "Password" : pass] as [String : Any]) {
+    func addSellerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, storeName: String, location: [String?:String?] , userType: String, image: String, pass:String, completion: ((Bool) -> Void)?){
+        do {
+            let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
+            if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
+        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location ": encodingLocation, "profileImage" : image, "Password" : pass] as [String : Any]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
@@ -25,18 +28,31 @@ class APICalls: NSObject {
           }
         }
     }
+} catch {
+    print("Error converting dictionary to string: \(error)")
+}
+
+}
     
-    func addBuyerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, userType: String, image: String, pass:String, completion: ((Bool) -> Void)?){
-        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "profileImage" : image, "Password" : pass]) {
-          (error:Error?, ref:DatabaseReference) in
-          if let error = error {
-            print("Data could not be saved: \(error).")
-            completion?(false)
-          } else {
-            print("Data saved successfully!")
-            completion?(true)
-          }
+    func addBuyerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, userType: String, image: String,location: [String?:String?] , pass:String, completion: ((Bool) -> Void)?){
+        do {
+            let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
+            if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
+                ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "profileImage" : image, "location" : encodingLocation, "Password" : pass] as [String : Any]) {
+                  (error:Error?, ref:DatabaseReference) in
+                  if let error = error {
+                    print("Data could not be saved: \(error).")
+                    completion?(false)
+                  } else {
+                    print("Data saved successfully!")
+                    completion?(true)
+                  }
+                }
+            }
+        } catch {
+            print("Error converting dictionary to string: \(error)")
         }
+
     }
     
     func addStoreInfo(storeName: String, phone: String, address: String, delivery: String, description: String, image: String, completion: ((Bool) -> Void)?){

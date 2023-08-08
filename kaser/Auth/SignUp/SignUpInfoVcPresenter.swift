@@ -18,7 +18,7 @@ class SignUpInfoVcPresenter{
         self.view = view
     }
     
-    func addSeller(userName: String,firstname: String, lastName: String, email: String, password: String, mobile: String, DOB: String, storeName: String, location: [String:Int], userType:String, image: String){
+    func addSeller(userName: String,firstname: String, lastName: String, email: String, password: String, mobile: String, DOB: String, storeName: String, location: [String?:String?], userType:String, image: String){
         let emailID = email.replace(target: "@", withString: "-")
         let UserId = emailID.replace(target: ".", withString: "-")
         newID = UserId
@@ -32,11 +32,11 @@ class SignUpInfoVcPresenter{
            
     }
 }
-    func addBuyer(userName: String,firstname: String, lastName: String, email: String, password: String, mobile: String, DOB: String, userType:String, image: String){
+    func addBuyer(userName: String,firstname: String, lastName: String, email: String, password: String, mobile: String,location: [String?:String?], DOB: String, userType:String, image: String){
         let emailID = email.replace(target: "@", withString: "-")
         let UserId = emailID.replace(target: ".", withString: "-")
         newID = UserId
-        APICalls.shared.addBuyerInfo(userName: userName,firstName: firstname, lastName: lastName, email: email, mobile: mobile, DateOfBirth: DOB, userType: userType, image: image, pass: password){[weak self] (isSuccess) in
+        APICalls.shared.addBuyerInfo(userName: userName,firstName: firstname, lastName: lastName, email: email, mobile: mobile, DateOfBirth: DOB, userType: userType, image: image, location: location, pass: password){[weak self] (isSuccess) in
         guard let StrongSelf = self else{
             return
         }

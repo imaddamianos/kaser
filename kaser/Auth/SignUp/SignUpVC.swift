@@ -28,7 +28,7 @@ class SignUpVC: UIViewController, SignUpViewProtocol {
     func setupView(){
         
         #if DEBUG
-        self.txtEmail.text = "imad-damianos@hotmail.com"
+        self.txtEmail.text = "sa3louki@gmail.com"
         self.txtPass.text = "imadimad"
         self.txtConfirmPass.text = "imadimad"
         #endif
