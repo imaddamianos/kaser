@@ -56,7 +56,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupView()
+        
     }
     
     @IBAction func agreeBtnTapped(_ sender: Any) {
@@ -79,12 +79,14 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     
     func sendAndSaveCoordinates(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         // Save the coordinates using UserDefaults
-        UserDefaults.standard.set(latitude, forKey: "savedLatitude")
-        UserDefaults.standard.set(longitude, forKey: "savedLongitude")
+//        UserDefaults.standard.set(latitude, forKey: "savedLatitude")
+//        UserDefaults.standard.set(longitude, forKey: "savedLongitude")
     }
     
     @IBAction func signUpTapped(_ sender: Any) {
-        if txtUserName.text!.isEmpty {
+        if imgProfiePic.image == nil{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter a profile picture")
+        }else if txtUserName.text!.isEmpty {
             SCLAlertView().showInfo("Notice", subTitle: "Enter a user name")
         }else if txtFirstName.text!.isEmpty{
             SCLAlertView().showInfo("Notice", subTitle: "Enter your First Name")
@@ -94,22 +96,25 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
             SCLAlertView().showInfo("Notice", subTitle: "Enter your Mobile Number")
         }else if DOBlbl.text!.isEmpty{
             SCLAlertView().showInfo("Notice", subTitle: "Enter your date of Birth")
-        }else{
+        }else if dateOfBirth.isEmpty{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter your date of Birthday")
+        } else{
         
         if !agreeSelected{
             
             self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
                 if success{
-                    print(self.dateOfBirth)
                     if self.userType == "Buyer"{
                         self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, location: ["":""], DOB: self.dateOfBirth, userType: self.userType!, image: self.imageURL)
-                        
                     }else{
+                        if self.latitude == nil || self.latitude!.isEmpty && self.longitude == nil || self.longitude!.isEmpty {
+                            SCLAlertView().showInfo("Notice", subTitle: "Location is missing")
+                        }
                         self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: self.dateOfBirth, storeName: self.storeNameTxt.text!, location: [self.latitude:self.longitude], userType: self.userType!, image: self.imageURL)
                     }
                 }else{
                     performOn(.main){
-                //                     alertView.showError("User exict", subTitle: "User is already in use, choose another name")
+                alertView.showError("User exict", subTitle: "User is already in use, choose another name")
                     }
                 }
             }
@@ -219,7 +224,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
                     let alertView = SCLAlertView(appearance: appearance)
                     alertView.addButton("Verify") {
                         print("button tapped")
-                     self.verify()
+                        self.setupView()
                     }
                 alertView.showInfo("Verify", subTitle: "Please go to your inbox and click the link to verify")
                         }
@@ -312,10 +317,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         task.resume()
     }
     
-    
-    func verify(){
-        setupView()
-    }
     func buyerView() {
         headerVw.backgroundColor = UIColor.originalColor
         calanderVw.tintColor = UIColor.originalColor

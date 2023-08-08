@@ -37,7 +37,7 @@ class SignUpPresenter{
                             newEmail = email
                             newPass = password
                             DispatchQueue.main.async {
-//                                SCLAlertView().showError("Email exist", subTitle: "\(email) is registered, go to forget password to reset your password")
+                                SCLAlertView().showError("Email exist", subTitle: "\(email) is registered, go to forget password to reset your password")
                                 let appearance = SCLAlertView.SCLAppearance(
                                        showCloseButton: false // if you dont want the close button use false
                                    )
@@ -48,7 +48,6 @@ class SignUpPresenter{
                                     viewController.modalPresentationStyle = .fullScreen
                                     UIApplication.present(viewController: viewController)
                                 }
-//                             alertView.showSuccess("Email exist", subTitle: "\(email) is registered, go to forget password to reset your password")
                             }
                         case .weakPassword:
                             DispatchQueue.main.async {
