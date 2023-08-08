@@ -47,6 +47,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     let locationManager = CLLocationManager()
     var latitude: String?
     var longitude: String?
+    var dateOfBirth: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,20 +97,19 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         }else{
         
         if !agreeSelected{
-            let date = calanderVw.date.description
             
             self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
                 if success{
-                    
+                    print(self.dateOfBirth)
                     if self.userType == "Buyer"{
-                        self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, location: [self.latitude:self.longitude], DOB: date, userType: self.userType!, image: self.imageURL)
+                        self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, location: ["":""], DOB: self.dateOfBirth, userType: self.userType!, image: self.imageURL)
                         
                     }else{
-                        self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: date, storeName: self.storeNameTxt.text!, location: [self.latitude:self.longitude], userType: self.userType!, image: self.imageURL)
+                        self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: self.dateOfBirth, storeName: self.storeNameTxt.text!, location: [self.latitude:self.longitude], userType: self.userType!, image: self.imageURL)
                     }
                 }else{
                     performOn(.main){
-                        //                     alertView.showError("User exict", subTitle: "User is already in use, choose another name")
+                //                     alertView.showError("User exict", subTitle: "User is already in use, choose another name")
                     }
                 }
             }
@@ -176,6 +176,11 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     
     func setupView(){
         
+        calanderVw.datePickerMode = .date
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(datePickerValueChanged(_:)))
+        calanderVw.addGestureRecognizer(tapGesture)
+        calanderVw.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
+        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
 
@@ -228,6 +233,13 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         imgProfiePic.cornerRadius(cornerRadius: imgProfiePic.frame.width / 2)
 
     }
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy-MM-dd"
+        self.dateOfBirth = dateFormatter.string(from: sender.date)
+        
+      }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
             guard let location = locations.last else { return }
@@ -325,7 +337,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         signUpBtn.setTitleColor(UIColor.white, for: .normal)
         infoLogo.tintColor = UIColor.white
         backBtn.setImage(UIImage(named: "back"), for: .normal)
-        
     }
     
     func sellerView() {
@@ -358,11 +369,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         signUpBtn.isHidden = true
         mapStack.isHidden = true
         imageStack.isHidden = true
-        
     }
-    
-    
-
 }
 extension SignUpInfoVC: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

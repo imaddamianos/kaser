@@ -742,7 +742,7 @@ in order to get more people engaged </string>
                                 <rect key="frame" x="0.0" y="176" width="414" height="1224"/>
                                 <subviews>
                                     <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="zqt-0m-Jge">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1262.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="969.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="0nf-9p-oy8">
                                                 <rect key="frame" x="132" y="0.0" width="150" height="167"/>
@@ -976,13 +976,8 @@ in order to get more people engaged </string>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="UlO-Uj-rcb">
-                                                <rect key="frame" x="50" y="592.5" width="314" height="343"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            </datePicker>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Store Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Foy-9j-BDy" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="950.5" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="592.5" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="tOx-lC-rHZ"/>
@@ -1030,8 +1025,11 @@ in order to get more people engaged </string>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="hWM-Wy-r3e">
+                                                <rect key="frame" x="0.0" y="657.5" width="414" height="50"/>
+                                            </datePicker>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dlH-zO-F4h">
-                                                <rect key="frame" x="72.5" y="1015.5" width="269.5" height="150"/>
+                                                <rect key="frame" x="72.5" y="722.5" width="269.5" height="150"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ta-do-k8L">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="150"/>
@@ -1066,7 +1064,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n93-bU-mMx">
-                                                <rect key="frame" x="20" y="1180.5" width="374" height="17"/>
+                                                <rect key="frame" x="20" y="887.5" width="374" height="17"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P8v-ac-8NV">
                                                         <rect key="frame" x="0.0" y="0.0" width="17" height="17"/>
@@ -1094,7 +1092,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GV-OP-dYj">
-                                                <rect key="frame" x="130" y="1212.5" width="154" height="50"/>
+                                                <rect key="frame" x="130" y="919.5" width="154" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Paa-KL-dZe"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vpi-Ir-Boq"/>
@@ -1110,7 +1108,6 @@ in order to get more people engaged </string>
                                         <constraints>
                                             <constraint firstItem="dvx-sX-qAC" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="1tW-Jk-Wt8"/>
                                             <constraint firstItem="Foy-9j-BDy" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="3oV-u0-1SA"/>
-                                            <constraint firstItem="UlO-Uj-rcb" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="50" id="6VC-Xr-M5c"/>
                                             <constraint firstItem="02F-Sc-yxr" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="NY6-EC-6P3"/>
                                             <constraint firstItem="cc4-p3-wde" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="Pyf-tb-mN1"/>
                                             <constraint firstItem="rky-L7-DzO" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="TBh-oM-Ihr"/>
@@ -1121,7 +1118,6 @@ in order to get more people engaged </string>
                                             <constraint firstAttribute="trailing" secondItem="02F-Sc-yxr" secondAttribute="trailing" constant="20" id="qpY-BI-pjJ"/>
                                             <constraint firstAttribute="trailing" secondItem="dvx-sX-qAC" secondAttribute="trailing" constant="20" id="qrF-2F-q7U"/>
                                             <constraint firstAttribute="trailing" secondItem="rky-L7-DzO" secondAttribute="trailing" constant="20" id="sqC-jR-Rdp"/>
-                                            <constraint firstAttribute="trailing" secondItem="UlO-Uj-rcb" secondAttribute="trailing" constant="50" id="zKD-zr-x66"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -1154,7 +1150,7 @@ in order to get more people engaged </string>
                         <outlet property="agreeBtn" destination="P8v-ac-8NV" id="eXj-YZ-mjL"/>
                         <outlet property="agreeVw" destination="n93-bU-mMx" id="Btx-6R-3Jh"/>
                         <outlet property="backBtn" destination="yzV-LB-JtG" id="A1W-TA-wIz"/>
-                        <outlet property="calanderVw" destination="UlO-Uj-rcb" id="EnO-Lw-8vG"/>
+                        <outlet property="calanderVw" destination="hWM-Wy-r3e" id="YBr-n7-e4f"/>
                         <outlet property="headerVw" destination="qBV-7y-rc9" id="aBJ-B3-Rkt"/>
                         <outlet property="imageStack" destination="0nf-9p-oy8" id="yC3-Dm-zIW"/>
                         <outlet property="imgProfiePic" destination="4Wj-wp-wJT" id="hIH-fZ-Y4D"/>
