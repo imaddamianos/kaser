@@ -17,6 +17,7 @@ struct usersStruct {
     var name: String?
     var pass: String?
     var dob: String?
+    var location: String?
     var image: String?
     var UserName: String?
     var userType: String?

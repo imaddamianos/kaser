@@ -7,15 +7,21 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import MapKit
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var userName: SkyFloatingLabelTextFieldWithIcon!
-    @IBOutlet weak var emailTxt: SkyFloatingLabelTextFieldWithIcon!
+    @IBOutlet weak var firstNameTxt: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var mobileNbr: SkyFloatingLabelTextFieldWithIcon!
     @IBOutlet weak var calanderVw: UIDatePicker!
     @IBOutlet weak var updateBtn: UIButton!
+    @IBOutlet weak var mapStack: UIStackView!
+    @IBOutlet weak var locationCheck: UIButton!
+    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var locationView: MKMapView!
+    
     var imageURL = ""
     
     override func viewDidLoad() {
@@ -50,12 +56,37 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
             
             if isSuccess {
                 DispatchQueue.main.async {
-                    strongSelf.userName.text = userDetails?.name
-                    strongSelf.emailTxt.text = userDetails?.email
-                    strongSelf.mobileNbr.text = userDetails?.mobile
                     
+                    strongSelf.userName.text = userDetails?.name
+                    strongSelf.firstNameTxt.text = userDetails?.email
+                    strongSelf.mobileNbr.text = userDetails?.mobile
+//                    strongSelf.locationView =
+                    
+                    //location
+                    if let jsonData = userDetails?.location!.data(using: .utf8) {
+                        do {
+                            if let json = try JSONSerialization.jsonObject(with: jsonData, options: []) as? [String: String] {
+                                if let latitudeString = json.keys.first, let longitudeString = json.values.first {
+                                    if let latitude = Double(latitudeString), let longitude = Double(longitudeString) {
+                                        
+                                        let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+                                        let annotation = MKPointAnnotation()
+                                        annotation.coordinate = coordinates
+                                        strongSelf.locationView.addAnnotation(annotation)
+
+                                        // Set the map's visible region to focus on the annotation
+                                        let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
+                                        strongSelf.locationView.setRegion(region, animated: true)
+                                    }
+                                }
+                            }
+                        } catch {
+                            print("Error parsing JSON: \(error)")
+                        }
+                    }
+                    // date
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss Z"
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
                     if let date = dateFormatter.date(from: userDetails?.dob ?? "") {
                         strongSelf.calanderVw.date = date
                     }

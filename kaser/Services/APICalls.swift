@@ -17,7 +17,7 @@ class APICalls: NSObject {
         do {
             let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
             if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
-        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location ": encodingLocation, "profileImage" : image, "Password" : pass] as [String : Any]) {
+        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location": encodingLocation, "profileImage" : image, "Password" : pass] as [String : Any]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
@@ -38,7 +38,7 @@ class APICalls: NSObject {
         do {
             let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
             if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
-                ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "profileImage" : image, "location" : encodingLocation, "Password" : pass] as [String : Any]) {
+                ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "profileImage" : image, "Location" : encodingLocation, "Password" : pass] as [String : Any]) {
                   (error:Error?, ref:DatabaseReference) in
                   if let error = error {
                     print("Data could not be saved: \(error).")
@@ -98,9 +98,9 @@ class APICalls: NSObject {
             let image = value?["profileImage"] as? String ?? "No image"
             let UserName = value?["UserName"] as? String ?? "No UserName"
             let userType = value?["userType"] as? String ?? "No userType"
+            let location = value?["Location"] as? String ?? "No location"
             
             if UserName == "No UserName"{
-                
                 ref.child("Buyer").child(newID!).getData(completion:  { error, snapshot in
                     let value = snapshot.value as? NSDictionary
                     let mobile = value?["Mobile"] as? String ?? "No number"
@@ -111,12 +111,13 @@ class APICalls: NSObject {
                     let image = value?["profileImage"] as? String ?? "No image"
                     let UserName = value?["UserName"] as? String ?? "No UserName"
                     let userType = value?["userType"] as? String ?? "No userType"
+                    let location = value?["Location"] as? String ?? "No location"
                     
-                    userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, image: image, UserName: UserName, userType: userType)
+                    userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, location: location, image: image, UserName: UserName, userType: userType)
                     completion?(true)
             })
             }else{
-                userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, image: image, UserName: UserName, userType: userType)
+                userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, location: location, image: image, UserName: UserName, userType: userType)
                 completion?(true)
             }
     })

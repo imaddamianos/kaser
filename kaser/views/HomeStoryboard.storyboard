@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -152,27 +153,34 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <stackView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="512-3H-TAU">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="1062.5"/>
+                                        <rect key="frame" x="0.0" y="20" width="414" height="811.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="orm-Zy-pAD">
-                                                <rect key="frame" x="132" y="0.0" width="150" height="150"/>
-                                                <color key="backgroundColor" systemColor="labelColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="IdR-5f-gcP"/>
-                                                    <constraint firstAttribute="width" constant="150" id="N1X-ta-AfU"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uDT-Ao-fOp">
-                                                <rect key="frame" x="165" y="182" width="84" height="34"/>
-                                                <state key="normal" title="Add photo">
-                                                    <color key="titleColor" red="0.078432537620000006" green="0.078429825600000003" blue="0.078430362049999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="addImage:" destination="fQx-6a-sFe" eventType="touchUpInside" id="tmk-m8-S24"/>
-                                                </connections>
-                                            </button>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytO-OB-Ikf" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="248" width="374" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="PTb-wg-IG7">
+                                                <rect key="frame" x="132" y="0.0" width="150" height="167"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZGU-Vb-pYv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="C8v-AQ-BF8"/>
+                                                            <constraint firstAttribute="height" constant="150" id="ZTr-yM-bqK"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kW1-1n-46H">
+                                                        <rect key="frame" x="0.0" y="130" width="150" height="37"/>
+                                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                                        <state key="normal">
+                                                            <color key="titleColor" red="0.078432537620000006" green="0.078429825600000003" blue="0.078430362049999994" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <imageReference key="image" image="plus-circle-fill" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="addImage:" destination="fQx-6a-sFe" eventType="touchUpInside" id="YZJ-pj-DVd"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytO-OB-Ikf" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="20" y="199" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="dbe-yI-gsN"/>
@@ -220,11 +228,11 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o4W-aw-q7H" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="330" width="374" height="50"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XxF-sR-AKz" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                                                <rect key="frame" x="20" y="281" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="HnR-pp-Nn0"/>
+                                                    <constraint firstAttribute="height" constant="50" id="BSB-O4-b1J"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -270,7 +278,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Mobile" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ERY-4B-rka" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="20" y="412" width="374" height="50"/>
+                                                <rect key="frame" x="20" y="363" width="374" height="50"/>
                                                 <color key="tintColor" systemColor="labelColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Di9-AW-iTA"/>
@@ -319,41 +327,48 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUc-YQ-gvT">
-                                                <rect key="frame" x="159" y="494" width="96" height="20.5"/>
+                                                <rect key="frame" x="159" y="445" width="96" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="jaK-N8-StF">
-                                                <rect key="frame" x="50" y="546.5" width="314" height="352"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="tintColor" red="0.23723298309999999" green="0.24472993609999999" blue="0.3608059287" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="WBm-nQ-E2f">
+                                                <rect key="frame" x="0.0" y="497.5" width="414" height="50"/>
                                             </datePicker>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="roundedRect" placeholder="Location" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6OW-eB-57q" customClass="DropDown" customModule="iOSDropDown">
-                                                <rect key="frame" x="20" y="930.5" width="374" height="50"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="T2o-tO-zrz">
+                                                <rect key="frame" x="72.5" y="579.5" width="269.5" height="150"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-NN-G7c">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="150"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JC8-Ps-TrK" customClass="MKMapView">
+                                                        <rect key="frame" x="58" y="0.0" width="150" height="150"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="JC8-Ps-TrK" secondAttribute="height" multiplier="1:1" id="xB5-fN-tAN"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BQU-4x-RYY">
+                                                        <rect key="frame" x="216" y="0.0" width="53.5" height="150"/>
+                                                        <color key="tintColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="location.square" catalog="system" title=" ">
+                                                            <backgroundConfiguration key="background">
+                                                                <color key="backgroundColor" red="0.85098039219999999" green="0.82745098039999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </backgroundConfiguration>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                                        </buttonConfiguration>
+                                                    </button>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="Htc-sz-CBG"/>
+                                                    <constraint firstAttribute="height" constant="150" id="YCQ-0k-qRr"/>
                                                 </constraints>
-                                                <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="listHeight">
-                                                        <real key="value" value="200"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSearchEnable" value="NO"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                        <real key="value" value="2"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XI0-lp-6yr">
-                                                <rect key="frame" x="130" y="1012.5" width="154" height="50"/>
+                                                <rect key="frame" x="130" y="761.5" width="154" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="67l-RP-myT"/>
                                                     <constraint firstAttribute="height" constant="50" id="qy7-r5-53S"/>
@@ -368,15 +383,9 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="ERY-4B-rka" firstAttribute="leading" secondItem="512-3H-TAU" secondAttribute="leading" constant="20" id="3hp-88-s9r"/>
-                                            <constraint firstItem="jaK-N8-StF" firstAttribute="leading" secondItem="512-3H-TAU" secondAttribute="leading" constant="50" id="8SC-fR-cqC"/>
                                             <constraint firstAttribute="trailing" secondItem="ERY-4B-rka" secondAttribute="trailing" constant="20" id="9sL-X3-LN7"/>
-                                            <constraint firstItem="o4W-aw-q7H" firstAttribute="leading" secondItem="512-3H-TAU" secondAttribute="leading" constant="20" id="DnR-9a-ZFj"/>
                                             <constraint firstAttribute="trailing" secondItem="ytO-OB-Ikf" secondAttribute="trailing" constant="20" id="OaN-da-HBj"/>
-                                            <constraint firstAttribute="trailing" secondItem="6OW-eB-57q" secondAttribute="trailing" constant="20" id="eNZ-7D-Gig"/>
-                                            <constraint firstAttribute="trailing" secondItem="jaK-N8-StF" secondAttribute="trailing" constant="50" id="gR1-ri-7cO"/>
-                                            <constraint firstItem="6OW-eB-57q" firstAttribute="leading" secondItem="512-3H-TAU" secondAttribute="leading" constant="20" id="kWa-tw-yYH"/>
                                             <constraint firstItem="ytO-OB-Ikf" firstAttribute="leading" secondItem="512-3H-TAU" secondAttribute="leading" constant="20" id="p5Y-Jg-bhG"/>
-                                            <constraint firstAttribute="trailing" secondItem="o4W-aw-q7H" secondAttribute="trailing" constant="20" id="pSa-4X-g3w"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
@@ -387,10 +396,9 @@
                                     <constraint firstItem="512-3H-TAU" firstAttribute="top" secondItem="ehs-GP-gWz" secondAttribute="top" constant="10" id="OfD-WZ-bRo"/>
                                     <constraint firstItem="512-3H-TAU" firstAttribute="leading" secondItem="ehs-GP-gWz" secondAttribute="leading" id="QLE-1b-Onq"/>
                                     <constraint firstItem="512-3H-TAU" firstAttribute="centerX" secondItem="noe-as-aTs" secondAttribute="centerX" id="RXv-Rp-P6F"/>
-                                    <constraint firstAttribute="bottom" secondItem="512-3H-TAU" secondAttribute="bottom" id="WoP-uZ-NM1"/>
                                     <constraint firstItem="512-3H-TAU" firstAttribute="trailing" secondItem="ehs-GP-gWz" secondAttribute="trailing" id="Xjm-ep-LIV"/>
                                     <constraint firstItem="512-3H-TAU" firstAttribute="leading" secondItem="noe-as-aTs" secondAttribute="leading" id="c60-JF-bOS"/>
-                                    <constraint firstAttribute="bottom" secondItem="512-3H-TAU" secondAttribute="bottom" id="dTg-Yi-r8C"/>
+                                    <constraint firstAttribute="bottom" secondItem="512-3H-TAU" secondAttribute="bottom" constant="30" id="dTg-Yi-r8C"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -401,12 +409,16 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="menu" id="wtm-Sr-lPO"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="calanderVw" destination="jaK-N8-StF" id="9O3-qU-LYw"/>
-                        <outlet property="emailTxt" destination="o4W-aw-q7H" id="Hys-Vh-OnX"/>
+                        <outlet property="calanderVw" destination="WBm-nQ-E2f" id="v0C-WW-nGx"/>
+                        <outlet property="firstNameTxt" destination="XxF-sR-AKz" id="6L7-hf-se0"/>
+                        <outlet property="locationCheck" destination="BQU-4x-RYY" id="glw-Mw-zPR"/>
+                        <outlet property="locationLbl" destination="dxT-NN-G7c" id="887-Vr-9xQ"/>
+                        <outlet property="locationView" destination="JC8-Ps-TrK" id="ykt-8r-xMQ"/>
+                        <outlet property="mapStack" destination="T2o-tO-zrz" id="bcQ-nW-kOd"/>
                         <outlet property="mobileNbr" destination="ERY-4B-rka" id="7IO-Pk-O2K"/>
                         <outlet property="sideMenuBtn" destination="wtm-Sr-lPO" id="4wd-qN-tUY"/>
                         <outlet property="updateBtn" destination="XI0-lp-6yr" id="jfi-xU-Lwd"/>
-                        <outlet property="userImg" destination="orm-Zy-pAD" id="S0F-N3-qhc"/>
+                        <outlet property="userImg" destination="ZGU-Vb-pYv" id="nsz-iU-mqO"/>
                         <outlet property="userName" destination="ytO-OB-Ikf" id="Kbc-b4-zhT"/>
                     </connections>
                 </viewController>
@@ -1015,7 +1027,7 @@
                                 <rect key="frame" x="20" y="20" width="374" height="730"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="M1Z-Ld-tVt">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="563"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="539.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Store" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl1-Ew-rF9">
                                                 <rect key="frame" x="72" y="0.0" width="230" height="24"/>
@@ -1030,7 +1042,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Store Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fe3-VQ-lFT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="74.5" width="257" height="39"/>
+                                                <rect key="frame" x="58.5" y="74.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1044,7 +1056,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-KS-r9v" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="128.5" width="257" height="39.5"/>
+                                                <rect key="frame" x="58.5" y="123.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1058,7 +1070,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rri-eT-M1v" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="183" width="257" height="39"/>
+                                                <rect key="frame" x="58.5" y="172.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1072,7 +1084,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qdd-T9-1S7" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="237" width="257" height="39.5"/>
+                                                <rect key="frame" x="58.5" y="221.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1086,7 +1098,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Description" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y39-7R-zvx" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="291.5" width="257" height="36.5"/>
+                                                <rect key="frame" x="58.5" y="270.5" width="257" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
@@ -1099,7 +1111,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="un6-02-YG3">
-                                                <rect key="frame" x="134" y="343" width="106" height="40"/>
+                                                <rect key="frame" x="134" y="319.5" width="106" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="PbT-xN-Hvo"/>
                                                 </constraints>
@@ -1110,14 +1122,14 @@
                                                 </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bK3-47-LdU">
-                                                <rect key="frame" x="137" y="398" width="100" height="100"/>
+                                                <rect key="frame" x="137" y="374.5" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="RM9-p9-oT4"/>
                                                     <constraint firstAttribute="width" secondItem="bK3-47-LdU" secondAttribute="height" multiplier="1:1" id="YgR-oR-tFV"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QO7-Vd-fM2">
-                                                <rect key="frame" x="137" y="513" width="100" height="50"/>
+                                                <rect key="frame" x="137" y="489.5" width="100" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="lFY-9M-G3T"/>
                                                 </constraints>
@@ -1378,14 +1390,14 @@
         <designable name="Rri-eT-M1v">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
         </designable>
+        <designable name="XxF-sR-AKz">
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
+        </designable>
         <designable name="b0p-KS-r9v">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
         </designable>
         <designable name="fe3-VQ-lFT">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
-        </designable>
-        <designable name="o4W-aw-q7H">
-            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="wWd-bc-rw8">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
@@ -1406,9 +1418,11 @@
         <image name="btnLayout" width="154" height="52"/>
         <image name="comments" width="18.5" height="14.5"/>
         <image name="favorite-solid" width="18.5" height="17.5"/>
+        <image name="location.square" catalog="system" width="128" height="114"/>
         <image name="logoA&amp;E" width="204" height="130.5"/>
         <image name="logout" width="27.5" height="27"/>
         <image name="menu" width="21.5" height="18.5"/>
+        <image name="plus-circle-fill" width="37" height="37"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1418,6 +1432,9 @@
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
