@@ -385,6 +385,7 @@
                                             <constraint firstItem="ERY-4B-rka" firstAttribute="leading" secondItem="512-3H-TAU" secondAttribute="leading" constant="20" id="3hp-88-s9r"/>
                                             <constraint firstAttribute="trailing" secondItem="ERY-4B-rka" secondAttribute="trailing" constant="20" id="9sL-X3-LN7"/>
                                             <constraint firstAttribute="trailing" secondItem="ytO-OB-Ikf" secondAttribute="trailing" constant="20" id="OaN-da-HBj"/>
+                                            <constraint firstItem="WBm-nQ-E2f" firstAttribute="centerY" secondItem="512-3H-TAU" secondAttribute="centerY" id="csT-8p-FqN"/>
                                             <constraint firstItem="ytO-OB-Ikf" firstAttribute="leading" secondItem="512-3H-TAU" secondAttribute="leading" constant="20" id="p5Y-Jg-bhG"/>
                                         </constraints>
                                     </stackView>
@@ -398,7 +399,7 @@
                                     <constraint firstItem="512-3H-TAU" firstAttribute="centerX" secondItem="noe-as-aTs" secondAttribute="centerX" id="RXv-Rp-P6F"/>
                                     <constraint firstItem="512-3H-TAU" firstAttribute="trailing" secondItem="ehs-GP-gWz" secondAttribute="trailing" id="Xjm-ep-LIV"/>
                                     <constraint firstItem="512-3H-TAU" firstAttribute="leading" secondItem="noe-as-aTs" secondAttribute="leading" id="c60-JF-bOS"/>
-                                    <constraint firstAttribute="bottom" secondItem="512-3H-TAU" secondAttribute="bottom" constant="30" id="dTg-Yi-r8C"/>
+                                    <constraint firstAttribute="bottom" secondItem="512-3H-TAU" secondAttribute="bottom" constant="80" id="dTg-Yi-r8C"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
