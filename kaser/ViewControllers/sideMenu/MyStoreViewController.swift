@@ -87,23 +87,7 @@ class MyStoreViewController: UIViewController{
             reviewsLbl.text = "Store Owner: " + storeOwner
             addStoreBtn.isHidden = true
             addProductsBtn.isHidden = false
-            if let imageUrl = URL(string: storeImage) {
-                DispatchQueue.global().async {
-                    do {
-                        let imageData = try Data(contentsOf: imageUrl)
-                        if let image = UIImage(data: imageData) {
-                            // Cache the downloaded image
-                            self.imageCache.setObject(image, forKey: storeImage as NSString)
-                            DispatchQueue.main.async {
-                                // Display the downloaded image
-                                self.coverImg.image = image
-                            }
-                        }
-                    } catch {
-                        print("Failed to fetch image from URL: \(error)")
-                    }
-                }
-            }
+            GFunction.shared.loadImageAsync(from: URL(string: (storeImage)), into: (self.coverImg)!)
         }else{
             addStoreBtn.isHidden = false
             storeNameLbl.isHidden = true
@@ -154,23 +138,7 @@ extension MyStoreViewController: UITableViewDataSource {
             cell.iconImageView.image = cachedImage
         } else {
             // Image not cached, fetch asynchronously
-            if let imageUrl = URL(string: productsArray[indexPath.row].productImage) {
-                DispatchQueue.global().async {
-                    do {
-                        let imageData = try Data(contentsOf: imageUrl)
-                        if let image = UIImage(data: imageData) {
-                            // Cache the downloaded image
-                            self.imageCache.setObject(image, forKey: productsArray[indexPath.row].productImage as NSString)
-                            DispatchQueue.main.async {
-                                // Display the downloaded image
-                                cell.iconImageView.image = image
-                            }
-                        }
-                    } catch {
-                        print("Failed to fetch image from URL: \(error)")
-                    }
-                }
-            }
+            GFunction.shared.loadImageAsync(from: URL(string: (productsArray[indexPath.row].productImage)), into: (cell.iconImageView)!)
         }
         
         return cell

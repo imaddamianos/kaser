@@ -9,6 +9,7 @@ import UIKit
 import SkyFloatingLabelTextField
 import MapKit
 
+
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     @IBOutlet weak var userImg: UIImageView!
@@ -99,14 +100,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                     }
                     strongSelf.navigationController?.navigationBar.barTintColor = UIColor.originalColor
                     
-                    if let imageUrl = URL(string: (userDetails?.image)!){
-                        let image = try? UIImage(withContentsOfUrl: imageUrl)
-                        performOn(.main) {
-                            self?.userImg.image = image
-                            GFunction.shared.removeLoader()
-                        }
-                    }
-                    
+                    GFunction.shared.loadImageAsync(from: URL(string: (userDetails?.image)!), into: (self?.userImg)!)
+                    GFunction.shared.removeLoader()
                 }
             }
         }

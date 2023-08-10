@@ -55,12 +55,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 UIColor.originalColor = UIColor.colorFromHex(hex: 0xd9d358)
             }
             StrongSelf.headerView.backgroundColor = UIColor.originalColor
-            if let imageUrl = URL(string: (userDetails?.image)!){
-                let image = try? UIImage(withContentsOfUrl: imageUrl)
-                performOn(.main) {
-                    StrongSelf.userImg.image = image
-                }
-            }
+            GFunction.shared.loadImageAsync(from: URL(string: (userDetails?.image)!), into: (StrongSelf.userImg)!)
             StrongSelf.nameLbl.text = userDetails?.name
             GFunction.shared.removeLoader()
                
@@ -119,23 +114,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.featureCoverImg.image = cachedImage
             } else {
                 // Image not cached, fetch asynchronously
-                if let imageUrl = URL(string: product.storeImage) {
-                    DispatchQueue.global().async {
-                        do {
-                            let imageData = try Data(contentsOf: imageUrl)
-                            if let image = UIImage(data: imageData) {
-                                // Cache the downloaded image
-                                self.imageCache.setObject(image, forKey: product.storeImage as NSString)
-                                DispatchQueue.main.async {
-                                    // Display the downloaded image
-                                    cell.featureCoverImg.image = image
-                                }
-                            }
-                        } catch {
-                            print("Failed to fetch image from URL: \(error)")
-                        }
-                    }
-                }
+                GFunction.shared.loadImageAsync(from: URL(string: (product.storeImage)), into: (cell.featureCoverImg)!)
             }
             
             return cell

@@ -8,11 +8,24 @@
 import Foundation
 import SCLAlertView
 import ProgressHUD
+import SDWebImage
 
 var sideMenu: [SideMenuModel] = []
 
 class GFunction: NSObject {
     static let shared : GFunction = GFunction()
+    
+    func loadImageAsync(from url: URL?, into imageView: UIImageView, completion: (() -> Void)? = nil) {
+            imageView.sd_setImage(with: url) { (image, error, cacheType, url) in
+                if let error = error {
+                    print("Error loading image: \(error)")
+                } else {
+                    imageView.image = image
+                }
+                completion?()
+            }
+        }
+
     
     func showAlert(_ title: String, message: String, btnName: String, btnAction: @escaping () -> Void){
         var action: () -> Void
