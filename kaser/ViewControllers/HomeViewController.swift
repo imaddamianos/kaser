@@ -52,6 +52,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
 
             }else if userDetails?.userType == "Seller"{
+                UserDefaults.standard.set(userDetails?.email, forKey: "userEmail")
                 UIColor.originalColor = UIColor.colorFromHex(hex: 0xd9d358)
             }
             StrongSelf.headerView.backgroundColor = UIColor.originalColor

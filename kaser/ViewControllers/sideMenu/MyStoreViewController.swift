@@ -20,6 +20,7 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var addProductsBtn: UIButton!
     var storeName: String?
     var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var storeOwnerValue: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,24 +49,33 @@ class MyStoreViewController: UIViewController{
         
         for index in 0..<storesArray.count {
             let store = storesArray[index]
-            let storeOwner = store.storeOwner
-            self.storeName = store.storeName
-            let storeLocation = store.delivery
-            let storeAddress = store.address
-            let storeImage = store.storeImage
-            updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
+            if store.storeOwner == newEmail{
+                
+                let storeOwner = store.storeOwner
+                self.storeName = store.storeName
+                let storeLocation = store.delivery
+                let storeAddress = store.address
+                let storeImage = store.storeImage
+                updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
+                getProducts()
+            }else{
+                updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+            }
         }
         
-        if storesArray.isEmpty{
-            updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
-        }else{
-            getProducts()
-        }
+//        if storesArray.isEmpty{
+//            
+//        }else{
+//            
+//        }
     }
     
     func getProducts(){
         APICalls.shared.getProducts(store: self.storeName ?? "") { success in
-            self.handleProductsFetchResult(success: success)
+            for store in storesArray {
+                let storeOwner = store.storeOwner
+                
+            }
         }
     }
     

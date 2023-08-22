@@ -52,7 +52,7 @@ class LogInPresenter{
                             print("Create User Error: \(String(describing: Error))")
                     }
                 }
-//                print("Account Creatio Failed")
+                GFunction.shared.removeLoader()
                 return
             }
             
