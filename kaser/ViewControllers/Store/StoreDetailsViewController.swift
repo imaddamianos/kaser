@@ -10,6 +10,7 @@ import UIKit
 class StoreDetailsViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var storeName: UILabel!
+    @IBOutlet weak var storeNbLbl: UILabel!
     @IBOutlet weak var productsTbl: UITableView!
     var store: Store?
 
@@ -21,6 +22,7 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     func setupView(){
         navigationController?.setNavigationBarHidden(false, animated: false)
         storeName.text = store?.storeName
+        storeNbLbl.text = store?.phone
         productsTbl.dataSource = self
         productsTbl.delegate = self
         productsTbl.register(MyProductsTableViewCell.nib, forCellReuseIdentifier: MyProductsTableViewCell.identifier)
@@ -29,26 +31,9 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     
     func getProducts(){
         APICalls.shared.getProducts(store: store?.storeName ?? "") { success in
-//            if success{
-//                self.productsTbl.reloadData()
-//            }
-//            for product in productsArray {
-////                let productOwner = product.productOwner
-////                if productOwner == newEmail{
-////                    self.handleProductsFetchResult(success: true)
-////                }
-//            }
+                self.productsTbl.reloadData()
         }
     }
-//    func handleProductsFetchResult(success: Bool) {
-//        if success {
-//            productsTbl.reloadData()
-//            print(productsArray)
-//        } else {
-//            // Error occurred while fetching products
-//            print("Failed to fetch products.")
-//        }
-//    }
 }
 
 // MARK: - UITableView
@@ -70,7 +55,7 @@ extension StoreDetailsViewController: UITableViewDataSource, UITableViewDelegate
         cell.priceLbl.text = productsArray[indexPath.row].productOwner
         cell.locationLbl.text = productsArray[indexPath.row].brand
         cell.descriptionLbl.text = productsArray[indexPath.row].description
-        cell.storeLbl.text = productsArray[indexPath.row].productOwner
+        cell.storeLbl.text = productsArray[indexPath.row].condition
         
         if let cachedImage = imageCache.object(forKey: productsArray[indexPath.row].productImage as NSString) {
             // If the image is already cached, use it

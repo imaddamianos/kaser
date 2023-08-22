@@ -50,7 +50,7 @@ class MyStoreViewController: UIViewController{
             let store = storesArray[index]
             if store.storeOwner.description == newEmail{
                 
-                let storeOwner = store.storeOwner
+                let storeOwner = store.phone
                 self.storeName = store.storeName
                 let storeLocation = store.delivery
                 let storeAddress = store.address
@@ -84,10 +84,10 @@ class MyStoreViewController: UIViewController{
     
     func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String, storeImage: String){
         if !storeName.isEmpty {
-            storeNameLbl.text = "Store Name: " + storeName
-            storeNbLbl.text = "Store Location: " + storeLocation
-            locationLbl.text = "Store Address: " + storeAddress
-            reviewsLbl.text = "Store Owner: " + storeOwner
+            storeNameLbl.text = "Name: " + storeName
+            storeNbLbl.text = "Delivery: " + storeLocation
+            locationLbl.text = "Address: " + storeAddress
+            reviewsLbl.text = "Phone: " + storeOwner
             storeNameLbl.isHidden = false
             storeNbLbl.isHidden = false
             locationLbl.isHidden = false

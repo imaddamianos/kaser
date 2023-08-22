@@ -1373,19 +1373,26 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEz-xX-oFq">
                                 <rect key="frame" x="20" y="20" width="374" height="730"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ium-pq-Hhj">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ium-pq-Hhj">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="433.5"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eUu-p1-w7i">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M8a-I6-2Zk">
+                                                <rect key="frame" x="0.0" y="20" width="374" height="0.0"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NV6-Zm-2Ja">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="433.5"/>
+                                                <rect key="frame" x="0.0" y="40" width="374" height="393.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <label key="tableHeaderView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eUu-p1-w7i">
-                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <connections>
                                                     <outlet property="dataSource" destination="QFg-a0-KxA" id="owA-c0-M1i"/>
                                                     <outlet property="delegate" destination="QFg-a0-KxA" id="mph-8B-NXO"/>
@@ -1419,6 +1426,7 @@
                     <connections>
                         <outlet property="productsTbl" destination="NV6-Zm-2Ja" id="gdM-wu-vu7"/>
                         <outlet property="storeName" destination="eUu-p1-w7i" id="MPO-P7-Thz"/>
+                        <outlet property="storeNbLbl" destination="M8a-I6-2Zk" id="Crr-tN-fYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZc-qV-Urh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
