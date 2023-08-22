@@ -15,10 +15,9 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet weak var featuredCollView: UICollectionView!
     @IBOutlet weak var mostViewedCollView: UICollectionView!
     @IBOutlet weak var newCollView: UICollectionView!
-    
     @IBOutlet weak var headerView: UIView!
     var presenter: HomeVcPresenter!
-    var imageCache: NSCache<NSString, UIImage> = NSCache()
+    var store: Store?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +27,13 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-//        setupView()
+        setupView()
     }
     
     func setupView(){
         featuredCollView.dataSource = self
         featuredCollView.delegate = self
+        featuredCollView.isUserInteractionEnabled = true
         featuredCollView.register(FeatureCollectionViewCell.nib, forCellWithReuseIdentifier: FeatureCollectionViewCell.identifier)
         self.presenter = HomeVcPresenter(view: self)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
@@ -80,17 +80,19 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "StoreDetailsNavID",
+               let destinationVC = segue.destination as? StoreDetailsViewController {
+                // Set the value you want to pass to the destination view controller
+                destinationVC.store = store
+            }
+        }
+    
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UICollectionView
 
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return storesArray.count
@@ -100,7 +102,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         // Return the desired size for the item at the specified indexPath
         return CGSize(width: 200, height: 200)
     }
-
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell
@@ -109,6 +110,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.carModel.text = product.delivery
             cell.location.text = product.phone
             cell.views.text = product.address
+        
+        // Add a tap gesture recognizer to the cell
+           let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped(_:)))
+           cell.addGestureRecognizer(tapGestureRecognizer)
             
             if let cachedImage = imageCache.object(forKey: product.storeImage as NSString) {
                 // If the image is already cached, use it
@@ -120,8 +125,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             
             return cell
         }
-  
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+    
+    @objc func cellTapped(_ sender: UITapGestureRecognizer) {
+        // Handle cell tap here
+        if let cell = sender.view as? UICollectionViewCell {
+            if let indexPath = featuredCollView.indexPath(for: cell) {
+                let store = storesArray[indexPath.row]
+                self.store = store
+                print("store name: \(store)")
+                self.performSegue(withIdentifier: "StoreDetailsNavID", sender: self)
+                
+            }
+        }
     }
+
 }

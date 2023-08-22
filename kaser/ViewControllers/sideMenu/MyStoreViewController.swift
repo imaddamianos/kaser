@@ -19,7 +19,6 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var addStoreBtn: UIButton!
     @IBOutlet weak var addProductsBtn: UIButton!
     var storeName: String?
-    var imageCache: NSCache<NSString, UIImage> = NSCache()
     var storeOwnerValue: String?
     
     override func viewDidLoad() {

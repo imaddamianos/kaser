@@ -12,6 +12,7 @@
 		044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */; };
 		04A16D5B2A6D9713002D33AF /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A16D5A2A6D9713002D33AF /* AddProductsViewController.swift */; };
 		04A16D5D2A6D9A97002D33AF /* AddProductVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A16D5C2A6D9A97002D33AF /* AddProductVcPresenter.swift */; };
+		04A6F7B62A95574600EC8866 /* StoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6F7B52A95574600EC8866 /* StoreDetailsViewController.swift */; };
 		04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */; };
 		04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */; };
 		04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */; };
@@ -94,6 +95,7 @@
 		044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductsTableViewCell.xib; sourceTree = "<group>"; };
 		04A16D5A2A6D9713002D33AF /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
 		04A16D5C2A6D9A97002D33AF /* AddProductVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVcPresenter.swift; sourceTree = "<group>"; };
+		04A6F7B52A95574600EC8866 /* StoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailsViewController.swift; sourceTree = "<group>"; };
 		04D3C13F2A6699E30061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,6 +214,7 @@
 			children = (
 				04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */,
 				04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */,
+				04A6F7B52A95574600EC8866 /* StoreDetailsViewController.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -746,6 +749,7 @@
 				CFA238572784BF9C00767685 /* MainViewController.swift in Sources */,
 				CF1B20C82721D33C00E5CCB8 /* ForgetPasswordVC.swift in Sources */,
 				CF6F0F7826FBAFB40013FF1E /* UIViewController+Keyboard.swift in Sources */,
+				04A6F7B62A95574600EC8866 /* StoreDetailsViewController.swift in Sources */,
 				CF7875BC27343DA30016FF41 /* APICalls.swift in Sources */,
 				CFA238512784BF8A00767685 /* ChatViewControllerViewController.swift in Sources */,
 				CF6F0F8C26FF12C60013FF1E /* GEnum.swift in Sources */,

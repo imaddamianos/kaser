@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="gTV-IL-0wX" customClass="FeatureCollectionViewCell" customModule="kaser" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="" id="gTV-IL-0wX" customClass="FeatureCollectionViewCell" customModule="kaser" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="369" height="295"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -123,7 +123,7 @@
                     </stackView>
                 </subviews>
             </view>
-            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <viewLayoutGuide key="safeArea" id="ATr-jM-tj0"/>
             <color key="backgroundColor" systemColor="systemGray3Color"/>
             <constraints>
                 <constraint firstItem="ZNw-3q-fnf" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="2in-aW-vjg"/>

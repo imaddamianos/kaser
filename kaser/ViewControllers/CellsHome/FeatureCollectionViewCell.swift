@@ -25,6 +25,7 @@ class FeatureCollectionViewCell: UICollectionViewCell {
         self.layer.borderWidth = 2
         self.layer.borderColor = UIColor.black.cgColor
         self.layer.cornerRadius = 5
+        self.isUserInteractionEnabled = true
     }
     @IBAction func favIcon(_ sender: Any) {
         
