@@ -49,7 +49,7 @@ class MyStoreViewController: UIViewController{
         
         for index in 0..<storesArray.count {
             let store = storesArray[index]
-            if store.storeOwner == newEmail{
+            if store.storeOwner.description == newEmail{
                 
                 let storeOwner = store.storeOwner
                 self.storeName = store.storeName
@@ -58,23 +58,17 @@ class MyStoreViewController: UIViewController{
                 let storeImage = store.storeImage
                 updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
                 getProducts()
-            }else{
-                updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
             }
         }
-        
-//        if storesArray.isEmpty{
-//            
-//        }else{
-//            
-//        }
     }
     
     func getProducts(){
         APICalls.shared.getProducts(store: self.storeName ?? "") { success in
-            for store in storesArray {
-                let storeOwner = store.storeOwner
-                
+            for product in productsArray {
+                let productOwner = product.productOwner
+                if productOwner == newEmail{
+                    self.handleProductsFetchResult(success: true)
+                }
             }
         }
     }
@@ -95,7 +89,11 @@ class MyStoreViewController: UIViewController{
             storeNbLbl.text = "Store Location: " + storeLocation
             locationLbl.text = "Store Address: " + storeAddress
             reviewsLbl.text = "Store Owner: " + storeOwner
+            storeNameLbl.isHidden = false
+            storeNbLbl.isHidden = false
+            locationLbl.isHidden = false
             addStoreBtn.isHidden = true
+            reviewsLbl.isHidden = false
             addProductsBtn.isHidden = false
             GFunction.shared.loadImageAsync(from: URL(string: (storeImage)), into: (self.coverImg)!)
         }else{
