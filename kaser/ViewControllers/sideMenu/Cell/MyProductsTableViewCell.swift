@@ -30,6 +30,12 @@ class MyProductsTableViewCell: UITableViewCell {
         // Title
         self.titleLabel.textColor = .black
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 30, right: 10))
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

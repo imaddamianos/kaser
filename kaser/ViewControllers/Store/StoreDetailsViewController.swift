@@ -40,8 +40,9 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
 
 extension StoreDetailsViewController: UITableViewDataSource, UITableViewDelegate {
     
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150 // Adjust the height to your desired value
+        return 200 // Adjust the height to your desired value
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
