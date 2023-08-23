@@ -100,17 +100,17 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // Return the desired size for the item at the specified indexPath
-        return CGSize(width: 200, height: 200)
+        return CGSize(width: 300, height: 200)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell
             let product = storesArray[indexPath.row]
-            cell.phoneNb.text = product.storeName
-            cell.carModel.text = product.delivery
-            cell.location.text = product.phone
-            cell.views.text = product.address
-        
+            cell.phoneNb.text = product.phone
+            cell.carModel.text = product.storeName
+            cell.location.text = product.address
+            cell.views.text = product.delivery
+            cell.backgroundColor = UIColor.originalColor
         // Add a tap gesture recognizer to the cell
            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped(_:)))
            cell.addGestureRecognizer(tapGestureRecognizer)

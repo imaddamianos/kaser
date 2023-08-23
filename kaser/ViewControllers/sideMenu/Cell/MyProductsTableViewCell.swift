@@ -12,6 +12,7 @@ class MyProductsTableViewCell: UITableViewCell {
     class var identifier: String { return String(describing: self) }
     class var nib: UINib { return UINib(nibName: identifier, bundle: nil) }
     
+    @IBOutlet weak var productVw: UIView!
     @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet weak var storeLbl: UILabel!
@@ -21,21 +22,16 @@ class MyProductsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Background
-        self.backgroundColor = .clear
-        
-        // Icon
-        self.iconImageView.tintColor = .black
-        
-        // Title
-        self.titleLabel.textColor = .black
+        productVw.backgroundColor = UIColor.originalColor
+        productVw.layer.cornerRadius = 10.0
+        productVw.clipsToBounds = true
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 10, bottom: 30, right: 10))
-    }
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//
+//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

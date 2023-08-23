@@ -120,7 +120,7 @@ class MyStoreViewController: UIViewController{
 
 extension MyStoreViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150 // Adjust the height to your desired value
+        return 200 // Adjust the height to your desired value
     }
 }
 
@@ -138,7 +138,7 @@ extension MyStoreViewController: UITableViewDataSource {
         cell.priceLbl.text = productsArray[indexPath.row].productOwner
         cell.locationLbl.text = productsArray[indexPath.row].brand
         cell.descriptionLbl.text = productsArray[indexPath.row].description
-        cell.storeLbl.text = productsArray[indexPath.row].productOwner
+        cell.storeLbl.text = productsArray[indexPath.row].condition
         
         if let cachedImage = imageCache.object(forKey: productsArray[indexPath.row].productImage as NSString) {
             // If the image is already cached, use it

@@ -22,8 +22,7 @@ class FeatureCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.black.cgColor
+        
         self.layer.cornerRadius = 5
         self.isUserInteractionEnabled = true
     }
