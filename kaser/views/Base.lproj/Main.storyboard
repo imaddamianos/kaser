@@ -427,7 +427,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-la-pTw">
-                                <rect key="frame" x="130" y="613.5" width="154" height="52"/>
+                                <rect key="frame" x="94" y="613.5" width="226" height="52"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <state key="normal" title="S I G N U P" backgroundImage="btnLayout"/>
                                 <connections>
@@ -516,6 +516,7 @@
                             <constraint firstItem="dsF-GP-qI7" firstAttribute="centerX" secondItem="Ped-Lh-H7o" secondAttribute="centerX" id="Eq1-hP-s5B"/>
                             <constraint firstItem="jSP-tn-rUT" firstAttribute="leading" secondItem="obv-l9-JPC" secondAttribute="leading" constant="20" id="LBi-u0-cmN"/>
                             <constraint firstItem="SiQ-Oe-vGC" firstAttribute="top" secondItem="j7d-ad-4D2" secondAttribute="bottom" constant="40" id="MQD-VH-vOf"/>
+                            <constraint firstItem="bBn-la-pTw" firstAttribute="leading" secondItem="8qJ-y4-iYb" secondAttribute="leading" id="RJ6-wX-eqb"/>
                             <constraint firstItem="obv-l9-JPC" firstAttribute="trailing" secondItem="SiQ-Oe-vGC" secondAttribute="trailing" constant="20" id="Ri3-kA-6y8"/>
                             <constraint firstItem="bBn-la-pTw" firstAttribute="top" secondItem="jSP-tn-rUT" secondAttribute="bottom" constant="35" id="UVn-02-XfY"/>
                             <constraint firstItem="SiQ-Oe-vGC" firstAttribute="leading" secondItem="obv-l9-JPC" secondAttribute="leading" constant="20" id="XoY-HM-Xdu"/>
@@ -1092,7 +1093,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4GV-OP-dYj">
-                                                <rect key="frame" x="130" y="919.5" width="154" height="50"/>
+                                                <rect key="frame" x="100" y="919.5" width="214" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Paa-KL-dZe"/>
                                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="vpi-Ir-Boq"/>
@@ -1108,6 +1109,7 @@ in order to get more people engaged </string>
                                         <constraints>
                                             <constraint firstItem="dvx-sX-qAC" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="1tW-Jk-Wt8"/>
                                             <constraint firstItem="Foy-9j-BDy" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="3oV-u0-1SA"/>
+                                            <constraint firstItem="4GV-OP-dYj" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="100" id="4mf-ff-Ov5"/>
                                             <constraint firstItem="02F-Sc-yxr" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="NY6-EC-6P3"/>
                                             <constraint firstItem="cc4-p3-wde" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="Pyf-tb-mN1"/>
                                             <constraint firstItem="rky-L7-DzO" firstAttribute="leading" secondItem="zqt-0m-Jge" secondAttribute="leading" constant="20" id="TBh-oM-Ihr"/>
