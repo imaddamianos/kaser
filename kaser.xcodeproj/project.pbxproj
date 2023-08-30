@@ -17,6 +17,7 @@
 		04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */; };
 		04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */; };
 		04F17BB12A9FA91B0060E0C5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17BB02A9FA91B0060E0C5 /* LaunchScreenViewController.swift */; };
+		04F17BB32A9FB7800060E0C5 /* ValidationRegex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17BB22A9FB7800060E0C5 /* ValidationRegex.swift */; };
 		04FA8BD12A3651E600A647B5 /* MyStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */; };
 		04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */; };
 		04FA8BD62A376CB600A647B5 /* AddStoreVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */; };
@@ -102,6 +103,7 @@
 		04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04F17BB02A9FA91B0060E0C5 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		04F17BB22A9FB7800060E0C5 /* ValidationRegex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationRegex.swift; sourceTree = "<group>"; };
 		04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreVcPresenter.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 				CF7268D1271ACBE0001580B2 /* UiColor-Extension.swift */,
 				CF5A13CC28CDE73100C2077B /* String-Extension.swift */,
 				CF5A13CE28CDFA5600C2077B /* Image-Extension.swift */,
+				04F17BB22A9FB7800060E0C5 /* ValidationRegex.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				CFA2385C2784C00900767685 /* SideMenuViewController.swift in Sources */,
 				CF9589E0270EDB2A00A0CD16 /* LogInPresenter.swift in Sources */,
 				CF7268D8271B601A001580B2 /* HomeVC.swift in Sources */,
+				04F17BB32A9FB7800060E0C5 /* ValidationRegex.swift in Sources */,
 				CF7268D2271ACBE0001580B2 /* UiColor-Extension.swift in Sources */,
 				CF2C347F28CBD6CB00172B71 /* ReviewsViewController.swift in Sources */,
 				CF5A13C828CBE44B00C2077B /* FeaturesModel.swift in Sources */,

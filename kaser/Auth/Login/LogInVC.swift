@@ -63,7 +63,11 @@ class LogInVC: UIViewController, LogInViewProtocol {
                     UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
                     UserDefaults.standard.synchronize()
                 }
-                self.presenter.checkTxtField(email: txtEmail.text!, password: txtPass.text!) 
+                if ValidationRegex.isValidEmail(email: txtEmail.text!) {
+                    self.presenter.checkTxtField(email: txtEmail.text!, password: txtPass.text!)
+                }else{
+                    SCLAlertView().showInfo("Notice", subTitle: "Enter a valid E-mail address")
+                }
             }
         }else{
             SCLAlertView().showNotice("Notice", subTitle: "Please fill in the information below")

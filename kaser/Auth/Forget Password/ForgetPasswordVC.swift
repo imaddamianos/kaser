@@ -28,8 +28,11 @@ class ForgetPasswordVC: UIViewController, ForgetPasswordProtocol {
     }
     @IBAction func nextBtnTapped(_ sender: Any) {
         if let emailReset = emailText.text {
-            
-            presenter.checkEmailToSend(email: emailReset)
+            if ValidationRegex.isValidEmail(email: emailText.text!) {
+                presenter.checkEmailToSend(email: emailReset)
+            }else{
+                alertView.showInfo("Error", subTitle: "Enter a Valid E-mail")
+            }
         }
     }
     func setupView(){

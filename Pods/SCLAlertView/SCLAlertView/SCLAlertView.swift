@@ -558,11 +558,6 @@ open class SCLAlertView: UIViewController {
     @objc func buttonTapped(_ btn:SCLButton) {
         if btn.actionType == SCLActionType.closure {
             btn.action()
-        } else if btn.actionType == SCLActionType.selector {
-            let ctrl = UIControl()
-            ctrl.sendAction(btn.selector, to:btn.target, for:nil)
-        } else {
-            print("Unknow action type for button")
         }
         
         if(self.view.alpha != 0.0 && appearance.shouldAutoDismiss){ hideView() }

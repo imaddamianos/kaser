@@ -123,7 +123,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-Of-jfn" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-Of-jfn" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="20" y="378" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
@@ -337,7 +337,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j7d-ad-4D2" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="288" width="374" height="50"/>
+                                <rect key="frame" x="20" y="258" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="6Ac-aq-EIS"/>
@@ -385,8 +385,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SiQ-Oe-vGC" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="378" width="374" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="SiQ-Oe-vGC" customClass="SkyFloatingLabelTextFieldWithIcon" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="20" y="348" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Oc5-f7-1WT"/>
@@ -439,7 +439,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FWK-GK-ryE">
-                                <rect key="frame" x="116" y="685" width="182" height="43"/>
+                                <rect key="frame" x="116" y="655" width="182" height="43"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hah-NZ-0QT">
                                         <rect key="frame" x="0.0" y="0.0" width="43" height="43"/>
@@ -458,7 +458,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bBn-la-pTw">
-                                <rect key="frame" x="94" y="553" width="226" height="52"/>
+                                <rect key="frame" x="94" y="523" width="226" height="52"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="28"/>
                                 <state key="normal" title="S I G N U P" backgroundImage="btnLayout"/>
                                 <connections>
@@ -466,7 +466,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dsF-GP-qI7">
-                                <rect key="frame" x="94" y="645" width="226" height="30"/>
+                                <rect key="frame" x="94" y="615" width="226" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qJ-y4-iYb">
                                         <rect key="frame" x="0.0" y="0.0" width="174" height="30"/>
@@ -484,8 +484,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jSP-tn-rUT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="20" y="468" width="374" height="50"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="   Confirm Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="jSP-tn-rUT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="20" y="438" width="374" height="50"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VCh-um-N3K"/>
@@ -549,7 +549,7 @@
                             <constraint firstItem="bBn-la-pTw" firstAttribute="leading" secondItem="8qJ-y4-iYb" secondAttribute="leading" id="RJ6-wX-eqb"/>
                             <constraint firstItem="obv-l9-JPC" firstAttribute="trailing" secondItem="SiQ-Oe-vGC" secondAttribute="trailing" constant="20" id="Ri3-kA-6y8"/>
                             <constraint firstItem="bBn-la-pTw" firstAttribute="top" secondItem="jSP-tn-rUT" secondAttribute="bottom" constant="35" id="UVn-02-XfY"/>
-                            <constraint firstItem="j7d-ad-4D2" firstAttribute="top" secondItem="r6V-L8-f3Z" secondAttribute="bottom" constant="50" id="WXS-03-pf0"/>
+                            <constraint firstItem="j7d-ad-4D2" firstAttribute="top" secondItem="r6V-L8-f3Z" secondAttribute="bottom" constant="20" id="WXS-03-pf0"/>
                             <constraint firstItem="SiQ-Oe-vGC" firstAttribute="leading" secondItem="obv-l9-JPC" secondAttribute="leading" constant="20" id="XoY-HM-Xdu"/>
                             <constraint firstItem="FWK-GK-ryE" firstAttribute="top" secondItem="dsF-GP-qI7" secondAttribute="bottom" constant="10" id="ZfP-wg-p3T"/>
                             <constraint firstItem="jSP-tn-rUT" firstAttribute="top" secondItem="SiQ-Oe-vGC" secondAttribute="bottom" constant="40" id="dDy-Em-vsR"/>
@@ -815,7 +815,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="honorifix-prefix"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
                                                         <integer key="value" value="1"/>
@@ -864,7 +864,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" textContentType="given-name"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
                                                         <integer key="value" value="1"/>
@@ -913,7 +913,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" returnKeyType="next" textContentType="family-name"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
                                                         <integer key="value" value="1"/>
@@ -962,7 +962,7 @@ in order to get more people engaged </string>
                                                 </constraints>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" textContentType="name"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="iconTypeValue">
                                                         <integer key="value" value="1"/>

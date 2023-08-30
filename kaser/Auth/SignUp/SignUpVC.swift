@@ -49,12 +49,12 @@ class SignUpVC: UIViewController, SignUpViewProtocol {
     @IBAction func signUpTapped(_ sender: Any) {
         
         if !txtEmail.text!.isEmpty || !txtPass.text!.isEmpty || !txtConfirmPass.text!.isEmpty{
-            if txtEmail.text!.isEmpty {
-                SCLAlertView().showInfo("Notice", subTitle: "Enter an E-mail address")
-            }else if txtPass.text!.isEmpty{
+            if !ValidationRegex.isValidEmail(email: txtEmail.text!) {
+                SCLAlertView().showInfo("Notice", subTitle: "Enter a valid E-mail address")
+            }else if !ValidationRegex.isValidPassword(password: txtPass.text!){
                 SCLAlertView().showInfo("Notice", subTitle: "Enter a valid Password")
-            }else if txtConfirmPass.text!.isEmpty{
-                SCLAlertView().showInfo("Notice", subTitle: "Please confirm your Password")
+            }else if txtConfirmPass.text! != txtPass.text!{
+                SCLAlertView().showInfo("Notice", subTitle: "Confirm Password")
             }else{
                 presenter.checkTxtField(email: txtEmail.text!, password: txtPass.text!, confirmPass: txtConfirmPass.text!)
             }
