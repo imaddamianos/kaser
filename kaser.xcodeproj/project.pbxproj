@@ -16,6 +16,7 @@
 		04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */; };
 		04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */; };
 		04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */; };
+		04F17BB12A9FA91B0060E0C5 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F17BB02A9FA91B0060E0C5 /* LaunchScreenViewController.swift */; };
 		04FA8BD12A3651E600A647B5 /* MyStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */; };
 		04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */; };
 		04FA8BD62A376CB600A647B5 /* AddStoreVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */; };
@@ -100,6 +101,7 @@
 		04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04F17BB02A9FA91B0060E0C5 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		04FA8BD02A3651E600A647B5 /* MyStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD32A37510000A647B5 /* AddStoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreViewController.swift; sourceTree = "<group>"; };
 		04FA8BD52A376CB600A647B5 /* AddStoreVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStoreVcPresenter.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 				CF7268D7271B601A001580B2 /* HomeVC.swift */,
 				CFA2384D2784BF8900767685 /* HomeViewController.swift */,
 				CF1C7D12275551DE00AF3F7E /* HomeVcPresenter.swift */,
+				04F17BB02A9FA91B0060E0C5 /* LaunchScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -761,6 +764,7 @@
 				CF5A13C528CBE1D100C2077B /* FeatureCollectionViewCell.swift in Sources */,
 				CF6F0F8826FE619A0013FF1E /* SignUpInfoVC.swift in Sources */,
 				044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */,
+				04F17BB12A9FA91B0060E0C5 /* LaunchScreenViewController.swift in Sources */,
 				CFB08679271AC42100C7CFEC /* SignUpInfoVcPresenter.swift in Sources */,
 				CF6F0F8E26FF13E60013FF1E /* UIApplication.swift in Sources */,
 				CFA238502784BF8A00767685 /* FavoriteViewControllerswift.swift in Sources */,

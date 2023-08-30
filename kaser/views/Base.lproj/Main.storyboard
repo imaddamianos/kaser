@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CGq-lg-a0R">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -16,6 +16,32 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Launch Screen View Controller-->
+        <scene sceneID="yZY-mT-Jut">
+            <objects>
+                <viewController id="CGq-lg-a0R" customClass="LaunchScreenViewController" customModule="kaser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ewu-iK-NSk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EVM" translatesAutoresizingMaskIntoConstraints="NO" id="YjR-Yc-MrS">
+                                <rect key="frame" x="60" y="48" width="294" height="814"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="C9m-Gc-Ixc"/>
+                        <color key="backgroundColor" red="0.12996384499999999" green="0.1621848941" blue="0.1919309199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="YjR-Yc-MrS" firstAttribute="leading" secondItem="C9m-Gc-Ixc" secondAttribute="leading" constant="60" id="AdM-o3-zNh"/>
+                            <constraint firstItem="YjR-Yc-MrS" firstAttribute="top" secondItem="C9m-Gc-Ixc" secondAttribute="top" id="aBC-Sb-gNa"/>
+                            <constraint firstItem="C9m-Gc-Ixc" firstAttribute="trailing" secondItem="YjR-Yc-MrS" secondAttribute="trailing" constant="60" id="aq4-Fg-bv6"/>
+                            <constraint firstItem="C9m-Gc-Ixc" firstAttribute="bottom" secondItem="YjR-Yc-MrS" secondAttribute="bottom" id="umR-bi-v7v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fC4-gj-VQM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-683" y="86"/>
+        </scene>
         <!--Log InVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -1053,11 +1079,11 @@ in order to get more people engaged </string>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFF-eO-pkt">
                                                         <rect key="frame" x="216" y="0.0" width="53.5" height="150"/>
-                                                        <color key="tintColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.12996384499999999" green="0.1621848941" blue="0.1919309199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="location.square" catalog="system" title=" ">
                                                             <backgroundConfiguration key="background">
-                                                                <color key="backgroundColor" red="0.85098039219999999" green="0.82745098039999998" blue="0.34509803919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="backgroundColor" red="0.23137254900000001" green="0.4549019608" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </backgroundConfiguration>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                                         </buttonConfiguration>
@@ -1186,41 +1212,42 @@ in order to get more people engaged </string>
     </scenes>
     <designables>
         <designable name="02F-Sc-yxr">
-            <size key="intrinsicContentSize" width="128" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="Foy-9j-BDy">
-            <size key="intrinsicContentSize" width="136.5" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="GdD-7d-SKy">
-            <size key="intrinsicContentSize" width="93" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="JHc-7Z-tMN">
-            <size key="intrinsicContentSize" width="93" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="SiQ-Oe-vGC">
-            <size key="intrinsicContentSize" width="119.5" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="cc4-p3-wde">
-            <size key="intrinsicContentSize" width="131.5" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="dvx-sX-qAC">
-            <size key="intrinsicContentSize" width="95.5" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="fKI-Of-jfn">
-            <size key="intrinsicContentSize" width="119.5" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="j7d-ad-4D2">
-            <size key="intrinsicContentSize" width="93" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="jSP-tn-rUT">
-            <size key="intrinsicContentSize" width="188" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="rky-L7-DzO">
-            <size key="intrinsicContentSize" width="128.5" height="34"/>
+            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
     </designables>
     <resources>
         <image name="123" width="30" height="15"/>
+        <image name="EVM" width="283" height="284"/>
         <image name="abc" width="30" height="15"/>
         <image name="back" width="14" height="21.5"/>
         <image name="btnLayout" width="154" height="52"/>
