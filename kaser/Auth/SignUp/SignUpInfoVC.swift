@@ -78,12 +78,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
 
     }
     
-    func sendAndSaveCoordinates(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-        // Save the coordinates using UserDefaults
-//        UserDefaults.standard.set(latitude, forKey: "savedLatitude")
-//        UserDefaults.standard.set(longitude, forKey: "savedLongitude")
-    }
-    
     @IBAction func signUpTapped(_ sender: Any) {
         if imgProfiePic.image == nil{
             SCLAlertView().showInfo("Notice", subTitle: "Enter a profile picture")

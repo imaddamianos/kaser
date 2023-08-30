@@ -8,6 +8,7 @@
 import UIKit
 import SkyFloatingLabelTextField
 import MapKit
+import SCLAlertView
 
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -22,7 +23,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     @IBOutlet weak var locationCheck: UIButton!
     @IBOutlet weak var locationLbl: UILabel!
     @IBOutlet weak var locationView: MKMapView!
-    
+    var dateOfBirth: String = ""
+    var latitude: String?
+    var longitude: String?
     var imageURL = ""
     
     override func viewDidLoad() {
@@ -36,7 +39,29 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     }
     
     @IBAction func updateBtnTapped(_ sender: Any) {
-        
+        if userImg.image == nil{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter a profile picture")
+        }else if userName.text!.isEmpty {
+            SCLAlertView().showInfo("Notice", subTitle: "Enter a user name")
+        }else if firstNameTxt.text!.isEmpty{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter your First Name")
+        }else if mobileNbr.text!.isEmpty{
+            SCLAlertView().showInfo("Notice", subTitle: "Enter your Mobile Number")
+        }else{
+            
+        if userDetails?.userType == "Seller" {
+            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: (userDetails?.dob)!, location: ["":""] , image: (userDetails?.image)!){[weak self] (isSuccess) in
+                guard let StrongSelf = self else{
+                    return
+            }
+                if !isSuccess { return }
+                SCLAlertView().showInfo("Alert", subTitle: "Profile Updated")
+            }
+        }else{
+            
+            }
+    }
+
         
     }
     @IBAction func addImage(_ sender: Any) {
@@ -49,6 +74,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     }
     func setupView(){
         GFunction.shared.addLoader("")
+        addKeyboardObservers()
+        setupKeyboardDismissRecognizer()
+        calanderVw.datePickerMode = .date
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(datePickerValueChanged(_:)))
+        calanderVw.addGestureRecognizer(tapGesture)
+        calanderVw.addTarget(self, action: #selector(datePickerValueChanged(_:)), for: .valueChanged)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
         APICalls.shared.getUserInfo(name: "") { [weak self] (isSuccess) in
             guard let strongSelf = self else {
@@ -116,6 +147,65 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         super.viewWillDisappear(animated)
         self.revealViewController()?.gestureEnabled = true
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+            guard let location = locations.last else { return }
+
+            let latitude = location.coordinate.latitude
+            let longitude = location.coordinate.longitude
+            self.longitude = String(longitude)
+            self.latitude = String(latitude)
+
+            // Create a CLLocationCoordinate2D instance with the coordinates
+            let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+
+            // Create an MKCoordinateRegion centered around the coordinates
+            let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        locationView.setRegion(region, animated: true)
+
+            // Create a new annotation with the user's location
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = coordinates
+            
+            // Reverse geocode to get the location name
+            let locationName = getLocationNameFromCoordinates(latitude: latitude, longitude: longitude)
+            annotation.title = locationName
+            
+        locationView.addAnnotation(annotation)
+        }
+
+        // Reverse geocoding function
+        func getLocationNameFromCoordinates(latitude: CLLocationDegrees, longitude: CLLocationDegrees) -> String {
+            let location = CLLocation(latitude: latitude, longitude: longitude)
+            let geocoder = CLGeocoder()
+
+            var locationName = ""
+
+            geocoder.reverseGeocodeLocation(location) { placemarks, error in
+                if let error = error {
+                    print("Reverse geocoding error: \(error.localizedDescription)")
+                    return
+                }
+
+                if let placemark = placemarks?.first {
+                    // You can access various components of the placemark
+                    if let name = placemark.name {
+                        self.locationLbl.text = name
+                        locationName = name
+                    }
+                }
+            }
+
+            return locationName
+        }
+    
+    @objc func datePickerValueChanged(_ sender: UIDatePicker) {
+          let dateFormatter = DateFormatter()
+          dateFormatter.dateFormat = "yyyy-MM-dd"
+        self.dateOfBirth = dateFormatter.string(from: sender.date)
+        
+      }
+
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         GFunction.shared.addLoader("Uploading")
