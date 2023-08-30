@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "logoA&E.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "EVM.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

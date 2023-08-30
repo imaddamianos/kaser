@@ -16,17 +16,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoA&amp;E" translatesAutoresizingMaskIntoConstraints="NO" id="O2Z-cP-EG8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EVM" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xVA-4G-qV8">
+                                <rect key="frame" x="0.0" y="348" width="414" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="Z0J-9n-ne0"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.23697572950000001" green="0.24922883509999999" blue="0.35483837130000001" alpha="0.48447859368356716" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.12996384499999999" green="0.1621848941" blue="0.1919309199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="O2Z-cP-EG8" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="E8a-3j-lcP"/>
-                            <constraint firstItem="O2Z-cP-EG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LYQ-W4-3he"/>
-                            <constraint firstItem="O2Z-cP-EG8" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="POB-hV-cLz"/>
-                            <constraint firstAttribute="bottom" secondItem="O2Z-cP-EG8" secondAttribute="bottom" id="eXD-Li-tV8"/>
+                            <constraint firstItem="xVA-4G-qV8" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="7eT-VB-Lwy"/>
+                            <constraint firstAttribute="trailing" secondItem="xVA-4G-qV8" secondAttribute="trailing" id="NXc-yD-7wJ"/>
+                            <constraint firstItem="xVA-4G-qV8" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="nDA-3a-fNZ"/>
+                            <constraint firstItem="xVA-4G-qV8" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="oRI-ss-l0Q"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -36,6 +39,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logoA&amp;E" width="204" height="130.5"/>
+        <image name="EVM" width="283" height="284"/>
     </resources>
 </document>

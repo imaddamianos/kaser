@@ -95,7 +95,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                     if userDetails?.userType == "Buyer"{
                         UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
                     }else{
-                        UIColor.originalColor = UIColor.colorFromHex(hex: 0xd9d358)
+                        UIColor.originalColor = UIColor.colorFromHex(hex: 0x36b7bf)
                         strongSelf.updateBtn.setBackgroundImage(UIImage(named: "sellerBtn"), for: .normal)
                     }
                     strongSelf.navigationController?.navigationBar.barTintColor = UIColor.originalColor

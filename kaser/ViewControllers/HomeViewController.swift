@@ -49,11 +49,11 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             if !isSuccess { return }
             sideMenu = GFunction.shared.sideMenuItems()
             if userDetails?.userType == "Buyer"{
-                UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0x3b747e)
 
             }else if userDetails?.userType == "Seller"{
                 UserDefaults.standard.set(userDetails?.email, forKey: "userEmail")
-                UIColor.originalColor = UIColor.colorFromHex(hex: 0xd9d358)
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0x36b7bf)
             }
             StrongSelf.headerView.backgroundColor = UIColor.originalColor
             GFunction.shared.loadImageAsync(from: URL(string: (userDetails?.image)!), into: (StrongSelf.userImg)!)

@@ -13,10 +13,10 @@ extension UIColor {
     
     static var colorBlack: UIColor { return  UIColor.colorFromHex(hex: 0x000000) }
     static var colorWhite: UIColor { return  UIColor.colorFromHex(hex: 0xffffff) }
-    static var colorYellow: UIColor { return  UIColor.colorFromHex(hex: 0xd9d358) }
+    static var colorYellow: UIColor { return  UIColor.colorFromHex(hex: 0x36b7bf) }
 //    static var originalColor: UIColor { return  UIColor.colorFromHex(hex: 0x3c3f5a) }
     
-    private static var _originalColor: UIColor = UIColor.colorFromHex(hex: 0x3c3f5a)
+    private static var _originalColor: UIColor = UIColor.colorFromHex(hex: 0x3b747e)
       
       static var originalColor: UIColor {
           get {
