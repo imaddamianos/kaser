@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     var imageURL = ""
     let locationManager = CLLocationManager()
     
+    let dateFormatter = DateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sideMenuBtn.target = revealViewController()
@@ -52,6 +54,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
             SCLAlertView().showInfo("Notice", subTitle: "Enter your First Name")
         }else if mobileNbr.text!.isEmpty{
             SCLAlertView().showInfo("Notice", subTitle: "Enter your Mobile Number")
+        }else if dateOfBirth.isEmpty{
+            dateOfBirth = (userDetails?.dob)!
         }else{
             if self.latitude == nil || self.latitude!.isEmpty && self.longitude == nil || self.longitude!.isEmpty {
 
@@ -59,10 +63,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                 return
             }
         if userDetails?.userType == "Seller" {
-            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: (userDetails?.dob)!, location: [self.latitude:self.longitude] , image: (userDetails?.image)!){[weak self] (isSuccess) in
-                guard let StrongSelf = self else{
-                    return
-            }
+            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: dateOfBirth, location: [self.latitude:self.longitude] , image: (userDetails?.image)!){ (isSuccess) in
                 if !isSuccess { return }
                 SCLAlertView().showInfo("Alert", subTitle: "Profile Updated")
             }
@@ -104,7 +105,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                     strongSelf.userName.text = userDetails?.UserName
                     strongSelf.firstNameTxt.text = userDetails?.email
                     strongSelf.mobileNbr.text = userDetails?.mobile
-//                    strongSelf.locationView =
+                    
+                    // date
+                    strongSelf.dateFormatter.dateFormat = "yyyy-MM-dd"
+                    if let date = strongSelf.dateFormatter.date(from: (userDetails?.dob)!) {
+                        strongSelf.calanderVw.date = date
+                           }
                     
                     //location
                     if let jsonData = userDetails?.location!.data(using: .utf8) {
@@ -128,13 +134,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                             print("Error parsing JSON: \(error)")
                         }
                     }
-                    // date
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd"
-                    if let date = dateFormatter.date(from: userDetails?.dob ?? "") {
-                        strongSelf.calanderVw.date = date
-                    }
-                    
                     if userDetails?.userType == "Buyer"{
                         UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
                     }else{
@@ -212,10 +211,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         }
     
     @objc func datePickerValueChanged(_ sender: UIDatePicker) {
-          let dateFormatter = DateFormatter()
-          dateFormatter.dateFormat = "yyyy-MM-dd"
         self.dateOfBirth = dateFormatter.string(from: sender.date)
-        
+
       }
 
     
