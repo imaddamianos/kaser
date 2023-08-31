@@ -11,7 +11,7 @@ import MapKit
 import SCLAlertView
 
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+class ProfileViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, CLLocationManagerDelegate {
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var userName: SkyFloatingLabelTextFieldWithIcon!
@@ -27,6 +27,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     var latitude: String?
     var longitude: String?
     var imageURL = ""
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     
     override func viewDidAppear(_ animated: Bool) {
         setupView()
+    }
+    
+    @IBAction func locationBtnTapped(_ sender: Any) {
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction func updateBtnTapped(_ sender: Any) {
@@ -48,9 +53,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         }else if mobileNbr.text!.isEmpty{
             SCLAlertView().showInfo("Notice", subTitle: "Enter your Mobile Number")
         }else{
-            
+            if self.latitude == nil || self.latitude!.isEmpty && self.longitude == nil || self.longitude!.isEmpty {
+
+                SCLAlertView().showInfo("Notice", subTitle: "Location is missing")
+                return
+            }
         if userDetails?.userType == "Seller" {
-            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: (userDetails?.dob)!, location: ["":""] , image: (userDetails?.image)!){[weak self] (isSuccess) in
+            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: (userDetails?.dob)!, location: [self.latitude:self.longitude] , image: (userDetails?.image)!){[weak self] (isSuccess) in
                 guard let StrongSelf = self else{
                     return
             }
@@ -76,6 +85,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         GFunction.shared.addLoader("")
         addKeyboardObservers()
         setupKeyboardDismissRecognizer()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         calanderVw.datePickerMode = .date
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(datePickerValueChanged(_:)))
         calanderVw.addGestureRecognizer(tapGesture)

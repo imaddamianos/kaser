@@ -355,6 +355,9 @@
                                                             </backgroundConfiguration>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="locationBtnTapped:" destination="fQx-6a-sFe" eventType="touchUpInside" id="zZh-NZ-ku2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -1439,9 +1442,6 @@
         <designable name="Aud-8Z-cFi">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
         </designable>
-        <designable name="ERY-4B-rka">
-            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
-        </designable>
         <designable name="Hx4-u8-sSY">
             <size key="intrinsicContentSize" width="257" height="36.833984375"/>
         </designable>
@@ -1453,9 +1453,6 @@
         </designable>
         <designable name="Rri-eT-M1v">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
-        </designable>
-        <designable name="XxF-sR-AKz">
-            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
         <designable name="b0p-KS-r9v">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
@@ -1471,9 +1468,6 @@
         </designable>
         <designable name="y5D-i8-E7s">
             <size key="intrinsicContentSize" width="257" height="39.220703125"/>
-        </designable>
-        <designable name="ytO-OB-Ikf">
-            <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
     </designables>
     <resources>
