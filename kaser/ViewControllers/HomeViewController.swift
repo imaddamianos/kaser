@@ -57,7 +57,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             }
             StrongSelf.headerView.backgroundColor = UIColor.originalColor
             GFunction.shared.loadImageAsync(from: URL(string: (userDetails?.image)!), into: (StrongSelf.userImg)!)
-            StrongSelf.nameLbl.text = userDetails?.name
+            StrongSelf.nameLbl.text = userDetails?.UserName
             GFunction.shared.removeLoader()
                
         }

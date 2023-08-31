@@ -96,7 +96,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         } else{
         
         if !agreeSelected{
-            
             self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
                 if success{
                     if self.userType == "Buyer"{

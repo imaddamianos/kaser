@@ -89,7 +89,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
             if isSuccess {
                 DispatchQueue.main.async {
                     
-                    strongSelf.userName.text = userDetails?.name
+                    strongSelf.userName.text = userDetails?.UserName
                     strongSelf.firstNameTxt.text = userDetails?.email
                     strongSelf.mobileNbr.text = userDetails?.mobile
 //                    strongSelf.locationView =

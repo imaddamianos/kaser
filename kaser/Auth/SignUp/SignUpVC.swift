@@ -56,6 +56,9 @@ class SignUpVC: UIViewController, SignUpViewProtocol {
             }else if txtConfirmPass.text! != txtPass.text!{
                 SCLAlertView().showInfo("Notice", subTitle: "Confirm Password")
             }else{
+                UserDefaults.standard.setValue(txtEmail.text!, forKey: "email")
+                UserDefaults.standard.setValue(txtPass.text!, forKey: "password")
+                UserDefaults.standard.setValue(true, forKey: "isSaveSelected")
                 presenter.checkTxtField(email: txtEmail.text!, password: txtPass.text!, confirmPass: txtConfirmPass.text!)
             }
         }else{
