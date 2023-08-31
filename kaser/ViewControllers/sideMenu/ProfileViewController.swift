@@ -63,7 +63,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                 return
             }
         if userDetails?.userType == "Seller" {
-            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: dateOfBirth, location: [self.latitude:self.longitude] , image: (userDetails?.image)!){ (isSuccess) in
+            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: dateOfBirth, location: [self.latitude:self.longitude] , image: self.imageURL){ (isSuccess) in
                 if !isSuccess { return }
                 SCLAlertView().showInfo("Alert", subTitle: "Profile Updated")
             }
