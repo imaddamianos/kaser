@@ -47,18 +47,11 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 return
             }
             if !isSuccess { return }
-            if userDetails?.userType == "Buyer"{
-                UIColor.originalColor = UIColor.colorFromHex(hex: 0x3b747e)
-
-            }else if userDetails?.userType == "Seller"{
-                UserDefaults.standard.set(userDetails?.email, forKey: "userEmail")
-                UIColor.originalColor = UIColor.colorFromHex(hex: 0x36b7bf)
-            }
             StrongSelf.headerView.backgroundColor = UIColor.originalColor
             GFunction.shared.loadImageAsync(from: URL(string: (userDetails?.image)!), into: (StrongSelf.userImg)!)
             StrongSelf.nameLbl.text = userDetails?.UserName
             GFunction.shared.removeLoader()
-            sideMenu = GFunction.shared.sideMenuItems()
+                sideMenu = GFunction.shared.sideMenuItems(userType: (userDetails?.userType)!)
         }
         
         APICalls.shared.getStores() {[weak self] (isSuccess) in

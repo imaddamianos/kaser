@@ -7,6 +7,8 @@
 
 import UIKit
 
+var sideMenu: [SideMenuModel] = []
+
 struct SideMenuModel {
     var icon: UIImage
     var title: String

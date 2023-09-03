@@ -15,7 +15,6 @@ class SideMenuViewController: UIViewController {
     @IBOutlet var headerImageView: UIImageView!
     @IBOutlet var sideMenuTableView: UITableView!
     @IBOutlet var footerLabel: UILabel!
-    
     @IBAction func logOutBtn(_ sender: Any) {
         Logout()
     }
@@ -38,22 +37,34 @@ class SideMenuViewController: UIViewController {
         self.sideMenuTableView.backgroundColor = UIColor.black
         self.sideMenuTableView.separatorStyle = .none
         view.backgroundColor = UIColor.originalColor
-        // Set Highlighted Cell
-        DispatchQueue.main.async {
-            let defaultRow = IndexPath(row: self.defaultHighlightedCell, section: 0)
-            self.sideMenuTableView.selectRow(at: defaultRow, animated: false, scrollPosition: .none)
-        }
-        sideMenu = GFunction.shared.sideMenuItems()
-        // Footer
+        //                     Footer
         self.footerLabel.textColor = UIColor.white
         self.footerLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         self.footerLabel.text = "Version 1.0"
 
         // Register TableView Cell
         self.sideMenuTableView.register(SideMenuCell.nib, forCellReuseIdentifier: SideMenuCell.identifier)
+        // Set Highlighted Cell
+        DispatchQueue.main.async {
+            let defaultRow = IndexPath(row: self.defaultHighlightedCell, section: 0)
+            self.sideMenuTableView.selectRow(at: defaultRow, animated: false, scrollPosition: .none)
+        }
+        APICalls.shared.getUserInfo(name: newEmail!){[weak self] (isSuccess) in
+            guard let StrongSelf = self else{
+                return
+            }
+            if !isSuccess { return }
+            if userDetails?.userType == "Buyer"{
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0x3b747e)
+            }else if userDetails?.userType == "Seller"{
+                UserDefaults.standard.set(userDetails?.email, forKey: "userEmail")
+                UIColor.originalColor = UIColor.colorFromHex(hex: 0x36b7bf)
+            }
+            sideMenu = GFunction.shared.sideMenuItems(userType: (userDetails?.userType)!)
+            // Update TableView with the data
+            StrongSelf.sideMenuTableView.reloadData()
 
-        // Update TableView with the data
-        self.sideMenuTableView.reloadData()
+        }
     }
 }
 

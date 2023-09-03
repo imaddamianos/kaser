@@ -10,8 +10,6 @@ import SCLAlertView
 import ProgressHUD
 import SDWebImage
 
-var sideMenu: [SideMenuModel] = []
-
 class GFunction: NSObject {
     static let shared : GFunction = GFunction()
     
@@ -66,8 +64,8 @@ class GFunction: NSObject {
         }
      }
     
-    func sideMenuItems() -> [SideMenuModel]{
-        if userDetails?.userType == "Seller" {
+    func sideMenuItems(userType:String) -> [SideMenuModel]{
+        if userType == "Seller" {
             return [
                 SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
                 SideMenuModel(icon: UIImage(systemName: "person.crop.circle.fill")!, title: "Profile"),

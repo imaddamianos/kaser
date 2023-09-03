@@ -44,7 +44,6 @@ class MyStoreViewController: UIViewController{
         myProductsTbl.register(MyProductsTableViewCell.nib, forCellReuseIdentifier: MyProductsTableViewCell.identifier)
         sideMenuBtn.target = self.revealViewController()
         sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
-        sideMenu = GFunction.shared.sideMenuItems()
         
         for index in 0..<storesArray.count {
             let store = storesArray[index]
