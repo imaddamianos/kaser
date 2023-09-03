@@ -70,21 +70,21 @@ class GFunction: NSObject {
         if userDetails?.userType == "Seller" {
             return [
                 SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
-                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Profile"),
-                SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Chat"),
-                SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Favorite"),
-                SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Reviews"),
-                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings"),
-                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "My Store")
+                SideMenuModel(icon: UIImage(systemName: "person.crop.circle.fill")!, title: "Profile"),
+                SideMenuModel(icon: UIImage(systemName: "text.bubble.fill")!, title: "Chat"),
+                SideMenuModel(icon: UIImage(systemName: "star.fill")!, title: "Favorite"),
+                SideMenuModel(icon: UIImage(systemName: "list.bullet.rectangle")!, title: "Reviews"),
+                SideMenuModel(icon: UIImage(systemName: "gearshape.fill")!, title: "Settings"),
+                SideMenuModel(icon: UIImage(systemName: "building.2.fill")!, title: "My Store")
             ]
         } else {
             return [
                 SideMenuModel(icon: UIImage(systemName: "house.fill")!, title: "Home"),
-                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Profile"),
-                SideMenuModel(icon: UIImage(systemName: "film.fill")!, title: "Chat"),
-                SideMenuModel(icon: UIImage(systemName: "person.fill")!, title: "Favorite"),
-                SideMenuModel(icon: UIImage(systemName: "slider.horizontal.3")!, title: "Reviews"),
-                SideMenuModel(icon: UIImage(systemName: "music.note")!, title: "Settings")
+                SideMenuModel(icon: UIImage(systemName: "person.crop.circle.fill")!, title: "Profile"),
+                SideMenuModel(icon: UIImage(systemName: "text.bubble.fill")!, title: "Chat"),
+                SideMenuModel(icon: UIImage(systemName: "star.fill")!, title: "Favorite"),
+                SideMenuModel(icon: UIImage(systemName: "list.bullet.rectangle")!, title: "Reviews"),
+                SideMenuModel(icon: UIImage(systemName: "gearshape.fill")!, title: "Settings")
             ]
         }
     }

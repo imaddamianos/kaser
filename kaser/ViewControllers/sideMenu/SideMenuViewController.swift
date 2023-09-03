@@ -27,7 +27,6 @@ class SideMenuViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
 //        self.sideMenuTableView.backgroundColor = UIColor.originalColor
         view.backgroundColor = UIColor.originalColor.withAlphaComponent(0.7)
-        sideMenu = GFunction.shared.sideMenuItems()
         self.sideMenuTableView.reloadData()
     }
     
