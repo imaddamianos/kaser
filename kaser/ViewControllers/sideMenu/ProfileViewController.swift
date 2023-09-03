@@ -105,7 +105,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                     strongSelf.userName.text = userDetails?.UserName
                     strongSelf.firstNameTxt.text = userDetails?.email
                     strongSelf.mobileNbr.text = userDetails?.mobile
-                    
+                    strongSelf.imageURL = (userDetails?.image)!
                     // date
                     strongSelf.dateFormatter.dateFormat = "yyyy-MM-dd"
                     if let date = strongSelf.dateFormatter.date(from: (userDetails?.dob)!) {
