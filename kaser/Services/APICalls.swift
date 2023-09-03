@@ -34,7 +34,7 @@ class APICalls: NSObject {
 
 }
     
-    func modifySellerInfo(userName: String, userType:String, email: String, mobile: String, DateOfBirth: String, location: [String?:String?] , image: String, completion: ((Bool) -> Void)?){
+    func modifyInfo(userName: String, userType:String, email: String, mobile: String, DateOfBirth: String, location: [String?:String?] , image: String, completion: ((Bool) -> Void)?){
         do {
             let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
             if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {

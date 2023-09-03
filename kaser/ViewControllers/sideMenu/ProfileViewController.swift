@@ -62,13 +62,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                 SCLAlertView().showInfo("Notice", subTitle: "Location is missing")
                 return
             }
-        if userDetails?.userType == "Seller" {
-            APICalls.shared.modifySellerInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: dateOfBirth, location: [self.latitude:self.longitude] , image: self.imageURL){ (isSuccess) in
+            
+            APICalls.shared.modifyInfo(userName: userName.text!, userType: (userDetails?.userType)!, email: firstNameTxt.text!, mobile: mobileNbr.text!, DateOfBirth: dateOfBirth, location: [self.latitude:self.longitude] , image: self.imageURL){ (isSuccess) in
                 if !isSuccess { return }
                 SCLAlertView().showInfo("Alert", subTitle: "Profile Updated")
-            }
-        }else{
-            
             }
     }
 
