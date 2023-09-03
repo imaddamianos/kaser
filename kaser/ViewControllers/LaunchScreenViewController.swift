@@ -17,18 +17,17 @@ class LaunchScreenViewController: UIViewController, LogInViewProtocol {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if let email = UserDefaults.standard.value(forKey: "email") as? String {
-            if let password = UserDefaults.standard.value(forKey: "password") as? String {
-                if (UserDefaults.standard.bool(forKey: "isSaveSelected") == true){
-                self.presenter.checkTxtField(email: email, password: password)
+        if (UserDefaults.standard.bool(forKey: "isSaveSelected") == true){
+            if let email = UserDefaults.standard.value(forKey: "email") as? String {
+                if let password = UserDefaults.standard.value(forKey: "password") as? String {
+                    self.presenter.checkTxtField(email: email, password: password)
+                }
             }
         }
-        
-    }else{
         let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LogInVC") as UIViewController
         viewController.modalPresentationStyle = .fullScreen
         UIApplication.present(viewController: viewController)
+        
     }
-}
-
+    
 }
