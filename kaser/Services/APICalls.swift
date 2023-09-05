@@ -209,6 +209,47 @@ class APICalls: NSObject {
         })
     }
 
+    func getAllProducts(completion: @escaping ([Product]?) -> Void) {
+        // Define a reference to the "Products" node
+        let productsRef = ref.child("Products")
+        
+        // Observe changes at this reference
+        productsRef.observeSingleEvent(of: .value) { snapshot in
+            guard snapshot.exists() else {
+                // Handle the case where no data exists for products
+                completion(nil)
+                return
+            }
+            // Initialize a JSONDecoder
+            let decoder = JSONDecoder()
+            
+            // Enumerate through the snapshot's children (store nodes)
+            for storeSnapshot in snapshot.children {
+                guard let storeData = (storeSnapshot as? DataSnapshot)?.value as? [String: [String: Any]] else {
+                    continue // Skip this store if data is invalid
+                }
+                
+                // Iterate through the products of this store
+                for (_, productDict) in storeData {
+                    guard let jsonData = try? JSONSerialization.data(withJSONObject: productDict) else {
+                        continue // Skip this product if data is invalid
+                    }
+                    
+                    do {
+                        // Decode the product data into a Product object
+                        let product = try decoder.decode(Product.self, from: jsonData)
+                        productsArray.append(product)
+                    } catch {
+                        print("Error decoding product JSON: \(error)")
+                    }
+                }
+            }
+            
+            // Call the completion handler with the array of all products
+            completion(productsArray)
+        }
+    }
+
 
     
     

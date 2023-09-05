@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040F49E72AA79E9F00615F71 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F49E52AA79E9F00615F71 /* ProductsCollectionViewCell.swift */; };
+		040F49E82AA79E9F00615F71 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040F49E62AA79E9F00615F71 /* ProductsCollectionViewCell.xib */; };
 		044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D612A39275E00EECD3F /* StoreDetails.swift */; };
 		044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */; };
 		044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */; };
@@ -92,6 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040F49E52AA79E9F00615F71 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
+		040F49E62AA79E9F00615F71 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
 		044D8D612A39275E00EECD3F /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
 		044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewCell.swift; sourceTree = "<group>"; };
 		044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductsTableViewCell.xib; sourceTree = "<group>"; };
@@ -266,6 +270,8 @@
 				CF5A13C328CBE1D100C2077B /* FeatureCollectionViewCell.swift */,
 				CF5A13C428CBE1D100C2077B /* FeatureCollectionViewCell.xib */,
 				CF5A13C728CBE44B00C2077B /* FeaturesModel.swift */,
+				040F49E52AA79E9F00615F71 /* ProductsCollectionViewCell.swift */,
+				040F49E62AA79E9F00615F71 /* ProductsCollectionViewCell.xib */,
 			);
 			path = CellsHome;
 			sourceTree = "<group>";
@@ -572,6 +578,7 @@
 				CFA238662784CEA900767685 /* SideMenuCell.xib in Resources */,
 				CF6F0F7526F912ED0013FF1E /* GoogleService-Info.plist in Resources */,
 				CFA238472784BD6100767685 /* HomeStoryboard.storyboard in Resources */,
+				040F49E82AA79E9F00615F71 /* ProductsCollectionViewCell.xib in Resources */,
 				CF6F0F4A26F8FECC0013FF1E /* Assets.xcassets in Resources */,
 				CF6F0F4526F8FEC90013FF1E /* Main.storyboard in Resources */,
 			);
@@ -749,6 +756,7 @@
 				CFA238652784CEA900767685 /* SideMenuCell.swift in Sources */,
 				044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */,
 				CF6F0F8A26FF0EDB0013FF1E /* UIViewController.swift in Sources */,
+				040F49E72AA79E9F00615F71 /* ProductsCollectionViewCell.swift in Sources */,
 				CF6F0F4826F8FEC90013FF1E /* kaser.xcdatamodeld in Sources */,
 				04A16D5B2A6D9713002D33AF /* AddProductsViewController.swift in Sources */,
 				04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */,

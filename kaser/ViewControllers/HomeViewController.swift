@@ -13,8 +13,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet var nameLbl: UILabel!
     @IBOutlet var userImg: UIImageView!
     @IBOutlet weak var featuredCollView: UICollectionView!
-    @IBOutlet weak var mostViewedCollView: UICollectionView!
-    @IBOutlet weak var newCollView: UICollectionView!
+    @IBOutlet weak var productsCollView: UICollectionView!
     @IBOutlet weak var headerView: UIView!
     var presenter: HomeVcPresenter!
     var store: Store?
@@ -31,14 +30,13 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     }
     
     func setupView(){
-        featuredCollView.dataSource = self
-        featuredCollView.delegate = self
-        featuredCollView.isUserInteractionEnabled = true
         featuredCollView.register(FeatureCollectionViewCell.nib, forCellWithReuseIdentifier: FeatureCollectionViewCell.identifier)
+        productsCollView.register(ProductsCollectionViewCell.nib, forCellWithReuseIdentifier: ProductsCollectionViewCell.identifier)
         self.presenter = HomeVcPresenter(view: self)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
         callInfo()
     }
+
     
     func callInfo(){
         GFunction.shared.addLoader("")
@@ -52,7 +50,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             StrongSelf.nameLbl.text = userDetails?.UserName
             GFunction.shared.removeLoader()
                 sideMenu = GFunction.shared.sideMenuItems(userType: (userDetails?.userType)!)
-        }
+    
         
         APICalls.shared.getStores() {[weak self] (isSuccess) in
             guard let StrongSelf = self else{
@@ -60,6 +58,16 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             }
             if !isSuccess { return }
             StrongSelf.featuredCollView.reloadData()
+            }
+        }
+        // Once stores are fetched, fetch all products
+        APICalls.shared.getAllProducts() {[weak self] (isSuccess) in
+            guard let StrongSelf = self else{
+                return
+            }
+            if (isSuccess == nil) { return }
+            StrongSelf.productsCollView.reloadData()
+            GFunction.shared.removeLoader()
         }
     }
     
@@ -87,15 +95,24 @@ class HomeViewController: UIViewController, HomeVcProtocol {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return storesArray.count
+        if collectionView == featuredCollView {
+            return storesArray.count
+        }else{
+            return productsArray.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // Return the desired size for the item at the specified indexPath
-        return CGSize(width: 300, height: 200)
+        if collectionView == featuredCollView {
+            return CGSize(width: 300, height: 200)
+        }else{
+            return CGSize(width: 200, height: 200)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        //stores collection
+        if collectionView == featuredCollView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FeatureCollectionViewCell.identifier, for: indexPath) as! FeatureCollectionViewCell
             let product = storesArray[indexPath.row]
             cell.phoneNb.text = product.phone
@@ -103,9 +120,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.location.text = product.address
             cell.views.text = product.delivery
             cell.backgroundColor = UIColor.originalColor
-        // Add a tap gesture recognizer to the cell
-           let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped(_:)))
-           cell.addGestureRecognizer(tapGestureRecognizer)
+            // Add a tap gesture recognizer to the cell
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped(_:)))
+            cell.addGestureRecognizer(tapGestureRecognizer)
             
             if let cachedImage = imageCache.object(forKey: product.storeImage as NSString) {
                 // If the image is already cached, use it
@@ -116,6 +133,29 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
             
             return cell
+            //products collection
+        }else if collectionView == productsCollView {
+            // Handle productsCollView cells
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductsCollectionViewCell.identifier, for: indexPath) as! ProductsCollectionViewCell
+            let product = productsArray[indexPath.row]
+            cell.productNameLbl.text = product.productName
+            cell.brandCarLbl.text = product.brand
+            cell.descriptionLbl.text = product.description
+            cell.contactLbl.text = product.productOwner
+            cell.conditionLbl.text = product.condition
+            
+            if let cachedImage = imageCache.object(forKey: product.productImage as NSString) {
+                // If the image is already cached, use it
+                cell.productImg.image = cachedImage
+            } else {
+                // Image not cached, fetch asynchronously
+                GFunction.shared.loadImageAsync(from: URL(string: (product.productImage)), into: (cell.productImg)!)
+            }
+            
+            return cell
+        }
+        
+        return UICollectionViewCell()
         }
     
     @objc func cellTapped(_ sender: UITapGestureRecognizer) {

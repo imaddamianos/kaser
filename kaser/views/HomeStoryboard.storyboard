@@ -660,28 +660,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NYq-mc-6o4">
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NYq-mc-6o4">
                                 <rect key="frame" x="20" y="544" width="374" height="236"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="236" id="IAE-ie-J0k"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fnj-2j-tqY">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Fnj-2j-tqY">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="PXL-kU-tTh">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="k3I-Xj-e08">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BhQ-cw-G9V" id="NBT-he-B0B"/>
+                                    <outlet property="delegate" destination="BhQ-cw-G9V" id="EAh-Qv-1Bu"/>
+                                </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured Stores" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVe-7o-rUF">
                                 <rect key="frame" x="20" y="153" width="374" height="17"/>
@@ -717,6 +712,7 @@
                         <outlet property="featuredCollView" destination="ST4-Kj-Jem" id="HeX-98-YO8"/>
                         <outlet property="headerView" destination="QuW-Oc-AGb" id="e6g-S8-Irw"/>
                         <outlet property="nameLbl" destination="sOw-ea-RGk" id="CkH-2P-pxA"/>
+                        <outlet property="productsCollView" destination="NYq-mc-6o4" id="rGK-ul-31h"/>
                         <outlet property="reviewsLbl" destination="nSu-ED-e05" id="dIb-5S-pMs"/>
                         <outlet property="userImg" destination="ffE-aI-LES" id="Kp2-VP-h8g"/>
                         <segue destination="QFg-a0-KxA" kind="show" identifier="StoreDetailsNavID" id="8Jh-hF-WOf"/>
