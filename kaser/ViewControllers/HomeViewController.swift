@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet weak var featuredCollView: UICollectionView!
     @IBOutlet weak var productsCollView: UICollectionView!
     @IBOutlet weak var headerView: UIView!
+    @IBOutlet weak var searchbar: UISearchBar!
     var presenter: HomeVcPresenter!
     var store: Store?
     
@@ -31,6 +32,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     }
     
     func setupView(){
+        searchbar.backgroundImage = UIImage()
         featuredCollView.register(FeatureCollectionViewCell.nib, forCellWithReuseIdentifier: FeatureCollectionViewCell.identifier)
         productsCollView.register(ProductsCollectionViewCell.nib, forCellWithReuseIdentifier: ProductsCollectionViewCell.identifier)
         self.presenter = HomeVcPresenter(view: self)
@@ -104,9 +106,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if collectionView == featuredCollView {
-            return CGSize(width: 300, height: 200)
+            let totalWidth = featuredCollView.bounds.width + featuredCollView.bounds.width
+            let totalHeight = max(featuredCollView.bounds.height, featuredCollView.bounds.height)
+            return CGSize(width: totalWidth/3, height: totalHeight)
+            
         }else{
-            return CGSize(width: 200, height: 200)
+            let totalWidth = productsCollView.bounds.width
+            let totalHeight = productsCollView.bounds.height
+            return CGSize(width: totalWidth/2.2, height: totalHeight/1.1)
         }
     }
     
