@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		040F49E72AA79E9F00615F71 /* ProductsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F49E52AA79E9F00615F71 /* ProductsCollectionViewCell.swift */; };
 		040F49E82AA79E9F00615F71 /* ProductsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040F49E62AA79E9F00615F71 /* ProductsCollectionViewCell.xib */; };
+		040F49EB2AA911F800615F71 /* CarsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040F49E92AA911F800615F71 /* CarsCollectionViewCell.swift */; };
+		040F49EC2AA911F800615F71 /* CarsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040F49EA2AA911F800615F71 /* CarsCollectionViewCell.xib */; };
+		040F49EE2AA9157900615F71 /* carBrands.json in Resources */ = {isa = PBXBuildFile; fileRef = 040F49ED2AA9157900615F71 /* carBrands.json */; };
 		044D8D622A39275E00EECD3F /* StoreDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D612A39275E00EECD3F /* StoreDetails.swift */; };
 		044D8D652A3A41C200EECD3F /* MyProductsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */; };
 		044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */; };
@@ -96,6 +99,9 @@
 /* Begin PBXFileReference section */
 		040F49E52AA79E9F00615F71 /* ProductsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsCollectionViewCell.swift; sourceTree = "<group>"; };
 		040F49E62AA79E9F00615F71 /* ProductsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsCollectionViewCell.xib; sourceTree = "<group>"; };
+		040F49E92AA911F800615F71 /* CarsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsCollectionViewCell.swift; sourceTree = "<group>"; };
+		040F49EA2AA911F800615F71 /* CarsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarsCollectionViewCell.xib; sourceTree = "<group>"; };
+		040F49ED2AA9157900615F71 /* carBrands.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = carBrands.json; sourceTree = "<group>"; };
 		044D8D612A39275E00EECD3F /* StoreDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetails.swift; sourceTree = "<group>"; };
 		044D8D632A3A41C200EECD3F /* MyProductsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductsTableViewCell.swift; sourceTree = "<group>"; };
 		044D8D642A3A41C200EECD3F /* MyProductsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProductsTableViewCell.xib; sourceTree = "<group>"; };
@@ -272,6 +278,8 @@
 				CF5A13C728CBE44B00C2077B /* FeaturesModel.swift */,
 				040F49E52AA79E9F00615F71 /* ProductsCollectionViewCell.swift */,
 				040F49E62AA79E9F00615F71 /* ProductsCollectionViewCell.xib */,
+				040F49E92AA911F800615F71 /* CarsCollectionViewCell.swift */,
+				040F49EA2AA911F800615F71 /* CarsCollectionViewCell.xib */,
 			);
 			path = CellsHome;
 			sourceTree = "<group>";
@@ -398,6 +406,7 @@
 				CF6F0F8526FE4FA70013FF1E /* GFunction.swift */,
 				CF6F0F8B26FF12C60013FF1E /* GEnum.swift */,
 				CF7268D9271B6604001580B2 /* GValues.swift */,
+				040F49ED2AA9157900615F71 /* carBrands.json */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -573,7 +582,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF6F0F4D26F8FECC0013FF1E /* LaunchScreen.storyboard in Resources */,
+				040F49EC2AA911F800615F71 /* CarsCollectionViewCell.xib in Resources */,
 				044D8D662A3A41C200EECD3F /* MyProductsTableViewCell.xib in Resources */,
+				040F49EE2AA9157900615F71 /* carBrands.json in Resources */,
 				CF5A13C628CBE1D100C2077B /* FeatureCollectionViewCell.xib in Resources */,
 				CFA238662784CEA900767685 /* SideMenuCell.xib in Resources */,
 				CF6F0F7526F912ED0013FF1E /* GoogleService-Info.plist in Resources */,
@@ -747,6 +758,7 @@
 				CF6F0F7E26FCF5350013FF1E /* SignUpVC.swift in Sources */,
 				CFA2385C2784C00900767685 /* SideMenuViewController.swift in Sources */,
 				CF9589E0270EDB2A00A0CD16 /* LogInPresenter.swift in Sources */,
+				040F49EB2AA911F800615F71 /* CarsCollectionViewCell.swift in Sources */,
 				CF7268D8271B601A001580B2 /* HomeVC.swift in Sources */,
 				04F17BB32A9FB7800060E0C5 /* ValidationRegex.swift in Sources */,
 				CF7268D2271ACBE0001580B2 /* UiColor-Extension.swift in Sources */,

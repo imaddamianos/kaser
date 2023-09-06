@@ -13,3 +13,15 @@ struct SideMenuModel {
     var icon: UIImage
     var title: String
 }
+
+var carsBrands: [CarsBandsModel] = []
+
+struct CarsBandsModel: Decodable {
+    var title: String
+    var icon: String
+}
+
+
+
+
+

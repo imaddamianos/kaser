@@ -586,13 +586,17 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="103" id="psz-Wl-djF"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k40-dW-bqf">
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k40-dW-bqf">
                                             <size key="itemSize" width="91" height="91"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BhQ-cw-G9V" id="FfF-b2-9xa"/>
+                                            <outlet property="delegate" destination="BhQ-cw-G9V" id="80R-yy-22d"/>
+                                        </connections>
                                     </collectionView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7qH-qb-7ao">
                                         <rect key="frame" x="0.0" y="349" width="374" height="17"/>
@@ -712,13 +716,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="5Tp-J1-Wvw"/>
                     <connections>
+                        <outlet property="carsCollView" destination="Lhb-DV-8fY" id="Yui-Wx-gA6"/>
+                        <outlet property="carsLbl" destination="q4U-SR-rWF" id="C6x-sU-9lk"/>
                         <outlet property="favoriteLbl" destination="hxg-kw-8Gs" id="Fe2-jm-WWR"/>
                         <outlet property="featuredCollView" destination="ST4-Kj-Jem" id="HeX-98-YO8"/>
                         <outlet property="headerView" destination="QuW-Oc-AGb" id="e6g-S8-Irw"/>
                         <outlet property="nameLbl" destination="sOw-ea-RGk" id="CkH-2P-pxA"/>
                         <outlet property="productsCollView" destination="NYq-mc-6o4" id="rGK-ul-31h"/>
+                        <outlet property="productsLbl" destination="7qH-qb-7ao" id="DOO-qU-gLE"/>
                         <outlet property="reviewsLbl" destination="nSu-ED-e05" id="dIb-5S-pMs"/>
                         <outlet property="searchbar" destination="Pe8-MU-uEw" id="rCM-cM-PaK"/>
+                        <outlet property="storesLbl" destination="hVe-7o-rUF" id="MRh-zF-Dur"/>
                         <outlet property="userImg" destination="ffE-aI-LES" id="Kp2-VP-h8g"/>
                         <segue destination="QFg-a0-KxA" kind="show" identifier="StoreDetailsNavID" id="8Jh-hF-WOf"/>
                     </connections>
@@ -1021,7 +1029,7 @@
                                 <rect key="frame" x="20" y="20" width="374" height="730"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="M1Z-Ld-tVt">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="608"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="584.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Store" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cl1-Ew-rF9">
                                                 <rect key="frame" x="72" y="0.0" width="230" height="24"/>
@@ -1055,7 +1063,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Store Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fe3-VQ-lFT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="264.5" width="257" height="39"/>
+                                                <rect key="frame" x="58.5" y="264.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1069,7 +1077,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0p-KS-r9v" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="323.5" width="257" height="39.5"/>
+                                                <rect key="frame" x="58.5" y="318.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1083,7 +1091,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rri-eT-M1v" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="383" width="257" height="39"/>
+                                                <rect key="frame" x="58.5" y="372.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1097,7 +1105,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Delivery" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qdd-T9-1S7" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="442" width="257" height="39.5"/>
+                                                <rect key="frame" x="58.5" y="426.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1111,7 +1119,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Description" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y39-7R-zvx" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="501.5" width="257" height="36.5"/>
+                                                <rect key="frame" x="58.5" y="480.5" width="257" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
@@ -1124,7 +1132,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QO7-Vd-fM2">
-                                                <rect key="frame" x="137" y="558" width="100" height="50"/>
+                                                <rect key="frame" x="137" y="534.5" width="100" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="lFY-9M-G3T"/>
                                                 </constraints>
@@ -1200,7 +1208,7 @@
                                 <rect key="frame" x="20" y="20" width="374" height="730"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="gj7-oZ-pHn">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="608"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="584.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Product" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EeQ-Zj-LtV">
                                                 <rect key="frame" x="62.5" y="0.0" width="249.5" height="24"/>
@@ -1234,7 +1242,7 @@
                                                 </connections>
                                             </button>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aud-8Z-cFi" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="264.5" width="257" height="39"/>
+                                                <rect key="frame" x="58.5" y="264.5" width="257" height="34"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1248,7 +1256,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Brand" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y5D-i8-E7s" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="323.5" width="257" height="39.5"/>
+                                                <rect key="frame" x="58.5" y="318.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1262,7 +1270,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Car" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wWd-bc-rw8" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="383" width="257" height="39"/>
+                                                <rect key="frame" x="58.5" y="372.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1276,7 +1284,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Condition" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lap-Gb-sjv" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="442" width="257" height="39.5"/>
+                                                <rect key="frame" x="58.5" y="426.5" width="257" height="34"/>
                                                 <color key="textColor" red="0.50588235290000005" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
@@ -1290,7 +1298,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Description" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hx4-u8-sSY" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                                <rect key="frame" x="58.5" y="501.5" width="257" height="36.5"/>
+                                                <rect key="frame" x="58.5" y="480.5" width="257" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" textContentType="name"/>
                                                 <userDefinedRuntimeAttributes>
@@ -1303,7 +1311,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZb-Js-FrS">
-                                                <rect key="frame" x="127.5" y="558" width="119.5" height="50"/>
+                                                <rect key="frame" x="127.5" y="534.5" width="119.5" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="ofF-1E-I3F"/>
                                                 </constraints>
@@ -1443,34 +1451,43 @@
     </scenes>
     <designables>
         <designable name="Aud-8Z-cFi">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="121" height="34"/>
+        </designable>
+        <designable name="ERY-4B-rka">
+            <size key="intrinsicContentSize" width="95.5" height="34"/>
         </designable>
         <designable name="Hx4-u8-sSY">
-            <size key="intrinsicContentSize" width="257" height="36.833984375"/>
+            <size key="intrinsicContentSize" width="93" height="34"/>
         </designable>
         <designable name="Lap-Gb-sjv">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="90.5" height="34"/>
         </designable>
         <designable name="Qdd-T9-1S7">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="80.5" height="34"/>
         </designable>
         <designable name="Rri-eT-M1v">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="81" height="34"/>
+        </designable>
+        <designable name="XxF-sR-AKz">
+            <size key="intrinsicContentSize" width="128.5" height="34"/>
         </designable>
         <designable name="b0p-KS-r9v">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="69" height="34"/>
         </designable>
         <designable name="fe3-VQ-lFT">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="104.5" height="34"/>
         </designable>
         <designable name="wWd-bc-rw8">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="51" height="34"/>
         </designable>
         <designable name="y39-7R-zvx">
-            <size key="intrinsicContentSize" width="257" height="36.833984375"/>
+            <size key="intrinsicContentSize" width="93" height="34"/>
         </designable>
         <designable name="y5D-i8-E7s">
-            <size key="intrinsicContentSize" width="257" height="39.220703125"/>
+            <size key="intrinsicContentSize" width="66.5" height="34"/>
+        </designable>
+        <designable name="ytO-OB-Ikf">
+            <size key="intrinsicContentSize" width="122" height="34"/>
         </designable>
     </designables>
     <resources>

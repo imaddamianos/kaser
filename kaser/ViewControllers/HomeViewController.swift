@@ -7,6 +7,9 @@
 import UIKit
 
 class HomeViewController: UIViewController, HomeVcProtocol {
+    @IBOutlet weak var storesLbl: UILabel!
+    @IBOutlet weak var carsLbl: UILabel!
+    @IBOutlet weak var productsLbl: UILabel!
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     @IBOutlet var reviewsLbl: UILabel!
     @IBOutlet var favoriteLbl: UILabel!
@@ -14,6 +17,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet var userImg: UIImageView!
     @IBOutlet weak var featuredCollView: UICollectionView!
     @IBOutlet weak var productsCollView: UICollectionView!
+    @IBOutlet weak var carsCollView: UICollectionView!
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var searchbar: UISearchBar!
     var presenter: HomeVcPresenter!
@@ -35,6 +39,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         searchbar.backgroundImage = UIImage()
         featuredCollView.register(FeatureCollectionViewCell.nib, forCellWithReuseIdentifier: FeatureCollectionViewCell.identifier)
         productsCollView.register(ProductsCollectionViewCell.nib, forCellWithReuseIdentifier: ProductsCollectionViewCell.identifier)
+        carsCollView.register(CarsCollectionViewCell.nib, forCellWithReuseIdentifier: CarsCollectionViewCell.identifier)
         self.presenter = HomeVcPresenter(view: self)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
     }
@@ -71,6 +76,9 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             StrongSelf.productsCollView.reloadData()
             GFunction.shared.removeLoader()
         }
+        loadCarBrandsFromJSON()
+        carsCollView.reloadData()
+        
     }
     
     @IBAction func sideMenuBtn(_ sender: Any) {
@@ -80,6 +88,9 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         navigationController?.setNavigationBarHidden(true, animated: false)
+        labelsUI(label: storesLbl)
+        labelsUI(label: carsLbl)
+        labelsUI(label: productsLbl)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -90,6 +101,12 @@ class HomeViewController: UIViewController, HomeVcProtocol {
             }
         }
     
+    func labelsUI (label: UILabel){
+        label.backgroundColor = UIColor.originalColor
+        label.layer.cornerRadius = 10
+        label.textColor = UIColor.white
+    }
+    
 }
 
 // MARK: - UICollectionView
@@ -99,6 +116,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == featuredCollView {
             return storesArray.count
+        }else if collectionView == carsCollView{
+            return carsBrands.count
         }else{
             return productsArray.count
         }
@@ -109,7 +128,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let totalWidth = featuredCollView.bounds.width + featuredCollView.bounds.width
             let totalHeight = max(featuredCollView.bounds.height, featuredCollView.bounds.height)
             return CGSize(width: totalWidth/3, height: totalHeight)
-            
+        }else if collectionView == carsCollView{
+            let totalWidth = carsCollView.bounds.width
+            let totalHeight = carsCollView.bounds.height
+            return CGSize(width: totalWidth/4, height: totalHeight)
         }else{
             let totalWidth = productsCollView.bounds.width
             let totalHeight = productsCollView.bounds.height
@@ -158,6 +180,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 GFunction.shared.loadImageAsync(from: URL(string: (product.productImage)), into: (cell.productImg)!)
             }
             
+            return cell
+        }else if collectionView == carsCollView{
+            // Handle carsCollView cells
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarsCollectionViewCell.identifier, for: indexPath) as! CarsCollectionViewCell
+            let carBrand = carsBrands[indexPath.row]
+            cell.carsLbl.text = carBrand.title
+            cell.carsImg.image = UIImage(named: carBrand.icon) // Set the image using the image name
             return cell
         }
         

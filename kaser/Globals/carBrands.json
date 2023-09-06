@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Toyota",
+        "icon": "toyota_icon.png"
+    },
+    {
+        "title": "Honda",
+        "icon": "honda_icon.png"
+    },
+    {
+        "title": "Ford",
+        "icon": "ford_icon.png"
+    },
+    {
+        "title": "Chevrolet",
+        "icon": "chevrolet_icon.png"
+    },
+    {
+        "title": "BMW",
+        "icon": "bmw_icon.png"
+    }
+]

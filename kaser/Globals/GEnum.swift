@@ -11,9 +11,6 @@ enum StoryBoard : String {
     
     case main = "Main"
     case home = "HomeStoryboard"
-
-    
-    
     var instance : UIStoryboard {
         
         return UIStoryboard(name: self.rawValue, bundle: Bundle.main)
@@ -66,4 +63,23 @@ public enum QueueType {
 
 func performOn(_ queueType: QueueType, closure: @escaping () -> Void) {
     queueType.queue.async(execute: closure)
+}
+
+func loadCarBrandsFromJSON() {
+    // Get the URL of the JSON file in your bundle
+    if let jsonFileURL = Bundle.main.url(forResource: "carBrands", withExtension: "json") {
+        do {
+            // Read the JSON data from the file
+            let jsonData = try Data(contentsOf: jsonFileURL)
+            
+            // Decode the JSON data into an array of CarsBandsModel
+            let decoder = JSONDecoder()
+            carsBrands = try decoder.decode([CarsBandsModel].self, from: jsonData)
+        } catch {
+            print("Error reading or decoding JSON: \(error)")
+        }
+    } else {
+        print("JSON file not found in bundle.")
+    }
+
 }
