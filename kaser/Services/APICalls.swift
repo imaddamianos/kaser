@@ -212,7 +212,7 @@ class APICalls: NSObject {
     func getAllProducts(completion: @escaping ([Product]?) -> Void) {
         // Define a reference to the "Products" node
         let productsRef = ref.child("Products")
-        
+        productsArray.removeAll()
         // Observe changes at this reference
         productsRef.observeSingleEvent(of: .value) { snapshot in
             guard snapshot.exists() else {

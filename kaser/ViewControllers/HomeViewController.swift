@@ -27,6 +27,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     
     override func viewDidAppear(_ animated: Bool) {
         setupView()
+        callInfo()
     }
     
     func setupView(){
@@ -34,7 +35,6 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         productsCollView.register(ProductsCollectionViewCell.nib, forCellWithReuseIdentifier: ProductsCollectionViewCell.identifier)
         self.presenter = HomeVcPresenter(view: self)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
-        callInfo()
     }
 
     
@@ -140,9 +140,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let product = productsArray[indexPath.row]
             cell.productNameLbl.text = product.productName
             cell.brandCarLbl.text = product.brand
-            cell.descriptionLbl.text = product.description
-            cell.contactLbl.text = product.productOwner
             cell.conditionLbl.text = product.condition
+            cell.backgroundColor = UIColor.originalColor
             
             if let cachedImage = imageCache.object(forKey: product.productImage as NSString) {
                 // If the image is already cached, use it
