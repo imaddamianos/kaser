@@ -22,6 +22,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet weak var searchbar: UISearchBar!
     var presenter: HomeVcPresenter!
     var store: Store?
+    var product: Product?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,8 +97,10 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "StoreDetailsNavID",
                let destinationVC = segue.destination as? StoreDetailsViewController {
-                // Set the value you want to pass to the destination view controller
                 destinationVC.store = store
+            }else if segue.identifier == "ProductDetailsNavID",
+                     let destinationVC = segue.destination as? ProductDetailsViewController {
+                destinationVC.product = product
             }
         }
     
@@ -171,7 +174,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.brandCarLbl.text = product.brand
             cell.conditionLbl.text = product.condition
             cell.backgroundColor = UIColor.originalColor
-            
+            let productGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productsCellTapped(_:)))
+            cell.addGestureRecognizer(productGestureRecognizer)
             if let cachedImage = imageCache.object(forKey: product.productImage as NSString) {
                 // If the image is already cached, use it
                 cell.productImg.image = cachedImage
@@ -201,6 +205,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 self.store = store
                 print("store name: \(store)")
                 self.performSegue(withIdentifier: "StoreDetailsNavID", sender: self)
+                
+            }
+        }
+    }
+    
+    @objc func productsCellTapped(_ sender: UITapGestureRecognizer) {
+        // Handle cell tap here
+        if let cell = sender.view as? UICollectionViewCell {
+            if let indexPath = productsCollView.indexPath(for: cell) {
+                let product = productsArray[indexPath.row]
+                self.product = product
+                self.performSegue(withIdentifier: "ProductDetailsNavID", sender: self)
                 
             }
         }
