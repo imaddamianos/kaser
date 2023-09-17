@@ -34,7 +34,7 @@ class AddStoreVcPresenter{
     
     func naviToHome(){
         DispatchQueue.main.async {
-            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "HomeViewController")
+            let viewController:UIViewController = UIStoryboard(name: "HomeStoryboard", bundle: nil).instantiateViewController(withIdentifier: "HomeVC")
             viewController.modalPresentationStyle = .fullScreen
             UIApplication.present(viewController: viewController)
 

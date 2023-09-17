@@ -52,7 +52,7 @@ class SignUpVC: UIViewController, SignUpViewProtocol {
             if !ValidationRegex.isValidEmail(email: txtEmail.text!) {
                 SCLAlertView().showInfo("Notice", subTitle: "Enter a valid E-mail address")
             }else if !ValidationRegex.isValidPassword(password: txtPass.text!){
-                SCLAlertView().showInfo("Notice", subTitle: "Enter a valid Password")
+                SCLAlertView().showInfo("Notice", subTitle: "One uppercase letter, One lowercase letter, One digit, One special character ($, @, #, !, %, *, ?, or &), Minimum length of 8 characters")
             }else if txtConfirmPass.text! != txtPass.text!{
                 SCLAlertView().showInfo("Notice", subTitle: "Confirm Password")
             }else{

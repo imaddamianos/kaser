@@ -313,7 +313,7 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     }
     
     func buyerView() {
-        headerVw.backgroundColor = UIColor.originalColor
+        headerVw.backgroundColor = UIColor.colorFromHex(hex: 0x7C7E90)
         calanderVw.tintColor = UIColor.originalColor
         signUpBtn.setBackgroundImage(UIImage(named: "btnLayout"), for: .normal)
         txtUserName.isHidden = false
@@ -327,9 +327,6 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
         storeNameTxt.isHidden = true
         mapStack.isHidden = false
         imageStack.isHidden = false
-        backBtn.tintColor = UIColor.white
-        infoTitle.textColor = UIColor.white
-        infoSubTitle.textColor = UIColor.white
         signUpBtn.setTitleColor(UIColor.white, for: .normal)
         infoLogo.tintColor = UIColor.white
         backBtn.setImage(UIImage(named: "back"), for: .normal)
@@ -338,12 +335,9 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
     func sellerView() {
         buyerView()
         storeNameTxt.isHidden = true
-        headerVw.backgroundColor = UIColor.colorYellow
+        headerVw.backgroundColor = UIColor.colorFromHex(hex: 0x7C7E90)
         calanderVw.tintColor = UIColor.colorYellow
         signUpBtn.setBackgroundImage(UIImage(named: "sellerBtn"), for: .normal)
-        backBtn.tintColor = UIColor.black
-        infoTitle.textColor = UIColor.black
-        infoSubTitle.textColor = UIColor.black
         signUpBtn.setTitleColor(UIColor.black, for: .normal)
         infoLogo.tintColor = UIColor.black
         backBtn.setImage(UIImage(named: "sellerBackBtn"), for: .normal)

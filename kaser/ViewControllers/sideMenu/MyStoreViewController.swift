@@ -45,19 +45,23 @@ class MyStoreViewController: UIViewController{
         sideMenuBtn.target = self.revealViewController()
         sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
         
-        for index in 0..<storesArray.count {
-            let store = storesArray[index]
-            if store.storeOwner.description == newEmail{
-                
+        if storesArray.isEmpty{
+            updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+        }else{
+            for index in 0..<storesArray.count {
+                let store = storesArray[index]
                 let storeOwner = store.phone
                 self.storeName = store.storeName
                 let storeLocation = store.delivery
                 let storeAddress = store.address
                 let storeImage = store.storeImage
-                updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
-                getProducts()
+                if store.storeOwner.description == newEmail{
+                    updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
+                    getProducts()
+                }
             }
         }
+        
     }
     
     func getProducts(){
@@ -83,10 +87,10 @@ class MyStoreViewController: UIViewController{
     
     func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String, storeImage: String){
         if !storeName.isEmpty {
-            storeNameLbl.text = "Name: " + storeName
-            storeNbLbl.text = "Delivery: " + storeLocation
-            locationLbl.text = "Address: " + storeAddress
-            reviewsLbl.text = "Phone: " + storeOwner
+            storeNameLbl.text = ""
+            storeNbLbl.text = ""
+            locationLbl.text = ""
+            reviewsLbl.text = ""
             storeNameLbl.isHidden = false
             storeNbLbl.isHidden = false
             locationLbl.isHidden = false
