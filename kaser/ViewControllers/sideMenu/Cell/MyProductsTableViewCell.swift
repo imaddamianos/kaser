@@ -22,7 +22,7 @@ class MyProductsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        productVw.backgroundColor = UIColor.originalColor
+        productVw.backgroundColor = UIColor.colorFromHex(hex: 0x7C7E90)
         productVw.layer.cornerRadius = 10.0
         productVw.clipsToBounds = true
     }

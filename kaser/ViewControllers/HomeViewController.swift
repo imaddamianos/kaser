@@ -43,6 +43,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         carsCollView.register(CarsCollectionViewCell.nib, forCellWithReuseIdentifier: CarsCollectionViewCell.identifier)
         self.presenter = HomeVcPresenter(view: self)
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
+        UIColor.originalColor = UIColor.colorFromHex(hex: 0x3C3F5A)
     }
 
     
@@ -105,9 +106,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         }
     
     func labelsUI (label: UILabel){
-        label.backgroundColor = UIColor.originalColor
-        label.layer.cornerRadius = 10
-        label.textColor = UIColor.white
+        label.textColor = UIColor.originalColor
     }
     
 }
@@ -151,7 +150,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.carModel.text = product.storeName
             cell.location.text = product.address
             cell.views.text = product.delivery
-            cell.backgroundColor = UIColor.originalColor
+            cell.backgroundColor = UIColor.colorFromHex(hex: 0x7C7E90)
             // Add a tap gesture recognizer to the cell
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped(_:)))
             cell.addGestureRecognizer(tapGestureRecognizer)
@@ -173,7 +172,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.productNameLbl.text = product.productName
             cell.brandCarLbl.text = product.brand
             cell.conditionLbl.text = product.condition
-            cell.backgroundColor = UIColor.originalColor
+            cell.backgroundColor = UIColor.colorFromHex(hex: 0x7C7E90)
             let productGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productsCellTapped(_:)))
             cell.addGestureRecognizer(productGestureRecognizer)
             if let cachedImage = imageCache.object(forKey: product.productImage as NSString) {
@@ -191,6 +190,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let carBrand = carsBrands[indexPath.row]
             cell.carsLbl.text = carBrand.title
             cell.carsImg.image = UIImage(named: carBrand.icon) // Set the image using the image name
+            cell.backgroundColor = UIColor.colorFromHex(hex: 0x7C7E90)
             return cell
         }
         

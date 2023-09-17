@@ -54,12 +54,7 @@ class SideMenuViewController: UIViewController {
                 return
             }
             if !isSuccess { return }
-            if userDetails?.userType == "Buyer"{
-                UIColor.originalColor = UIColor.colorFromHex(hex: 0x3b747e)
-            }else if userDetails?.userType == "Seller"{
-                UserDefaults.standard.set(userDetails?.email, forKey: "userEmail")
-                UIColor.originalColor = UIColor.colorFromHex(hex: 0x36b7bf)
-            }
+            
             sideMenu = GFunction.shared.sideMenuItems(userType: (userDetails?.userType)!)
             // Update TableView with the data
             StrongSelf.sideMenuTableView.reloadData()

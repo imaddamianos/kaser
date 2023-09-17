@@ -29,7 +29,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="C9m-Gc-Ixc"/>
-                        <color key="backgroundColor" red="0.12996384499999999" green="0.1621848941" blue="0.1919309199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="YjR-Yc-MrS" firstAttribute="leading" secondItem="C9m-Gc-Ixc" secondAttribute="leading" constant="60" id="AdM-o3-zNh"/>
                             <constraint firstItem="YjR-Yc-MrS" firstAttribute="top" secondItem="C9m-Gc-Ixc" secondAttribute="top" id="aBC-Sb-gNa"/>
@@ -52,7 +52,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ObQ-zs-eR6">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
-                                <color key="backgroundColor" red="0.23137254901960785" green="0.45490196078431372" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.23529411764705882" green="0.24705882352941178" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ObQ-zs-eR6" secondAttribute="height" multiplier="69:29" id="bgu-lT-RW9"/>
                                 </constraints>
@@ -312,7 +312,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jcS-Yy-xCR">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
-                                <color key="backgroundColor" red="0.23137254900000001" green="0.4549019608" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jcS-Yy-xCR" secondAttribute="height" multiplier="69:29" id="QKw-Rg-38M"/>
                                 </constraints>
@@ -619,7 +619,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.23137254900000001" green="0.4549019608" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="446-fX-QdS" firstAttribute="leading" secondItem="2dx-Jh-nge" secondAttribute="leading" constant="60" id="10C-d3-InN"/>
                                     <constraint firstItem="ozm-8x-2KK" firstAttribute="top" secondItem="75e-3b-HB7" secondAttribute="top" id="DYU-Uf-Sgo"/>
@@ -758,7 +758,7 @@ in order to get more people engaged </string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.23137254900000001" green="0.4549019608" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="9as-gD-6Z5" firstAttribute="top" secondItem="qBV-7y-rc9" secondAttribute="top" constant="70" id="2ka-C1-gXW"/>
                                     <constraint firstItem="yzV-LB-JtG" firstAttribute="top" secondItem="bi0-4B-pam" secondAttribute="top" id="LED-HI-vJm"/>
@@ -1079,11 +1079,11 @@ in order to get more people engaged </string>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFF-eO-pkt">
                                                         <rect key="frame" x="216" y="0.0" width="53.5" height="150"/>
-                                                        <color key="tintColor" red="0.12996384499999999" green="0.1621848941" blue="0.1919309199" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="location.square" catalog="system" title=" ">
                                                             <backgroundConfiguration key="background">
-                                                                <color key="backgroundColor" red="0.23137254900000001" green="0.4549019608" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <color key="backgroundColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             </backgroundConfiguration>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
                                                         </buttonConfiguration>
