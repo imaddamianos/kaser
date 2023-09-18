@@ -195,7 +195,10 @@ class APICalls: NSObject {
                     for (_, productDict) in productData {
                         if let jsonData = try? JSONSerialization.data(withJSONObject: productDict) {
                             let product = try decoder.decode(Product.self, from: jsonData)
-                            productsArray.append(product)
+                            let email = UserDefaults.standard.value(forKey: "email") as? String
+                            if product.productOwner == email {
+                                productsArray.append(product)
+                            }
                         }
                     }
                     completion(true)

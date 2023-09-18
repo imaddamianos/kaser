@@ -45,22 +45,21 @@ class MyStoreViewController: UIViewController{
         sideMenuBtn.target = self.revealViewController()
         sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
         
-        if storesArray.isEmpty{
-            updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
-        }else{
             for index in 0..<storesArray.count {
                 let store = storesArray[index]
-                let storeOwner = store.phone
                 self.storeName = store.storeName
                 let storeLocation = store.delivery
                 let storeAddress = store.address
                 let storeImage = store.storeImage
-                if store.storeOwner.description == newEmail{
-                    updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwner, storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
+                storeOwnerValue = store.storeOwner
+                if storeOwnerValue == newEmail{
+                    updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwnerValue ?? "", storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
                     getProducts()
+                }else{
+                    updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+                    productsArray.removeAll()
                 }
             }
-        }
         
     }
     
@@ -86,10 +85,10 @@ class MyStoreViewController: UIViewController{
     }
     
     func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String, storeImage: String){
-        if !storeName.isEmpty {
-            storeNameLbl.text = ""
-            storeNbLbl.text = ""
-            locationLbl.text = ""
+        if storeOwner == newEmail {
+            storeNameLbl.text = storeName
+            storeNbLbl.text = storeLocation
+            locationLbl.text = storeAddress
             reviewsLbl.text = ""
             storeNameLbl.isHidden = false
             storeNbLbl.isHidden = false
