@@ -12,12 +12,13 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
     @IBOutlet weak var productNameTxt: SkyFloatingLabelTextField!
     @IBOutlet weak var brandNameTxt: SkyFloatingLabelTextField!
     @IBOutlet weak var carModelTxt: SkyFloatingLabelTextField!
-    @IBOutlet weak var conditionTxt: SkyFloatingLabelTextField!
+    @IBOutlet weak var conditionPicker: UIPickerView!
     @IBOutlet weak var descriptionTxt: SkyFloatingLabelTextField!
     @IBOutlet weak var productImg: UIImageView!
     var imageURL = ""
     var presenter: AddProductVcPresenter!
     var storeName: String?
+    var condition: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,7 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
         addKeyboardObservers()
         setupKeyboardDismissRecognizer()
         productImg.cornerRadius(cornerRadius: productImg.bounds.height/2)
+        conditionPicker.delegate = self
         
     }
     
@@ -50,58 +52,80 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
     @IBAction func addProductTapped(_ sender: Any) {
         
         // Check if any field is empty
+        
+        if productImg.image == nil{
+            GFunction.shared.showAlert("Product Image", message: "Please choose an image for your product", btnName: "OK") {
+            }
+            return
+        }
+        
         if productNameTxt.text?.isEmpty ?? true {
             GFunction.shared.showAlert("Product Name", message: "Please enter the product Name", btnName: "OK") {
-                
             }
             return
         }
         
         if brandNameTxt.text?.isEmpty ?? true {
             GFunction.shared.showAlert("Brand Name", message: "Please enter the brand name of the prodcut", btnName: "OK") {
-                
             }
             return
         }
         
         if carModelTxt.text?.isEmpty ?? true {
             GFunction.shared.showAlert("Car Model address", message: "Please enter the Car Model for this product", btnName: "OK") {
-                
             }
             return
         }
         
-        if conditionTxt.text?.isEmpty ?? true {
-            GFunction.shared.showAlert("Condition Type", message: "Please enter the condition type of the product", btnName: "OK") {
-                
+        let selectedRow = conditionPicker.selectedRow(inComponent: 0) // Assuming one component
+        condition = conditionOptions[selectedRow]
+        if condition == "Select Condition" {
+            GFunction.shared.showAlert("Product Condition", message: "Please enter the Product Condition", btnName: "OK") {
             }
             return
-        }
+           }
         
         if descriptionTxt.text?.isEmpty ?? true {
             GFunction.shared.showAlert("Product description", message: "Please enter the product description", btnName: "OK") {
-                
             }
-            
             return
         }
         // Call the presenter method to add the store
-        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, car: carModelTxt.text!, condition: conditionTxt.text!, description: descriptionTxt.text!, image: imageURL){ isSuccess in
+        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, car: carModelTxt.text!, condition: condition!, description: descriptionTxt.text!, image: imageURL){ isSuccess in
             if isSuccess {
                 // Handle successful completion here
                 print("Product added successfully.")
                 // Inside your view controller, assuming you have a reference to the previousViewController
                 self.navigationController?.popViewController(animated: true)
-
+                
             } else {
                 // Handle failure here
                 print("Failed to add product.")
             }
         }
-        
-        
     }
 }
+
+extension AddProductsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return conditionOptions.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return conditionOptions[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // Set the selected condition in the conditionTxt text field
+        condition = conditionOptions[row]
+    }
+}
+    
 
 extension AddProductsViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     

@@ -23,4 +23,5 @@ let imageRef = storageRef.child("image/Profile/file-\(String(describing: newEmai
 let imageStoreRef = storageRef.child("image/Stores/\(storeNamePath!)/file-\(String(describing: newEmail!)).png")
 let imageProductRef = storageRef.child("image/Products/\(storeNamePath!)/\(String(describing: productNamePath!)).png")
 var imageCache: NSCache<NSString, UIImage> = NSCache()
+let conditionOptions = ["Select Condition","New", "Used"]
 //let storageRef = storage.reference()
