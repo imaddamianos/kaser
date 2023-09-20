@@ -13,12 +13,30 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-
+    var window: UIWindow?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        // Override point for customization after application launch.
-        return true
+        // Add observer for theme change
+                NotificationCenter.default.addObserver(
+                    self,
+                    selector: #selector(themeDidChange),
+                    name: Notification.Name("ThemeDidChange"),
+                    object: nil
+                )
+
+                return true
     }
+    
+    @objc func themeDidChange() {
+           // Notify all view controllers to update their themes
+           for window in UIApplication.shared.windows {
+               for viewController in window.rootViewController?.children ?? [] {
+                   if let themedViewController = viewController as? Themable {
+                       themedViewController.applyTheme()
+                   }
+               }
+           }
+       }
 
     // MARK: UISceneSession Lifecycle
 

@@ -25,3 +25,6 @@ let imageProductRef = storageRef.child("image/Products/\(storeNamePath!)/\(Strin
 var imageCache: NSCache<NSString, UIImage> = NSCache()
 let conditionOptions = ["Select Condition","New", "Used"]
 //let storageRef = storage.reference()
+protocol Themable {
+    func applyTheme()
+}

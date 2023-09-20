@@ -19,6 +19,7 @@
 		04A16D5B2A6D9713002D33AF /* AddProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A16D5A2A6D9713002D33AF /* AddProductsViewController.swift */; };
 		04A16D5D2A6D9A97002D33AF /* AddProductVcPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A16D5C2A6D9A97002D33AF /* AddProductVcPresenter.swift */; };
 		04A6F7B62A95574600EC8866 /* StoreDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A6F7B52A95574600EC8866 /* StoreDetailsViewController.swift */; };
+		04B95EDB2ABB7E7D00F4F9EA /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B95EDA2ABB7E7D00F4F9EA /* ThemeManager.swift */; };
 		04D3C1422A669BD80061C071 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */; };
 		04D3C1442A669BD80061C071 /* FBSDKCoreKit_Basics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */; };
 		04D3C1462A669BD80061C071 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04D3C1452A669BD80061C071 /* FBSDKLoginKit.framework */; };
@@ -110,6 +111,7 @@
 		04A16D5A2A6D9713002D33AF /* AddProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductsViewController.swift; sourceTree = "<group>"; };
 		04A16D5C2A6D9A97002D33AF /* AddProductVcPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductVcPresenter.swift; sourceTree = "<group>"; };
 		04A6F7B52A95574600EC8866 /* StoreDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDetailsViewController.swift; sourceTree = "<group>"; };
+		04B95EDA2ABB7E7D00F4F9EA /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		04D3C13F2A6699E30061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1412A669BD80061C071 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		04D3C1432A669BD80061C071 /* FBSDKCoreKit_Basics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit_Basics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -409,6 +411,7 @@
 				CF6F0F8B26FF12C60013FF1E /* GEnum.swift */,
 				CF7268D9271B6604001580B2 /* GValues.swift */,
 				040F49ED2AA9157900615F71 /* carBrands.json */,
+				04B95EDA2ABB7E7D00F4F9EA /* ThemeManager.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -775,6 +778,7 @@
 				040F49E72AA79E9F00615F71 /* ProductsCollectionViewCell.swift in Sources */,
 				CF6F0F4826F8FEC90013FF1E /* kaser.xcdatamodeld in Sources */,
 				04A16D5B2A6D9713002D33AF /* AddProductsViewController.swift in Sources */,
+				04B95EDB2ABB7E7D00F4F9EA /* ThemeManager.swift in Sources */,
 				04FA8BD42A37510000A647B5 /* AddStoreViewController.swift in Sources */,
 				CFA238542784BF8A00767685 /* ProfileViewController.swift in Sources */,
 				CFA238572784BF9C00767685 /* MainViewController.swift in Sources */,
