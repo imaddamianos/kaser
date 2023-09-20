@@ -9,6 +9,7 @@ import UIKit
 
 class MyStoreViewController: UIViewController{
 
+    @IBOutlet weak var stackInfo: UIStackView!
     @IBOutlet weak var storeNameLbl: UILabel!
     @IBOutlet weak var storeNbLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
@@ -20,13 +21,14 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var addProductsBtn: UIButton!
     var storeName: String?
     var storeOwnerValue: String?
+    var store: Store?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         setupView()
     }
@@ -44,35 +46,49 @@ class MyStoreViewController: UIViewController{
         myProductsTbl.register(MyProductsTableViewCell.nib, forCellReuseIdentifier: MyProductsTableViewCell.identifier)
         sideMenuBtn.target = self.revealViewController()
         sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
+        addStoreBtn.cornerRadius(cornerRadius: 15)
+        addProductsBtn.cornerRadius(cornerRadius: 15)
+        GFunction.shared.addBlurBackground(toView: stackInfo)
         
-            for index in 0..<storesArray.count {
-                let store = storesArray[index]
-                self.storeName = store.storeName
-                let storeLocation = store.delivery
-                let storeAddress = store.address
-                let storeImage = store.storeImage
-                storeOwnerValue = store.storeOwner
-                if storeOwnerValue == newEmail{
-                    updateStoreHeader(storeName: self.storeName!, storeOwner: storeOwnerValue ?? "", storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
-                    getProducts()
-                }else{
-                    updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
-                    productsArray.removeAll()
-                }
-            }
-        
-    }
+        // Check if there's a store associated with the user
+              if let userStore = storesArray.first(where: { $0.storeOwner == newEmail }) {
+                  self.store = userStore
+                  storeName = userStore.storeName
+                  storeOwnerValue = userStore.storeOwner
+                  let storeLocation = userStore.delivery
+                  let storeAddress = userStore.address
+                  let storeImage = userStore.storeImage
+                  
+                  updateStoreHeader(storeName: storeName!, storeOwner: storeOwnerValue ?? "", storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
+                  
+                  // Fetch products associated with the user's store
+                  getProducts { [weak self] success in
+                      if success {
+                          // Reload the table view when products are fetched
+                          self?.myProductsTbl.reloadData()
+                      } else {
+                          // Handle the case when products cannot be fetched
+                      }
+                  }
+              } else {
+                  // No store associated with the user, handle accordingly
+                  updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+              }
+          }
     
-    func getProducts(){
+    func getProducts(completion: @escaping (Bool) -> Void) {
         APICalls.shared.getProducts(store: self.storeName ?? "") { success in
             for product in productsArray {
                 let productOwner = product.productOwner
-                if productOwner == newEmail{
+                if productOwner == newEmail {
                     self.handleProductsFetchResult(success: true)
+                    break
                 }
             }
+            completion(true)
         }
     }
+
     
     func handleProductsFetchResult(success: Bool) {
         if success {
@@ -85,10 +101,10 @@ class MyStoreViewController: UIViewController{
     }
     
     func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String, storeImage: String){
-        if storeOwner == newEmail {
-            storeNameLbl.text = storeName
-            storeNbLbl.text = storeLocation
-            locationLbl.text = storeAddress
+        if storeOwnerValue == newEmail {
+            storeNameLbl.text = "Name: \(storeName)"
+            storeNbLbl.text = "Delivery: \(storeLocation)"
+            locationLbl.text = "Address: \(storeAddress)"
             reviewsLbl.text = ""
             storeNameLbl.isHidden = false
             storeNbLbl.isHidden = false

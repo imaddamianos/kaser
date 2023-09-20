@@ -64,6 +64,14 @@ class GFunction: NSObject {
         }
      }
     
+    func addBlurBackground(toView view: UIView) {
+        let blurEffect = UIBlurEffect(style: .light)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        view.addSubview(blurEffectView)
+        view.sendSubviewToBack(blurEffectView)
+    }
+    
     func sideMenuItems(userType:String) -> [SideMenuModel]{
         if userType == "Seller" {
             return [
