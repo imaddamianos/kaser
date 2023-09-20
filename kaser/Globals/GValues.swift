@@ -29,12 +29,12 @@ protocol Themable {
     func applyTheme()
 }
 
-func applyTheme(View: UIViewController) {
+func applyTheme(View: UIViewController, completion: @escaping (UIColor) -> Void) {
         if ThemeManager.shared.currentTheme == .dark {
             View.view.backgroundColor = .black
-            // Update other UI elements for dark mode
+            completion(.black)
         } else {
             View.view.backgroundColor = .white
-            // Update other UI elements for light mode
+            completion(.white)
         }
     }

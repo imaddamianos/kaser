@@ -13,7 +13,10 @@ class ChatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyTheme(View: self)
+        applyTheme(View: self) { backgroundColor in
+            self.view.backgroundColor = backgroundColor
+            // Update other UI elements here if needed
+        }
         sideMenuBtn.target = self.revealViewController()
         sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
     }

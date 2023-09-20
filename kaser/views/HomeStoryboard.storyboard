@@ -36,7 +36,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bfo-B4-f0G">
                                 <rect key="frame" x="0.0" y="116" width="260" height="715"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footer Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cxm-bw-Wl1">
                                 <rect key="frame" x="10" y="839" width="240" height="15"/>
@@ -453,20 +453,8 @@
                     <view key="view" contentMode="scaleToFill" id="DRL-5d-URr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KIB-Fw-WKM">
-                                <rect key="frame" x="46" y="373" width="322" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FYH-ac-Zpr"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="KIB-Fw-WKM" firstAttribute="centerY" secondItem="FYH-ac-Zpr" secondAttribute="centerY" id="hrq-1U-VUg"/>
-                            <constraint firstItem="KIB-Fw-WKM" firstAttribute="centerX" secondItem="FYH-ac-Zpr" secondAttribute="centerX" id="zUY-S4-UHh"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="4V4-rh-vlm">
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="menu" id="7vI-6u-C9q"/>
@@ -510,12 +498,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wV-e9-mVf">
-                                <rect key="frame" x="40" y="373" width="334.5" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ub4-a5-2X3">
                                 <rect key="frame" x="20" y="30" width="374" height="31"/>
                                 <subviews>
@@ -557,10 +539,8 @@
                         <viewLayoutGuide key="safeArea" id="t6M-Bl-YC7"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="3wV-e9-mVf" firstAttribute="centerX" secondItem="t6M-Bl-YC7" secondAttribute="centerX" id="PgB-an-rcL"/>
                             <constraint firstItem="ub4-a5-2X3" firstAttribute="top" secondItem="t6M-Bl-YC7" secondAttribute="top" constant="30" id="k9i-bP-ljY"/>
                             <constraint firstItem="ub4-a5-2X3" firstAttribute="trailing" secondItem="t6M-Bl-YC7" secondAttribute="trailing" constant="-20" id="qeQ-ty-D1J"/>
-                            <constraint firstItem="3wV-e9-mVf" firstAttribute="centerY" secondItem="t6M-Bl-YC7" secondAttribute="centerY" id="rOh-4A-1xl"/>
                             <constraint firstItem="ub4-a5-2X3" firstAttribute="leading" secondItem="t6M-Bl-YC7" secondAttribute="leading" constant="20" id="vKL-DS-fss"/>
                         </constraints>
                     </view>
@@ -568,7 +548,10 @@
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="menu" id="WGn-0l-EfQ"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="darkLbl" destination="mo5-01-CNM" id="RdR-tv-l9V"/>
+                        <outlet property="lightLbl" destination="Drn-Pe-nRK" id="YXD-KF-fzR"/>
                         <outlet property="sideMenuBtn" destination="WGn-0l-EfQ" id="Fv7-ZK-FMg"/>
+                        <outlet property="themeModeLbl" destination="g4P-Wi-Jrc" id="U6f-rn-Lfg"/>
                         <outlet property="themeSwitch" destination="CPc-Zs-L9m" id="u4J-pn-yC3"/>
                     </connections>
                 </viewController>
@@ -807,20 +790,8 @@
                     <view key="view" contentMode="scaleToFill" id="Ag0-sv-Bkr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKM-LF-rHk">
-                                <rect key="frame" x="46" y="373" width="322" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Fgp-lz-2xA"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="EKM-LF-rHk" firstAttribute="centerY" secondItem="Fgp-lz-2xA" secondAttribute="centerY" id="AOR-ug-GKG"/>
-                            <constraint firstItem="EKM-LF-rHk" firstAttribute="centerX" secondItem="Fgp-lz-2xA" secondAttribute="centerX" id="AUp-E1-bdr"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Favorite" id="ind-72-LcM">
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="menu" id="2P0-6I-6zI"/>
@@ -863,20 +834,8 @@
                     <view key="view" contentMode="scaleToFill" id="Jnh-OI-uVa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="804"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movies Navigation View Controller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qTz-qq-f4d">
-                                <rect key="frame" x="46" y="373" width="322" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ClZ-hL-UkF"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="qTz-qq-f4d" firstAttribute="centerX" secondItem="ClZ-hL-UkF" secondAttribute="centerX" id="CuY-aI-PFr"/>
-                            <constraint firstItem="qTz-qq-f4d" firstAttribute="centerY" secondItem="ClZ-hL-UkF" secondAttribute="centerY" id="UgY-Gh-tgy"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Reviews" id="0rw-WV-2he">
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="menu" id="ueE-a0-37F"/>
@@ -1012,7 +971,8 @@
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="KOU-Rx-cgL">
                                 <rect key="frame" x="20" y="360" width="374" height="410"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="zC4-ER-rva" id="cha-eW-UdW"/>
                                     <outlet property="delegate" destination="zC4-ER-rva" id="6Hf-eN-gwZ"/>
@@ -1562,6 +1522,7 @@
             <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
     </designables>
+    <color key="tintColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="123" width="30" height="15"/>
         <image name="EVM" width="283" height="284"/>

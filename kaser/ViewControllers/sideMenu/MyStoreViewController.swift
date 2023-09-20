@@ -41,7 +41,7 @@ class MyStoreViewController: UIViewController{
     }
     
     func setupView() {
-        applyTheme(View: self)
+        changeNavBarColor()
         myProductsTbl.dataSource = self
         myProductsTbl.delegate = self
         myProductsTbl.register(MyProductsTableViewCell.nib, forCellReuseIdentifier: MyProductsTableViewCell.identifier)
@@ -76,6 +76,21 @@ class MyStoreViewController: UIViewController{
                   updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
               }
           }
+    
+    func changeNavBarColor() {
+        
+        if ThemeManager.shared.currentTheme == .dark {
+            navigationController?.navigationBar.backgroundColor = UIColor.black
+            view.backgroundColor = UIColor.black
+        } else {
+            navigationController?.navigationBar.backgroundColor = UIColor.white
+            view.backgroundColor = UIColor.white
+        }
+        
+    }
+
+
+
     
     func getProducts(completion: @escaping (Bool) -> Void) {
         APICalls.shared.getProducts(store: self.storeName ?? "") { success in

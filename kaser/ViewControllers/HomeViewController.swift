@@ -37,7 +37,14 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     }
     
     func setupView(){
-        applyTheme(View: self)
+        applyTheme(View: self) { backgroundColor in
+            self.view.backgroundColor = backgroundColor
+            // Update other UI elements here if needed
+        }
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
+//       rootViewController = navigationController
+//       makeKeyAndVisible()
         searchbar.backgroundImage = UIImage()
         featuredCollView.register(FeatureCollectionViewCell.nib, forCellWithReuseIdentifier: FeatureCollectionViewCell.identifier)
         productsCollView.register(ProductsCollectionViewCell.nib, forCellWithReuseIdentifier: ProductsCollectionViewCell.identifier)

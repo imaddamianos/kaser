@@ -31,13 +31,16 @@ class SideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyTheme(View: self)
+        applyTheme(View: self) { backgroundColor in
+            self.view.backgroundColor = backgroundColor
+            // Update other UI elements here if needed
+        }
         // TableView
         self.sideMenuTableView.delegate = self
         self.sideMenuTableView.dataSource = self
         self.sideMenuTableView.backgroundColor = UIColor.black
         self.sideMenuTableView.separatorStyle = .none
-        view.backgroundColor = UIColor.originalColor
+//        view.backgroundColor = UIColor.originalColor
         //                     Footer
         self.footerLabel.textColor = UIColor.white
         self.footerLabel.font = UIFont.systemFont(ofSize: 12, weight: .bold)

@@ -80,7 +80,22 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         
     }
     func setupView(){
-        applyTheme(View: self)
+        applyTheme(View: self) { backgroundColor in
+            self.view.backgroundColor = backgroundColor
+            if ThemeManager.shared.currentTheme == .dark {
+                self.userName.textColor = UIColor.white
+                self.firstNameTxt.textColor = UIColor.white
+                self.mobileNbr.textColor = UIColor.white
+                self.locationLbl.textColor = UIColor.white
+                self.calanderVw.backgroundColor = UIColor.white
+            }else{
+                self.userName.textColor = UIColor.black
+                self.firstNameTxt.textColor = UIColor.black
+                self.mobileNbr.textColor = UIColor.black
+                self.locationLbl.textColor = UIColor.black
+                self.calanderVw.backgroundColor = UIColor.clear
+            }
+        }
         GFunction.shared.addLoader("")
         addKeyboardObservers()
         setupKeyboardDismissRecognizer()
@@ -138,7 +153,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                         UIColor.originalColor = UIColor.colorFromHex(hex: 0x36b7bf)
                         strongSelf.updateBtn.setBackgroundImage(UIImage(named: "sellerBtn"), for: .normal)
                     }
-                    strongSelf.navigationController?.navigationBar.barTintColor = UIColor.originalColor
                     
                     GFunction.shared.loadImageAsync(from: URL(string: (userDetails?.image)!), into: (self?.userImg)!)
                     GFunction.shared.removeLoader()
