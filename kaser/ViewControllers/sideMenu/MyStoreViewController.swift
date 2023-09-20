@@ -41,6 +41,7 @@ class MyStoreViewController: UIViewController{
     }
     
     func setupView() {
+        applyTheme(View: self)
         myProductsTbl.dataSource = self
         myProductsTbl.delegate = self
         myProductsTbl.register(MyProductsTableViewCell.nib, forCellReuseIdentifier: MyProductsTableViewCell.identifier)

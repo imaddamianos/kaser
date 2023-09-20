@@ -28,3 +28,13 @@ let conditionOptions = ["Select Condition","New", "Used"]
 protocol Themable {
     func applyTheme()
 }
+
+func applyTheme(View: UIViewController) {
+        if ThemeManager.shared.currentTheme == .dark {
+            View.view.backgroundColor = .black
+            // Update other UI elements for dark mode
+        } else {
+            View.view.backgroundColor = .white
+            // Update other UI elements for light mode
+        }
+    }

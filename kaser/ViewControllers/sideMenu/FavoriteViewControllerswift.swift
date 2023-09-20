@@ -13,7 +13,7 @@ class FavoriteViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        applyTheme(View: self)
         sideMenuBtn.target = self.revealViewController()
         sideMenuBtn.action = #selector(self.revealViewController()?.revealSideMenu)
     }

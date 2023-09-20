@@ -80,6 +80,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         
     }
     func setupView(){
+        applyTheme(View: self)
         GFunction.shared.addLoader("")
         addKeyboardObservers()
         setupKeyboardDismissRecognizer()

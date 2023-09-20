@@ -37,7 +37,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     }
     
     func setupView(){
-        applyTheme()
+        applyTheme(View: self)
         searchbar.backgroundImage = UIImage()
         featuredCollView.register(FeatureCollectionViewCell.nib, forCellWithReuseIdentifier: FeatureCollectionViewCell.identifier)
         productsCollView.register(ProductsCollectionViewCell.nib, forCellWithReuseIdentifier: ProductsCollectionViewCell.identifier)
@@ -46,18 +46,6 @@ class HomeViewController: UIViewController, HomeVcProtocol {
         userImg.cornerRadius(cornerRadius: userImg.frame.width / 2)
         UIColor.originalColor = UIColor.colorFromHex(hex: 0x3C3F5A)
     }
-    
-    
-    
-    func applyTheme() {
-            if ThemeManager.shared.currentTheme == .dark {
-                view.backgroundColor = .black
-                // Update other UI elements for dark mode
-            } else {
-                view.backgroundColor = .white
-                // Update other UI elements for light mode
-            }
-        }
 
     
     func callInfo(){

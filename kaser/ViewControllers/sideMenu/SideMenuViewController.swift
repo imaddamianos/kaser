@@ -31,6 +31,7 @@ class SideMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        applyTheme(View: self)
         // TableView
         self.sideMenuTableView.delegate = self
         self.sideMenuTableView.dataSource = self
