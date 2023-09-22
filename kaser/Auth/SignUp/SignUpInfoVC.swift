@@ -99,12 +99,12 @@ class SignUpInfoVC: UIViewController, SignUpInfoViewProtocol, UITextFieldDelegat
             self.presenter.checkUserName(userName: txtUserName.text!, type: userType!){success in
                 if success{
                     if self.userType == "Buyer"{
-                        self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, location: [self.latitude:self.longitude], DOB: self.dateOfBirth, userType: self.userType!, image: self.imageURL)
+                        self.presenter.addBuyer(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, location: [self.latitude:self.longitude],LocationName: self.locationLbl.text ?? "", DOB: self.dateOfBirth, userType: self.userType!, image: self.imageURL)
                     }else{
                         if self.latitude == nil || self.latitude!.isEmpty && self.longitude == nil || self.longitude!.isEmpty {
                             SCLAlertView().showInfo("Notice", subTitle: "Location is missing")
                         }
-                        self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: self.dateOfBirth, storeName: self.storeNameTxt.text!, location: [self.latitude:self.longitude], userType: self.userType!, image: self.imageURL)
+                        self.presenter.addSeller(userName: self.txtUserName.text!, firstname: self.txtFirstName.text!, lastName: self.txtLastName.text!, email: newEmail!, password: newPass!, mobile: self.txtMobile.text!, DOB: self.dateOfBirth, storeName: self.storeNameTxt.text!, location: [self.latitude:self.longitude], LocationName: self.locationLbl.text ?? "", userType: self.userType!, image: self.imageURL)
                     }
                 }else{
                     performOn(.main){

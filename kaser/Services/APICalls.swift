@@ -13,11 +13,11 @@ class APICalls: NSObject {
     private let decoder = JSONDecoder()
     private let encoder = JSONEncoder()
 
-    func addSellerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, storeName: String, location: [String?:String?] , userType: String, image: String, pass:String, completion: ((Bool) -> Void)?){
+    func addSellerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, storeName: String, location: [String?:String?] ,LocationName: String, userType: String, image: String, pass:String, completion: ((Bool) -> Void)?){
         do {
             let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
             if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
-        ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location": encodingLocation, "profileImage" : image, "Password" : pass] as [String : Any]) {
+                ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "Store Name": storeName, "Location": encodingLocation, "LocationName" : LocationName, "profileImage" : image, "Password" : pass] as [String : Any]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
@@ -56,11 +56,11 @@ class APICalls: NSObject {
 
 }
     
-    func addBuyerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, userType: String, image: String,location: [String?:String?] , pass:String, completion: ((Bool) -> Void)?){
+    func addBuyerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, userType: String, image: String,location: [String?:String?] ,LocationName: String, pass:String, completion: ((Bool) -> Void)?){
         do {
             let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
             if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
-                ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "profileImage" : image, "Location" : encodingLocation, "Password" : pass] as [String : Any]) {
+                ref.child(userType).child(newID!).setValue(["UserName": userName, "Name": firstName + " " + lastName, "Email": email, "Mobile": mobile, "userType": userType, "DOB": DateOfBirth, "profileImage" : image, "Location" : encodingLocation, "LocationName" : LocationName, "Password" : pass] as [String : Any]) {
                   (error:Error?, ref:DatabaseReference) in
                   if let error = error {
                     print("Data could not be saved: \(error).")
@@ -121,6 +121,7 @@ class APICalls: NSObject {
             let UserName = value?["UserName"] as? String ?? "No UserName"
             let userType = value?["userType"] as? String ?? "No userType"
             let location = value?["Location"] as? String ?? "No location"
+            let locationName = value?["LocationName"] as? String ?? "No Location Name"
             
             if UserName == "No UserName"{
                 ref.child("Buyer").child(newID!).getData(completion:  { error, snapshot in
@@ -134,12 +135,13 @@ class APICalls: NSObject {
                     let UserName = value?["UserName"] as? String ?? "No UserName"
                     let userType = value?["userType"] as? String ?? "No userType"
                     let location = value?["Location"] as? String ?? "No location"
+                    let locationName = value?["LocationName"] as? String ?? "No Location Name"
                     
-                    userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, location: location, image: image, UserName: UserName, userType: userType)
+                    userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, location: location, LocationName: locationName, image: image, UserName: UserName, userType: userType)
                     completion?(true)
             })
             }else{
-                userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, location: location, image: image, UserName: UserName, userType: userType)
+                userDetails = usersStruct(mobile: mobile, email: email, name: name, pass: pass, dob: dob, location: location, LocationName: locationName, image: image, UserName: UserName, userType: userType)
                 completion?(true)
             }
     })
