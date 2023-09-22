@@ -64,16 +64,12 @@ class MyStoreViewController: UIViewController{
                   
                   // Fetch products associated with the user's store
                   getProducts { [weak self] success in
-                      if success {
-                          // Reload the table view when products are fetched
                           self?.myProductsTbl.reloadData()
-                      } else {
-                          // Handle the case when products cannot be fetched
-                      }
                   }
               } else {
                   // No store associated with the user, handle accordingly
                   updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+                  productsArray.removeAll()
               }
           }
     
