@@ -42,7 +42,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
     }
     
     @IBAction func locationBtnTapped(_ sender: Any) {
-        locationManager.startUpdatingLocation()
+        GFunction.shared.showAlertWithCancel("Alert Title", message: "This is the alert message", okBtnName: "OK", cancelBtnName: "Cancel", okAction: {
+            self.locationManager.startUpdatingLocation()
+        }, cancelAction: {
+            // Code to execute when the "Cancel" button is tapped
+            print("Cancel button action")
+        })
+
     }
     
     @IBAction func updateBtnTapped(_ sender: Any) {
@@ -101,7 +107,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
         setupKeyboardDismissRecognizer()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
         calanderVw.datePickerMode = .date
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(datePickerValueChanged(_:)))
         calanderVw.addGestureRecognizer(tapGesture)
@@ -151,7 +156,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate &
                         UIColor.originalColor = UIColor.colorFromHex(hex: 0x3c3f5a)
                     }else{
                         UIColor.originalColor = UIColor.colorFromHex(hex: 0x36b7bf)
-                        strongSelf.updateBtn.setBackgroundImage(UIImage(named: "sellerBtn"), for: .normal)
+                        strongSelf.updateBtn.setBackgroundImage(UIImage(named: "btnLayout"), for: .normal)
                     }
                     
                     GFunction.shared.loadImageAsync(from: URL(string: (userDetails?.image)!), into: (self?.userImg)!)

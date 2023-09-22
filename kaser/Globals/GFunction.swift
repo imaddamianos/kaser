@@ -40,6 +40,28 @@ class GFunction: NSObject {
        alertView.showSuccess(title, subTitle: message)
     }
     
+    func showAlertWithCancel(_ title: String, message: String, okBtnName: String, cancelBtnName: String, okAction: @escaping () -> Void, cancelAction: @escaping () -> Void) {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        
+        let alertView = SCLAlertView(appearance: appearance)
+        
+        // Add the "OK" button
+        alertView.addButton(okBtnName) {
+            print("OK button tapped")
+            okAction()
+        }
+        
+        // Add the "Cancel" button
+        alertView.addButton(cancelBtnName) {
+            print("Cancel button tapped")
+            cancelAction()
+        }
+        
+        alertView.showSuccess(title, subTitle: message)
+    }
+    
     func addLoader(_ message : String? = nil) {
         
         performOn(.main) {
