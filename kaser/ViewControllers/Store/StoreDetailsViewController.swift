@@ -9,9 +9,15 @@ import UIKit
 
 class StoreDetailsViewController: UIViewController, UINavigationControllerDelegate {
     
+    @IBOutlet weak var storeImg: UIImageView!
     @IBOutlet weak var storeName: UILabel!
     @IBOutlet weak var storeNbLbl: UILabel!
     @IBOutlet weak var productsTbl: UITableView!
+    @IBOutlet weak var addressLbl: UILabel!
+    @IBOutlet weak var phoneLbl: UILabel!
+    @IBOutlet weak var deliveryLbl: UILabel!
+    @IBOutlet weak var storeDescription: UILabel!
+    @IBOutlet weak var editStoreBtn: UIButton!
     var store: Store?
 
     override func viewDidLoad() {
@@ -20,9 +26,16 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     }
     
     func setupView(){
+        checkProductOwner()
         navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.navigationBar.backgroundColor = UIColor.originalColor
         storeName.text = store?.storeName
         storeNbLbl.text = store?.phone
+        addressLbl.text = store?.address
+        phoneLbl.text = store?.phone
+        deliveryLbl.text = store?.delivery
+        storeDescription.text = store?.description
+        GFunction.shared.loadImageAsync(from: URL(string: store!.storeImage), into: (storeImg)!)
         productsTbl.dataSource = self
         productsTbl.delegate = self
         productsTbl.register(MyProductsTableViewCell.nib, forCellReuseIdentifier: MyProductsTableViewCell.identifier)
@@ -33,6 +46,17 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
         APICalls.shared.getProducts(store: store?.storeName ?? "") { success in
                 self.productsTbl.reloadData()
         }
+    }
+    
+    func checkProductOwner(){
+        editStoreBtn.isHidden = true
+        if store?.storeOwner == newEmail{
+            editStoreBtn.isHidden = false
+        }
+    }
+    
+    @IBAction func editStoreBtnTapped(_ sender: Any) {
+        
     }
 }
 
