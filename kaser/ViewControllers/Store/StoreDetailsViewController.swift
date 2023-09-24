@@ -31,9 +31,9 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
         navigationController?.navigationBar.backgroundColor = UIColor.originalColor
         storeName.text = store?.storeName
         storeNbLbl.text = store?.phone
-        addressLbl.text = store?.address
+        addressLbl.text = store?.LocationName
         phoneLbl.text = store?.phone
-        deliveryLbl.text = store?.delivery
+        deliveryLbl.text = store!.delivery + "$"
         storeDescription.text = store?.description
         GFunction.shared.loadImageAsync(from: URL(string: store!.storeImage), into: (storeImg)!)
         productsTbl.dataSource = self

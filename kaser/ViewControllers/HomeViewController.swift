@@ -156,8 +156,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let product = storesArray[indexPath.row]
             cell.phoneNb.text = product.phone
             cell.carModel.text = product.storeName
-            cell.location.text = product.address
-            cell.views.text = product.delivery
+            cell.location.text = product.LocationName
+            cell.views.text = product.delivery + "$"
             cell.backgroundColor = UIColor.colorFromHex(hex: 0x7C7E90)
             // Add a tap gesture recognizer to the cell
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cellTapped(_:)))

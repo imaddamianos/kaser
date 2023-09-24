@@ -14,6 +14,7 @@ struct Store: Codable {
     let storeName: String
     let phone: String
     let address: String
+    var LocationName: String?
     let delivery: String
     let description: String
     let storeImage: String

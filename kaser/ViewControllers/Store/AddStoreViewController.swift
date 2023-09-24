@@ -119,7 +119,7 @@ class AddStoreViewController: UIViewController, CLLocationManagerDelegate, AddSt
               return
           }
           // Call the presenter method to add the store
-          self.presenter.addStore(storeName: storeName.text!, phone: storePhone.text!, address: [self.latitude:self.longitude], delivery: storeDelivery.text!, description: storeDescription.text!, image: imageURL)
+        self.presenter.addStore(storeName: storeName.text!, phone: storePhone.text!, address: [self.latitude:self.longitude], LocationName: locationLbl.text ?? "", delivery: storeDelivery.text!,  description: storeDescription.text!, image: imageURL)
     }
     
     @IBAction func addImageBtn(_ sender: Any) {

@@ -57,10 +57,10 @@ class MyStoreViewController: UIViewController{
                   storeName = userStore.storeName
                   storeOwnerValue = userStore.storeOwner
                   let storeLocation = userStore.delivery
-                  let storeAddress = userStore.address
+                  let storeAddress = userStore.LocationName
                   let storeImage = userStore.storeImage
                   
-                  updateStoreHeader(storeName: storeName!, storeOwner: storeOwnerValue ?? "", storeLocation: storeLocation, storeAddress: storeAddress, storeImage: storeImage)
+                  updateStoreHeader(storeName: storeName!, storeOwner: storeOwnerValue ?? "", storeLocation: storeLocation, storeAddress: storeAddress!, storeImage: storeImage)
                   
                   // Fetch products associated with the user's store
                   getProducts { [weak self] success in

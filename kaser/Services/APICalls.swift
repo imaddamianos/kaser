@@ -77,11 +77,11 @@ class APICalls: NSObject {
 
     }
     
-    func addStoreInfo(storeName: String, phone: String, address: [String?:String?], delivery: String, description: String, image: String, completion: ((Bool) -> Void)?){
+    func addStoreInfo(storeName: String, phone: String, address: [String?:String?],LocationName: String, delivery: String, description: String, image: String, completion: ((Bool) -> Void)?){
         do {
             let jsonDataLocation = try JSONSerialization.data(withJSONObject: address, options: [])
             if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
-                ref.child("Stores").child(storeName).setValue(["storeName": storeName, "phone": phone, "address": encodingLocation, "delivery": delivery, "description" : description, "storeImage" : image, "storeOwner" : newEmail as Any] as [String : Any]) {
+                ref.child("Stores").child(storeName).setValue(["storeName": storeName, "phone": phone, "address": encodingLocation, "LocationName": LocationName, "delivery": delivery, "description" : description, "storeImage" : image, "storeOwner" : newEmail as Any] as [String : Any]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
