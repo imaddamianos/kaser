@@ -1016,6 +1016,7 @@
                         <outlet property="storeNbLbl" destination="7RV-ib-A4v" id="Y0w-7V-91v"/>
                         <segue destination="GqD-Wg-7dk" kind="show" identifier="AddStoreNavID" id="dUM-NT-3lF"/>
                         <segue destination="AJ9-uN-DLI" kind="show" identifier="AddProductsNavID" id="E9p-4P-kmF"/>
+                        <segue destination="x3s-o7-B1D" kind="show" identifier="ProductDetailsNavID" id="BZe-JS-udS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JyH-U0-LHi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1568,7 +1569,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="euE-wD-Ebi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2043.4782608695655" y="2388.6160714285711"/>
+            <point key="canvasLocation" x="-2043" y="2561"/>
         </scene>
         <!--Store Details View Controller-->
         <scene sceneID="a6m-LA-aSH">
@@ -1767,11 +1768,12 @@
                         <outlet property="storeImg" destination="Dc9-bJ-SUC" id="u5q-EC-9qe"/>
                         <outlet property="storeName" destination="PDQ-dy-cuG" id="lSU-q0-h7Z"/>
                         <outlet property="storeNbLbl" destination="83U-UF-qQ2" id="2SG-w8-V38"/>
+                        <segue destination="x3s-o7-B1D" kind="show" identifier="ProductDetailsNavID" id="fTh-eM-NQc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AZc-qV-Urh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2043" y="1662"/>
+            <point key="canvasLocation" x="-2584" y="1661"/>
         </scene>
     </scenes>
     <designables>
@@ -1809,6 +1811,9 @@
             <size key="intrinsicContentSize" width="374" height="43.994140625"/>
         </designable>
     </designables>
+    <inferredMetricsTieBreakers>
+        <segue reference="BZe-JS-udS"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="123" width="30" height="15"/>

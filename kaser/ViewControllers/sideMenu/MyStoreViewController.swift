@@ -22,6 +22,7 @@ class MyStoreViewController: UIViewController{
     var storeName: String?
     var storeOwnerValue: String?
     var store: Store?
+    var product: Product?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +39,19 @@ class MyStoreViewController: UIViewController{
     }
     @IBAction func addProductsTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AddProductsNavID", sender: self)
+    }
+    
+    
+    @objc func productsCellTapped(_ sender: UITapGestureRecognizer) {
+        // Handle cell tap here
+        if let cell = sender.view as? UITableViewCell {
+            if let indexPath = myProductsTbl.indexPath(for: cell) {
+                let product = productsArray[indexPath.row]
+                self.product = product
+                self.performSegue(withIdentifier: "ProductDetailsNavID", sender: self)
+                
+            }
+        }
     }
     
     func setupView() {
@@ -142,6 +156,9 @@ class MyStoreViewController: UIViewController{
                let destinationVC = segue.destination as? AddProductsViewController {
                 // Set the value you want to pass to the destination view controller
                 destinationVC.storeName = storeName
+            }else if segue.identifier == "ProductDetailsNavID",
+                     let destinationVC = segue.destination as? ProductDetailsViewController {
+                destinationVC.product = product
             }
         }
 }
@@ -169,6 +186,8 @@ extension MyStoreViewController: UITableViewDataSource {
         cell.locationLbl.text = productsArray[indexPath.row].brand
         cell.descriptionLbl.text = productsArray[indexPath.row].description
         cell.storeLbl.text = productsArray[indexPath.row].condition
+        let productGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productsCellTapped(_:)))
+        cell.addGestureRecognizer(productGestureRecognizer)
         
         if let cachedImage = imageCache.object(forKey: productsArray[indexPath.row].productImage as NSString) {
             // If the image is already cached, use it

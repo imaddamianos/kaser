@@ -19,6 +19,7 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var storeDescription: UILabel!
     @IBOutlet weak var editStoreBtn: UIButton!
     var store: Store?
+    var product: Product?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +59,23 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     @IBAction func editStoreBtnTapped(_ sender: Any) {
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+                     let destinationVC = segue.destination as? ProductDetailsViewController
+        destinationVC?.product = product
+        }
+    
+    @objc func productsCellTapped(_ sender: UITapGestureRecognizer) {
+        // Handle cell tap here
+        if let cell = sender.view as? UITableViewCell {
+            if let indexPath = productsTbl.indexPath(for: cell) {
+                let product = productsArray[indexPath.row]
+                self.product = product
+                self.performSegue(withIdentifier: "ProductDetailsNavID", sender: self)
+                
+            }
+        }
+    }
 }
 
 // MARK: - UITableView
@@ -75,7 +93,8 @@ extension StoreDetailsViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyProductsTableViewCell.identifier, for: indexPath) as? MyProductsTableViewCell else { fatalError("xib doesn't exist") }
-        //            cell.iconImageView.image = productsArray[indexPath.row].productImage
+        let productGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productsCellTapped(_:)))
+        cell.addGestureRecognizer(productGestureRecognizer)
         cell.titleLabel.text = productsArray[indexPath.row].productName
         cell.priceLbl.text = productsArray[indexPath.row].productOwner
         cell.locationLbl.text = productsArray[indexPath.row].brand
