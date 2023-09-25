@@ -13,7 +13,8 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var storeNameLbl: UILabel!
     @IBOutlet weak var storeNbLbl: UILabel!
     @IBOutlet weak var locationLbl: UILabel!
-    @IBOutlet weak var reviewsLbl: UILabel!
+    @IBOutlet weak var storePriceLbl: UILabel!
+    @IBOutlet weak var storeDescriptionLbl: UILabel!
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     @IBOutlet weak var coverImg: UIImageView!
     @IBOutlet weak var myProductsTbl: UITableView!
@@ -40,6 +41,70 @@ class MyStoreViewController: UIViewController{
     @IBAction func addProductsTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AddProductsNavID", sender: self)
     }
+    @IBAction func editStoreBtnTapped(_ sender: Any) {
+        // Create a UIAlertController with a preferred style of .alert
+        let alertController = UIAlertController(title: "Edit Store", message: nil, preferredStyle: .alert)
+        
+        // Add text fields to the alert controller for user input
+        alertController.addTextField { (nameTextField) in
+            nameTextField.placeholder = "Store Name"
+        }
+        
+        alertController.addTextField { (locationTextField) in
+            locationTextField.placeholder = "Location"
+        }
+        
+        alertController.addTextField { (descriptionTextField) in
+            descriptionTextField.placeholder = "Description"
+        }
+        
+        alertController.addTextField { (priceTextField) in
+            priceTextField.placeholder = "Price"
+            priceTextField.keyboardType = .decimalPad // Use decimal pad for price
+        }
+        
+        alertController.addTextField { (numberTextField) in
+            numberTextField.placeholder = "Number"
+            numberTextField.keyboardType = .numberPad // Use number pad for number
+        }
+        
+        // Add "Cancel" action
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(cancelAction)
+        
+        // Add "Save" action
+        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] (_) in
+            // Retrieve text field values
+            if let nameField = alertController.textFields?[0],
+               let locationField = alertController.textFields?[1],
+               let descriptionField = alertController.textFields?[2],
+               let priceField = alertController.textFields?[3],
+               let numberField = alertController.textFields?[4],
+               let storeName = nameField.text,
+               let location = locationField.text,
+               let description = descriptionField.text,
+               let priceText = priceField.text,
+               let numberText = numberField.text,
+               let price = Double(priceText), // Convert price to a Double
+               let number = Int(numberText) // Convert number to an Int
+            {
+                // Use the retrieved values as needed
+                // Here, you can update your data model or perform any necessary actions
+                
+                // Example: Update UI labels with the retrieved values
+                self?.storeNameLbl.text = storeName
+                self?.locationLbl.text = location
+                self?.storeDescriptionLbl.text = description
+                self?.storePriceLbl.text = String(format: "$%.2f", price)
+//                self?.storePriceLbl.text = String(number)
+            }
+        }
+        alertController.addAction(saveAction)
+        
+        // Present the alert controller
+        present(alertController, animated: true, completion: nil)
+    }
+
     
     
     @objc func productsCellTapped(_ sender: UITapGestureRecognizer) {
@@ -70,11 +135,15 @@ class MyStoreViewController: UIViewController{
                   self.store = userStore
                   storeName = userStore.storeName
                   storeOwnerValue = userStore.storeOwner
-                  let storeLocation = userStore.delivery
-                  let storeAddress = userStore.LocationName
+                  let storePrice = userStore.delivery
+                  let storeAddress = userStore.LocationName!
                   let storeImage = userStore.storeImage
+                  let storeDescription = userStore.description
+                  let storeNumber = userStore.phone
+//                  let storePrice = userStore.delivery
                   
-                  updateStoreHeader(storeName: storeName!, storeOwner: storeOwnerValue ?? "", storeLocation: storeLocation, storeAddress: storeAddress!, storeImage: storeImage)
+//                  updateStoreHeader(storeName: storeName!, storeOwner: storeOwnerValue ?? "", storeLocation: storeLocation, storeAddress: storeAddress!, storeImage: storeImage)
+                  updateStoreHeader(storeName: storeName!, storeOwner: storeOwnerValue ?? "", storeNumber: storeNumber, storeAddress: storeAddress, storeDescription: storeDescription, storePrice: storePrice, storeImage: storeImage)
                   
                   // Fetch products associated with the user's store
                   getProducts { [weak self] success in
@@ -82,7 +151,7 @@ class MyStoreViewController: UIViewController{
                   }
               } else {
                   // No store associated with the user, handle accordingly
-                  updateStoreHeader(storeName: "", storeOwner: "", storeLocation: "", storeAddress: "", storeImage: "")
+                  updateStoreHeader(storeName: "", storeOwner: "", storeNumber: "", storeAddress: "", storeDescription: "", storePrice: "", storeImage: "")
                   productsArray.removeAll()
               }
           }
@@ -126,17 +195,18 @@ class MyStoreViewController: UIViewController{
         }
     }
     
-    func updateStoreHeader(storeName: String, storeOwner: String, storeLocation: String, storeAddress: String, storeImage: String){
+    func updateStoreHeader(storeName: String, storeOwner: String, storeNumber: String, storeAddress: String,storeDescription: String,storePrice: String, storeImage: String){
         if storeOwnerValue == newEmail {
             storeNameLbl.text = "Name: \(storeName)"
-            storeNbLbl.text = "Delivery: \(storeLocation)"
+            storeNbLbl.text = "Phone: \(storeNumber)"
             locationLbl.text = "Address: \(storeAddress)"
-            reviewsLbl.text = ""
+            storeDescriptionLbl.text = "Description: \(storeDescription)"
+            storePriceLbl.text = "Price: \(storePrice) $"
             storeNameLbl.isHidden = false
             storeNbLbl.isHidden = false
             locationLbl.isHidden = false
             addStoreBtn.isHidden = true
-            reviewsLbl.isHidden = false
+//            reviewsLbl.isHidden = false
             addProductsBtn.isHidden = false
             GFunction.shared.loadImageAsync(from: URL(string: (storeImage)), into: (self.coverImg)!)
         }else{
@@ -144,7 +214,7 @@ class MyStoreViewController: UIViewController{
             storeNameLbl.isHidden = true
             storeNbLbl.isHidden = true
             locationLbl.isHidden = true
-            reviewsLbl.isHidden = true
+//            reviewsLbl.isHidden = true
             addProductsBtn.isHidden = true
         }
         
