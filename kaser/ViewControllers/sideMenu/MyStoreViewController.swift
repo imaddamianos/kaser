@@ -21,6 +21,7 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var myProductsTbl: UITableView!
     @IBOutlet weak var addStoreBtn: UIButton!
     @IBOutlet weak var addProductsBtn: UIButton!
+    @IBOutlet weak var editBtn: UIButton!
     var storeName: String?
     var storeOwnerValue: String?
     var store: Store?
@@ -58,12 +59,23 @@ class MyStoreViewController: UIViewController{
     }
     
     func changeToEdit(textField: SkyFloatingLabelTextField){
-        textField.isUserInteractionEnabled = true
-        textField.isUserInteractionEnabled = true
-        textField.isUserInteractionEnabled = true
-        textField.isUserInteractionEnabled = true
-        textField.isUserInteractionEnabled = true
-        textField.lineColor = UIColor.black
+        if editBtn.titleLabel?.text == "Update"{
+            textField.isUserInteractionEnabled = false
+            textField.isUserInteractionEnabled = false
+            textField.isUserInteractionEnabled = false
+            textField.isUserInteractionEnabled = false
+            textField.isUserInteractionEnabled = false
+            textField.lineColor = UIColor.clear
+            editBtn.setTitle("Edit Store", for: .normal)
+        }else{
+            textField.isUserInteractionEnabled = true
+            textField.isUserInteractionEnabled = true
+            textField.isUserInteractionEnabled = true
+            textField.isUserInteractionEnabled = true
+            textField.isUserInteractionEnabled = true
+            textField.lineColor = UIColor.black
+            editBtn.setTitle("Update", for: .normal)
+        }
     }
 
     
