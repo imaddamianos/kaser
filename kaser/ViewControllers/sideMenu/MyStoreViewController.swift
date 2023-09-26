@@ -6,15 +6,16 @@
 //
 
 import UIKit
+import SkyFloatingLabelTextField
 
 class MyStoreViewController: UIViewController{
 
     @IBOutlet weak var stackInfo: UIStackView!
-    @IBOutlet weak var storeNameLbl: UILabel!
-    @IBOutlet weak var storeNbLbl: UILabel!
-    @IBOutlet weak var locationLbl: UILabel!
-    @IBOutlet weak var storePriceLbl: UILabel!
-    @IBOutlet weak var storeDescriptionLbl: UILabel!
+    @IBOutlet weak var storeNameTxt: SkyFloatingLabelTextField!
+    @IBOutlet weak var storeNbLbl: SkyFloatingLabelTextField!
+    @IBOutlet weak var locationLbl: SkyFloatingLabelTextField!
+    @IBOutlet weak var storePriceLbl: SkyFloatingLabelTextField!
+    @IBOutlet weak var storeDescriptionLbl: SkyFloatingLabelTextField!
     @IBOutlet var sideMenuBtn: UIBarButtonItem!
     @IBOutlet weak var coverImg: UIImageView!
     @IBOutlet weak var myProductsTbl: UITableView!
@@ -41,68 +42,28 @@ class MyStoreViewController: UIViewController{
     @IBAction func addProductsTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "AddProductsNavID", sender: self)
     }
+    
+    
     @IBAction func editStoreBtnTapped(_ sender: Any) {
-        // Create a UIAlertController with a preferred style of .alert
-        let alertController = UIAlertController(title: "Edit Store", message: nil, preferredStyle: .alert)
-        
-        // Add text fields to the alert controller for user input
-        alertController.addTextField { (nameTextField) in
-            nameTextField.placeholder = "Store Name"
-        }
-        
-        alertController.addTextField { (locationTextField) in
-            locationTextField.placeholder = "Location"
-        }
-        
-        alertController.addTextField { (descriptionTextField) in
-            descriptionTextField.placeholder = "Description"
-        }
-        
-        alertController.addTextField { (priceTextField) in
-            priceTextField.placeholder = "Price"
-            priceTextField.keyboardType = .decimalPad // Use decimal pad for price
-        }
-        
-        alertController.addTextField { (numberTextField) in
-            numberTextField.placeholder = "Number"
-            numberTextField.keyboardType = .numberPad // Use number pad for number
-        }
-        
-        // Add "Cancel" action
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        // Add "Save" action
-        let saveAction = UIAlertAction(title: "Save", style: .default) { [weak self] (_) in
-            // Retrieve text field values
-            if let nameField = alertController.textFields?[0],
-               let locationField = alertController.textFields?[1],
-               let descriptionField = alertController.textFields?[2],
-               let priceField = alertController.textFields?[3],
-               let numberField = alertController.textFields?[4],
-               let storeName = nameField.text,
-               let location = locationField.text,
-               let description = descriptionField.text,
-               let priceText = priceField.text,
-               let numberText = numberField.text,
-               let price = Double(priceText), // Convert price to a Double
-               let number = Int(numberText) // Convert number to an Int
-            {
-                // Use the retrieved values as needed
-                // Here, you can update your data model or perform any necessary actions
-                
-                // Example: Update UI labels with the retrieved values
-                self?.storeNameLbl.text = storeName
-                self?.locationLbl.text = location
-                self?.storeDescriptionLbl.text = description
-                self?.storePriceLbl.text = String(format: "$%.2f", price)
-//                self?.storePriceLbl.text = String(number)
-            }
-        }
-        alertController.addAction(saveAction)
-        
-        // Present the alert controller
-        present(alertController, animated: true, completion: nil)
+        storeNameTxt.isUserInteractionEnabled = true
+        storeNbLbl.isUserInteractionEnabled = true
+        locationLbl.isUserInteractionEnabled = true
+        storePriceLbl.isUserInteractionEnabled = true
+        storeDescriptionLbl.isUserInteractionEnabled = true
+        changeToEdit(textField: storeNameTxt)
+        changeToEdit(textField: storeNbLbl)
+        changeToEdit(textField: locationLbl)
+        changeToEdit(textField: storePriceLbl)
+        changeToEdit(textField: storeDescriptionLbl)
+    }
+    
+    func changeToEdit(textField: SkyFloatingLabelTextField){
+        textField.isUserInteractionEnabled = true
+        textField.isUserInteractionEnabled = true
+        textField.isUserInteractionEnabled = true
+        textField.isUserInteractionEnabled = true
+        textField.isUserInteractionEnabled = true
+        textField.lineColor = UIColor.black
     }
 
     
@@ -120,6 +81,12 @@ class MyStoreViewController: UIViewController{
     }
     
     func setupView() {
+        
+        storeNameTxt.isUserInteractionEnabled = false
+        storeNbLbl.isUserInteractionEnabled = false
+        locationLbl.isUserInteractionEnabled = false
+        storePriceLbl.isUserInteractionEnabled = false
+        storeDescriptionLbl.isUserInteractionEnabled = false
         changeNavBarColor()
         myProductsTbl.dataSource = self
         myProductsTbl.delegate = self
@@ -197,12 +164,12 @@ class MyStoreViewController: UIViewController{
     
     func updateStoreHeader(storeName: String, storeOwner: String, storeNumber: String, storeAddress: String,storeDescription: String,storePrice: String, storeImage: String){
         if storeOwnerValue == newEmail {
-            storeNameLbl.text = "Name: \(storeName)"
-            storeNbLbl.text = "Phone: \(storeNumber)"
-            locationLbl.text = "Address: \(storeAddress)"
-            storeDescriptionLbl.text = "Description: \(storeDescription)"
-            storePriceLbl.text = "Price: \(storePrice) $"
-            storeNameLbl.isHidden = false
+            storeNameTxt.text = storeName
+            storeNbLbl.text = storeNumber
+            locationLbl.text = storeAddress
+            storeDescriptionLbl.text = storeDescription
+            storePriceLbl.text = "\(storePrice) $"
+            storeNameTxt.isHidden = false
             storeNbLbl.isHidden = false
             locationLbl.isHidden = false
             addStoreBtn.isHidden = true
@@ -211,7 +178,7 @@ class MyStoreViewController: UIViewController{
             GFunction.shared.loadImageAsync(from: URL(string: (storeImage)), into: (self.coverImg)!)
         }else{
             addStoreBtn.isHidden = false
-            storeNameLbl.isHidden = true
+            storeNameTxt.isHidden = true
             storeNbLbl.isHidden = true
             locationLbl.isHidden = true
 //            reviewsLbl.isHidden = true
