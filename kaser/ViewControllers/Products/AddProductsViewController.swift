@@ -11,7 +11,7 @@ import SkyFloatingLabelTextField
 class AddProductsViewController: UIViewController, AddProductViewProtocol {
     @IBOutlet weak var productNameTxt: SkyFloatingLabelTextField!
     @IBOutlet weak var brandNameTxt: SkyFloatingLabelTextField!
-    @IBOutlet weak var carModelTxt: SkyFloatingLabelTextField!
+    @IBOutlet weak var priceTxt: SkyFloatingLabelTextField!
     @IBOutlet weak var conditionPicker: UIPickerView!
     @IBOutlet weak var descriptionTxt: SkyFloatingLabelTextField!
     @IBOutlet weak var productImg: UIImageView!
@@ -71,8 +71,8 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
             return
         }
         
-        if carModelTxt.text?.isEmpty ?? true {
-            GFunction.shared.showAlert("Car Model address", message: "Please enter the Car Model for this product", btnName: "OK") {
+        if priceTxt.text?.isEmpty ?? true {
+            GFunction.shared.showAlert("Car Model address", message: "Please enter the price for this product", btnName: "OK") {
             }
             return
         }
@@ -91,7 +91,7 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
             return
         }
         // Call the presenter method to add the store
-        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, car: carModelTxt.text!, condition: condition!, description: descriptionTxt.text!, image: imageURL){ isSuccess in
+        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, price: priceTxt.text!, condition: condition!, description: descriptionTxt.text!, image: imageURL){ isSuccess in
             if isSuccess {
                 // Handle successful completion here
                 print("Product added successfully.")

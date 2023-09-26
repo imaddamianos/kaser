@@ -58,9 +58,6 @@ class APICalls: NSObject {
     
     func modifyStoreInfo(storeName: String, locationName:String, delivery: String, description: String, phone: String, completion: ((Bool) -> Void)?){
         do {
-//            let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
-//            if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
-                
                 ref.child("Stores").child(storeName).updateChildValues(["storeName": storeName, "locationName": locationName, "delivery": delivery, "description": description, "phone": phone]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
@@ -71,9 +68,22 @@ class APICalls: NSObject {
             completion?(true)
           }
         }
-//    }
-//} catch {
-//    print("Error converting dictionary to string: \(error)")
+}
+
+}
+    
+    func modifyProductInfo(storeName: String,productName: String,productDescription: String, brand:String, price: String,condition: String, completion: ((Bool) -> Void)?){
+        do {
+            ref.child("Products").child("elegant motors").child(productName).updateChildValues(["productName": productName, "Price": price, "brand": brand,"condition": condition, "description": productDescription]) {
+          (error:Error?, ref:DatabaseReference) in
+          if let error = error {
+            print("Data could not be saved: \(error).")
+            completion?(false)
+          } else {
+            print("Data saved successfully!")
+            completion?(true)
+          }
+        }
 }
 
 }
@@ -120,8 +130,8 @@ class APICalls: NSObject {
         
     }
     
-    func addProductInfo(productName: String, storeName: String, brand: String, car: String, condition: String, description: String, image: String, completion: ((Bool) -> Void)?){
-        ref.child("Products").child(storeName).child(productName).setValue(["productName": productName, "brand": brand, "car": car, "condition": condition, "description" : description, "productImage" : image, "productOwner" : newEmail]) {
+    func addProductInfo(productName: String, storeName: String, brand: String, price: String, condition: String, description: String, image: String, completion: ((Bool) -> Void)?){
+        ref.child("Products").child(storeName).child(productName).setValue(["productName": productName, "brand": brand, "Price": price, "condition": condition, "description" : description, "productImage" : image, "productOwner" : newEmail]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")
