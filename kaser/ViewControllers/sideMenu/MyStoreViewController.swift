@@ -7,6 +7,7 @@
 
 import UIKit
 import SkyFloatingLabelTextField
+import SCLAlertView
 
 class MyStoreViewController: UIViewController{
 
@@ -67,6 +68,9 @@ class MyStoreViewController: UIViewController{
             textField.isUserInteractionEnabled = false
             textField.lineColor = UIColor.clear
             editBtn.setTitle("Edit Store", for: .normal)
+            APICalls.shared.modifyStoreInfo(storeName: storeNameTxt.text!, locationName: locationLbl.text!, delivery: storePriceLbl.text!, description: storeDescriptionLbl.text!, phone: storeNbLbl.text!){ (isSuccess) in
+                if !isSuccess { return }
+            }
         }else{
             textField.isUserInteractionEnabled = true
             textField.isUserInteractionEnabled = true

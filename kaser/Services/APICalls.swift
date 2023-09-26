@@ -56,6 +56,28 @@ class APICalls: NSObject {
 
 }
     
+    func modifyStoreInfo(storeName: String, locationName:String, delivery: String, description: String, phone: String, completion: ((Bool) -> Void)?){
+        do {
+//            let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
+//            if let encodingLocation = String(data: jsonDataLocation, encoding: .utf8) {
+                
+                ref.child("Stores").child(storeName).updateChildValues(["storeName": storeName, "locationName": locationName, "delivery": delivery, "description": description, "phone": phone]) {
+          (error:Error?, ref:DatabaseReference) in
+          if let error = error {
+            print("Data could not be saved: \(error).")
+            completion?(false)
+          } else {
+            print("Data saved successfully!")
+            completion?(true)
+          }
+        }
+//    }
+//} catch {
+//    print("Error converting dictionary to string: \(error)")
+}
+
+}
+    
     func addBuyerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, userType: String, image: String,location: [String?:String?] ,LocationName: String, pass:String, completion: ((Bool) -> Void)?){
         do {
             let jsonDataLocation = try JSONSerialization.data(withJSONObject: location, options: [])
