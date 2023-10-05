@@ -18,8 +18,10 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     @IBOutlet weak var deliveryLbl: UILabel!
     @IBOutlet weak var storeDescription: UILabel!
     @IBOutlet weak var editStoreBtn: UIButton!
+    @IBOutlet weak var chatBtn: UIButton!
     var store: Store?
     var product: Product?
+    var chatID: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,18 +53,39 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     
     func checkProductOwner(){
         editStoreBtn.isHidden = true
+        chatBtn.isHidden = false
+        editStoreBtn.isUserInteractionEnabled = false
         if store?.storeOwner == newEmail{
             editStoreBtn.isHidden = false
+            chatBtn.isHidden = true
+            editStoreBtn.isUserInteractionEnabled = true
         }
     }
     
     @IBAction func editStoreBtnTapped(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "MyStoreNavID", sender: self)
+    }
+    
+    @IBAction func chatBtnTapped(_ sender: Any) {
+        // Call the createChat function when a button is tapped, for instance
+        self.chatID = createChat(userType: (userDetails?.userType)!, user1ID: (userDetails?.UserName!)!, user2ID: store!.storeName)
+        self.performSegue(withIdentifier: "ChatSellerNavID", sender: self)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-                     let destinationVC = segue.destination as? ProductDetailsViewController
-        destinationVC?.product = product
+            if segue.identifier == "MyStoreNavID",
+               let destinationVC = segue.destination as? MyStoreViewController {
+                // Set the value you want to pass to the destination view controller
+                destinationVC.store = store
+            }else if segue.identifier == "ProductDetailsNavID",
+                     let destinationVC = segue.destination as? ProductDetailsViewController {
+                destinationVC.product = product
+            }else if segue.identifier == "ChatSellerNavID",
+                     let destinationVC = segue.destination as? ChatViewController {
+                destinationVC.chatID = self.chatID!
+                destinationVC.currentUser = userDetails
+            }
         }
     
     @objc func productsCellTapped(_ sender: UITapGestureRecognizer) {

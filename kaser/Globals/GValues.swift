@@ -38,3 +38,26 @@ func applyTheme(View: UIViewController, completion: @escaping (UIColor) -> Void)
             completion(.white)
         }
     }
+
+//var messages: [Message] = []
+var messageDetails: [String] = []
+var messages: [MessageData] = []
+
+struct Message {
+    let senderID: String
+    let message: String
+}
+
+struct MessageData: Decodable {
+    let message: String?
+    let senderID: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case message
+        case senderID
+    }
+}
+
+//struct MessageStruct {
+//    let chatRoomName: String
+//}

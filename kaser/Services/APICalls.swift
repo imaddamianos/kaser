@@ -58,35 +58,48 @@ class APICalls: NSObject {
     
     func modifyStoreInfo(storeName: String, locationName:String, delivery: String, description: String, phone: String, completion: ((Bool) -> Void)?){
         do {
-                ref.child("Stores").child(storeName).updateChildValues(["storeName": storeName, "locationName": locationName, "delivery": delivery, "description": description, "phone": phone]) {
-          (error:Error?, ref:DatabaseReference) in
-          if let error = error {
-            print("Data could not be saved: \(error).")
-            completion?(false)
-          } else {
-            print("Data saved successfully!")
-            completion?(true)
-          }
+            ref.child("Stores").child(storeName).updateChildValues(["storeName": storeName, "locationName": locationName, "delivery": delivery, "description": description, "phone": phone]) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    print("Data could not be saved: \(error).")
+                    completion?(false)
+                } else {
+                    print("Data saved successfully!")
+                    completion?(true)
+                }
+            }
         }
-}
-
-}
+    }
     
     func modifyProductInfo(storeName: String,productName: String,productDescription: String, brand:String, price: String,condition: String, completion: ((Bool) -> Void)?){
         do {
             ref.child("Products").child("elegant motors").child(productName).updateChildValues(["productName": productName, "Price": price, "brand": brand,"condition": condition, "description": productDescription]) {
-          (error:Error?, ref:DatabaseReference) in
-          if let error = error {
-            print("Data could not be saved: \(error).")
-            completion?(false)
-          } else {
-            print("Data saved successfully!")
-            completion?(true)
-          }
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    print("Data could not be saved: \(error).")
+                    completion?(false)
+                } else {
+                    print("Data saved successfully!")
+                    completion?(true)
+                }
+            }
         }
-}
-
-}
+    }
+    
+    func addChatID(userType: String, userName: String, chatID: String, completion: ((Bool) -> Void)?){
+        do {
+            ref.child(userType).child(newID!).updateChildValues(["chatID": chatID]) {
+                (error:Error?, ref:DatabaseReference) in
+                if let error = error {
+                    print("Data could not be saved: \(error).")
+                    completion?(false)
+                } else {
+                    print("Data saved successfully!")
+                    completion?(true)
+                }
+            }
+        }
+    }
     
     func addBuyerInfo(userName: String, firstName: String, lastName: String, email: String, mobile: String, DateOfBirth: String, userType: String, image: String,location: [String?:String?] ,LocationName: String, pass:String, completion: ((Bool) -> Void)?){
         do {
