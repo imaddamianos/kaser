@@ -139,7 +139,7 @@ extension MainViewController: SideMenuViewControllerDelegate {
             // profile
             self.showViewController(viewController: UINavigationController.self, storyboardId: "ProfileNavID")
         case 2:
-            // Chat
+            // Movies
             self.showViewController(viewController: UINavigationController.self, storyboardId: "ChatNavID")
         case 3:
             // Favorite
