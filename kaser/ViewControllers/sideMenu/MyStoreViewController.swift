@@ -23,6 +23,7 @@ class MyStoreViewController: UIViewController{
     @IBOutlet weak var addStoreBtn: UIButton!
     @IBOutlet weak var addProductsBtn: UIButton!
     @IBOutlet weak var editBtn: UIButton!
+//    @IBOutlet weak var viewInfo: UIView!
     var storeName: String?
     var storeOwnerValue: String?
     var store: Store?
@@ -130,7 +131,9 @@ class MyStoreViewController: UIViewController{
                   
                   // Fetch products associated with the user's store
                   getProducts { [weak self] success in
+                      if success {
                           self?.myProductsTbl.reloadData()
+                      }
                   }
               } else {
                   // No store associated with the user, handle accordingly
@@ -143,9 +146,11 @@ class MyStoreViewController: UIViewController{
         
         if ThemeManager.shared.currentTheme == .dark {
             navigationController?.navigationBar.backgroundColor = UIColor.black
+            navigationController?.navigationBar.tintColor = UIColor.white
             view.backgroundColor = UIColor.black
         } else {
             navigationController?.navigationBar.backgroundColor = UIColor.white
+            navigationController?.navigationBar.tintColor = UIColor.black
             view.backgroundColor = UIColor.white
         }
         
@@ -189,10 +194,12 @@ class MyStoreViewController: UIViewController{
             storeNbLbl.isHidden = false
             locationLbl.isHidden = false
             addStoreBtn.isHidden = true
+//            viewInfo.isHidden = false
 //            reviewsLbl.isHidden = false
             addProductsBtn.isHidden = false
             GFunction.shared.loadImageAsync(from: URL(string: (storeImage)), into: (self.coverImg)!)
         }else{
+//            viewInfo.isHidden = true
             addStoreBtn.isHidden = false
             storeNameTxt.isHidden = true
             storeNbLbl.isHidden = true
@@ -235,7 +242,7 @@ extension MyStoreViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: MyProductsTableViewCell.identifier, for: indexPath) as? MyProductsTableViewCell else { fatalError("xib doesn't exist") }
 //            cell.iconImageView.image = productsArray[indexPath.row].productImage
         cell.titleLabel.text = productsArray[indexPath.row].productName
-        cell.priceLbl.text = productsArray[indexPath.row].productOwner
+        cell.priceLbl.text = productsArray[indexPath.row].Price
         cell.locationLbl.text = productsArray[indexPath.row].brand
         cell.descriptionLbl.text = productsArray[indexPath.row].description
         cell.storeLbl.text = productsArray[indexPath.row].condition

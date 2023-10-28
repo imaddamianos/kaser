@@ -24,10 +24,11 @@ struct Store: Codable {
 struct Product: Codable {
     let productName: String
     let brand: String
-    let car: String
+//    let car: String
     let condition: String
     let description: String
     let productImage: String
     let productOwner: String
+    let Price: String
 }
 
