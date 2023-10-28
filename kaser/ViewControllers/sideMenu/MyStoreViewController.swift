@@ -70,6 +70,7 @@ class MyStoreViewController: UIViewController{
             textField.lineColor = UIColor.clear
             editBtn.setTitle("Edit Store", for: .normal)
             APICalls.shared.modifyStoreInfo(storeName: storeNameTxt.text!, locationName: locationLbl.text!, delivery: storePriceLbl.text!, description: storeDescriptionLbl.text!, phone: storeNbLbl.text!){ (isSuccess) in
+                self.updateStoreHeader(storeName: self.storeNameTxt.text!, storeOwner: self.storeOwnerValue ?? "",storeNumber: self.storeNbLbl.text!, storeAddress: self.locationLbl.text!, storeDescription: self.storeDescriptionLbl.text!, storePrice: self.storePriceLbl.text!, storeImage: self.store?.storeImage ?? "")
                 if !isSuccess { return }
             }
         }else{

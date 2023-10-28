@@ -223,7 +223,7 @@ class APICalls: NSObject {
     
     func getProducts(store: String, completion: @escaping (Bool) -> Void) {
 //        var productsArray: [Product] = []
-        productsArray.removeAll()
+//        productsArray.removeAll()
         ref.child("Products").child(store).getData(completion: { error, snapshot in
             guard error == nil else {
                 print(error!.localizedDescription)
@@ -234,7 +234,7 @@ class APICalls: NSObject {
             let decoder = JSONDecoder()
             do {
                 if let productData = snapshot.value as? [String: [String: Any]] {
-//                    productsArray.removeAll()
+                    productsArray.removeAll()
                     for (_, productDict) in productData {
                         if let jsonData = try? JSONSerialization.data(withJSONObject: productDict) {
                             let product = try decoder.decode(Product.self, from: jsonData)

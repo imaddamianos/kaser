@@ -574,21 +574,24 @@
                                 <rect key="frame" x="20" y="163" width="374" height="607"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Pe8-MU-uEw">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="56.5"/>
                                         <textInputTraits key="textInputTraits"/>
                                         <connections>
                                             <outlet property="delegate" destination="BhQ-cw-G9V" id="jhg-1V-11K"/>
                                         </connections>
                                     </searchBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stores" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVe-7o-rUF">
-                                        <rect key="frame" x="0.0" y="61" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="61.5" width="374" height="20.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ST4-Kj-Jem">
-                                        <rect key="frame" x="0.0" y="86.5" width="374" height="120.5"/>
+                                        <rect key="frame" x="0.0" y="87" width="374" height="120"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="120" id="OCZ-Nc-Nbe"/>
+                                        </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iWj-kl-twU">
                                             <size key="itemSize" width="356" height="225"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -1992,7 +1995,7 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="hQc-XY-Q8X"/>
+        <segue reference="BZe-JS-udS"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.23529411759999999" green="0.2470588235" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
