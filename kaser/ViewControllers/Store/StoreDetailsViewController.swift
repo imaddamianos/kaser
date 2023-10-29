@@ -63,6 +63,7 @@ class StoreDetailsViewController: UIViewController, UINavigationControllerDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
                      let destinationVC = segue.destination as? ProductDetailsViewController
         destinationVC?.product = product
+        destinationVC?.store = store
         }
     
     @objc func productsCellTapped(_ sender: UITapGestureRecognizer) {

@@ -58,7 +58,7 @@ class APICalls: NSObject {
     
     func modifyProductInfo(storeName: String,productName: String,productDescription: String, brand:String, price: String,condition: String, completion: ((Bool) -> Void)?){
         do {
-            ref.child("Products").child("elegant motors").child(productName).updateChildValues(["productName": productName, "Price": price, "brand": brand,"condition": condition, "description": productDescription]) {
+            ref.child("Products").child(storeName).child(productName).updateChildValues(["productName": productName, "Price": price, "brand": brand,"condition": condition, "description": productDescription]) {
                 (error:Error?, ref:DatabaseReference) in
                 if let error = error {
                     print("Data could not be saved: \(error).")
@@ -130,8 +130,8 @@ class APICalls: NSObject {
         
     }
     
-    func addProductInfo(productName: String, storeName: String, brand: String, price: String, condition: String, description: String, image: String, completion: ((Bool) -> Void)?){
-        ref.child("Products").child(storeName).child(productName).setValue(["productName": productName, "brand": brand, "Price": price, "condition": condition, "description" : description, "productImage" : image, "productOwner" : newEmail]) {
+    func addProductInfo(productName: String, storeName: String, brand: String, price: String, condition: String, description: String, image: String,storeEmail: String, completion: ((Bool) -> Void)?){
+        ref.child("Products").child(storeName).child(productName).setValue(["productName": productName, "brand": brand, "Price": price, "condition": condition, "description" : description, "productImage" : image, "productOwner" : storeName, "storeEmail" : storeEmail]) {
           (error:Error?, ref:DatabaseReference) in
           if let error = error {
             print("Data could not be saved: \(error).")

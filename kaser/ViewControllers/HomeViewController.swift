@@ -21,7 +21,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var searchbar: UISearchBar!
     var presenter: HomeVcPresenter!
-    var store: Store?
+    var currentStore: Store?
     var product: Product?
     
     override func viewDidLoad() {
@@ -74,6 +74,7 @@ class HomeViewController: UIViewController, HomeVcProtocol {
                 return
             }
             if !isSuccess { return }
+            
             StrongSelf.featuredCollView.reloadData()
             }
         }
@@ -106,9 +107,10 @@ class HomeViewController: UIViewController, HomeVcProtocol {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "StoreDetailsNavID",
                let destinationVC = segue.destination as? StoreDetailsViewController {
-                destinationVC.store = store
+                destinationVC.store = currentStore
             }else if segue.identifier == "ProductDetailsNavID",
                      let destinationVC = segue.destination as? ProductDetailsViewController {
+                destinationVC.store = currentStore
                 destinationVC.product = product
             }
         }
@@ -210,7 +212,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let cell = sender.view as? UICollectionViewCell {
             if let indexPath = featuredCollView.indexPath(for: cell) {
                 let store = storesArray[indexPath.row]
-                self.store = store
+                self.currentStore = store
                 print("store name: \(store)")
                 self.performSegue(withIdentifier: "StoreDetailsNavID", sender: self)
                 

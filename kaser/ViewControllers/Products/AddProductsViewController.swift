@@ -93,7 +93,7 @@ class AddProductsViewController: UIViewController, AddProductViewProtocol {
             return
         }
         // Call the presenter method to add the store
-        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, price: priceTxt.text!, condition: condition!, description: descriptionTxt.text!, image: imageURL){ isSuccess in
+        self.presenter.addProduct(productName: productNameTxt.text!, storeName: self.storeName!, brand: brandNameTxt.text!, price: priceTxt.text!, condition: condition!, description: descriptionTxt.text!, image: imageURL, storeEmail: newEmail!){ isSuccess in
             if isSuccess {
                 // Handle successful completion here
                 print("Product added successfully.")

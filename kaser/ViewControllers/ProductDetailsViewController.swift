@@ -18,6 +18,7 @@ class ProductDetailsViewController: UIViewController {
     @IBOutlet weak var priceLbl: SkyFloatingLabelTextField!
     @IBOutlet weak var editBtn: UIButton!
     var product: Product?
+    var store: Store?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,6 @@ class ProductDetailsViewController: UIViewController {
         productName.text = product?.productName
         productDescription.text = product?.description
         brandLbl.text = product?.brand
-//        priceLbl.text = product?.car
         priceLbl.text = product?.Price
         conditionLbl.text = product?.condition
         GFunction.shared.loadImageAsync(from: URL(string: product!.productImage), into: (productImg)!)
@@ -43,11 +43,6 @@ class ProductDetailsViewController: UIViewController {
     }
     
     @IBAction func editProductTapped(_ sender: Any) {
-        productName.isUserInteractionEnabled = true
-        productDescription.isUserInteractionEnabled = true
-        brandLbl.isUserInteractionEnabled = true
-        conditionLbl.isUserInteractionEnabled = true
-        priceLbl.isUserInteractionEnabled = true
         changeToEdit(textField: productName)
         changeToEdit(textField: productDescription)
         changeToEdit(textField: brandLbl)
@@ -58,20 +53,12 @@ class ProductDetailsViewController: UIViewController {
     func changeToEdit(textField: SkyFloatingLabelTextField){
         if editBtn.titleLabel?.text == "Update"{
             textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
             textField.lineColor = UIColor.clear
             editBtn.setTitle("Edit Product", for: .normal)
-            APICalls.shared.modifyProductInfo(storeName:"",productName: productName.text!, productDescription: productDescription.text!, brand: brandLbl.text!, price: priceLbl.text!, condition: conditionLbl.text!){ (isSuccess) in
+            APICalls.shared.modifyProductInfo(storeName:product?.productOwner ?? "",productName: productName.text!, productDescription: productDescription.text!, brand: brandLbl.text!, price: priceLbl.text!, condition: conditionLbl.text!){ (isSuccess) in
                 if !isSuccess { return }
             }
         }else{
-            textField.isUserInteractionEnabled = true
-            textField.isUserInteractionEnabled = true
-            textField.isUserInteractionEnabled = true
-            textField.isUserInteractionEnabled = true
             textField.isUserInteractionEnabled = true
             textField.lineColor = UIColor.black
             editBtn.setTitle("Update", for: .normal)
@@ -81,7 +68,7 @@ class ProductDetailsViewController: UIViewController {
     
     func checkProductOwner(){
         editBtn.isHidden = true
-        if product?.productOwner == newEmail{
+        if product?.storeEmail == newEmail{
             editBtn.isHidden = false
         }
     }

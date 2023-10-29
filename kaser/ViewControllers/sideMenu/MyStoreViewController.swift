@@ -48,11 +48,6 @@ class MyStoreViewController: UIViewController{
     
     
     @IBAction func editStoreBtnTapped(_ sender: Any) {
-        storeNameTxt.isUserInteractionEnabled = true
-        storeNbLbl.isUserInteractionEnabled = true
-        locationLbl.isUserInteractionEnabled = true
-        storePriceLbl.isUserInteractionEnabled = true
-        storeDescriptionLbl.isUserInteractionEnabled = true
         changeToEdit(textField: storeNameTxt)
         changeToEdit(textField: storeNbLbl)
         changeToEdit(textField: locationLbl)
@@ -63,10 +58,6 @@ class MyStoreViewController: UIViewController{
     func changeToEdit(textField: SkyFloatingLabelTextField){
         if editBtn.titleLabel?.text == "Update"{
             textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
-            textField.isUserInteractionEnabled = false
             textField.lineColor = UIColor.clear
             editBtn.setTitle("Edit Store", for: .normal)
             APICalls.shared.modifyStoreInfo(storeName: storeNameTxt.text!, locationName: locationLbl.text!, delivery: storePriceLbl.text!, description: storeDescriptionLbl.text!, phone: storeNbLbl.text!){ (isSuccess) in
@@ -74,10 +65,6 @@ class MyStoreViewController: UIViewController{
                 if !isSuccess { return }
             }
         }else{
-            textField.isUserInteractionEnabled = true
-            textField.isUserInteractionEnabled = true
-            textField.isUserInteractionEnabled = true
-            textField.isUserInteractionEnabled = true
             textField.isUserInteractionEnabled = true
             textField.lineColor = UIColor.black
             editBtn.setTitle("Update", for: .normal)
@@ -190,7 +177,7 @@ class MyStoreViewController: UIViewController{
             storeNbLbl.text = storeNumber
             locationLbl.text = storeAddress
             storeDescriptionLbl.text = storeDescription
-            storePriceLbl.text = "\(storePrice) $"
+            storePriceLbl.text = storePrice
             storeNameTxt.isHidden = false
             storeNbLbl.isHidden = false
             locationLbl.isHidden = false
@@ -220,6 +207,7 @@ class MyStoreViewController: UIViewController{
             }else if segue.identifier == "ProductDetailsNavID",
                      let destinationVC = segue.destination as? ProductDetailsViewController {
                 destinationVC.product = product
+                destinationVC.store = store
             }
         }
 }
